@@ -4,11 +4,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:frontend/features/authentication/domain/repositories/authentication_failure.dart';
 import 'package:frontend/features/authentication/domain/repositories/authentication_repository.dart';
 import 'package:frontend/features/authentication/domain/value_objects/value_objects.dart';
+import 'package:injectable/injectable.dart';
 
 part 'sign_in_form_event.dart';
 part 'sign_in_form_state.dart';
 part 'sign_in_form_bloc.freezed.dart';
 
+@injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final AuthenticationRepository _authenticationRepository;
 

@@ -1,33 +1,28 @@
-import 'package:flutter/services.dart';
-import 'package:frontend/core/error/failures.dart';
-import 'package:frontend/features/authentication/domain/repositories/authentication_failure.dart';
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
+import 'package:frontend/features/authentication/data/datasources/firebase-sign-in.dart';
+import 'package:frontend/features/authentication/data/datasources/google-sign-in-auth.dart';
+import 'package:frontend/features/authentication/domain/repositories/authentication_failure.dart';
 import 'package:frontend/features/authentication/domain/repositories/authentication_repository.dart';
 import 'package:frontend/features/authentication/domain/value_objects/value_objects.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: AuthenticationRepository)
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
-  final FirebaseAuth _firebaseAuth;
-  final GoogleSignIn _googleSignIn;
+  final FirebaseSignInAuth _firebaseSigInAuth;
+  final GoogleSignInAuth _googleSignInAuth;
 
-  AuthenticationRepositoryImpl(this._firebaseAuth, this._googleSignIn);
+  AuthenticationRepositoryImpl(this._firebaseSigInAuth, this._googleSignInAuth);
   @override
   Future<Either<AuthenticatonFailure, Unit>> registerWithEmailAndPassword(
       {required EmailAddress emailAddress, required Password password}) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
-    try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
-          email: emailAddressStr, password: passwordStr);
-      return right(unit);
-    } on PlatformException catch (e) {
-      if (e.code == 'email-already-in-use') {
-        return left(const AuthenticatonFailure.emailAlreadyInuse());
-      } else {
-        return left(const AuthenticatonFailure.serverError());
-      }
-    }
+    return _firebaseSigInAuth.createUserWithEmailAndPassword(
+      emailAddressStr,
+      passwordStr,
+    );
   }
 
   @override
@@ -35,26 +30,18 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       {required EmailAddress emailAddress, required Password password}) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
-    try {
-      await _firebaseAuth.signInWithEmailAndPassword(
-          email: emailAddressStr, password: passwordStr);
-      return right(unit);
-    } on PlatformException catch (e) {
-      if (e.code == 'wrong-password' || e.code == 'user-not-found') {
-        return left(
-            const AuthenticatonFailure.invalidaEmailAndPasswordCombination());
-      } else {
-        return left(const AuthenticatonFailure.serverError());
-      }
-    }
+    return _firebaseSigInAuth.signInWithEmailAndPassword(
+      emailAddressStr,
+      passwordStr,
+    );
   }
 
   @override
   Future<Either<AuthenticatonFailure, Unit>> signInWithGoogle() async {
     try {
-      final googleUser = await _googleSignIn.signIn();
+      final googleUser = await _googleSignInAuth.signIn();
       if (googleUser == null) {
-        return left(AuthenticatonFailure.cancelledByUser());
+        return left(const AuthenticatonFailure.cancelledByUser());
       }
       final googleAuthentication = await googleUser.authentication;
 
@@ -62,10 +49,10 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
         idToken: googleAuthentication.idToken,
         accessToken: googleAuthentication.accessToken,
       );
-      await _firebaseAuth.signInWithCredential(authCredential);
+      await _firebaseSigInAuth.signInWithCredential(authCredential);
       return right(unit);
     } on PlatformException catch (_) {
-      return left(AuthenticatonFailure.serverError());
+      return left(const AuthenticatonFailure.serverError());
     }
   }
 }

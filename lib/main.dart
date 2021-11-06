@@ -1,23 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/core/presentation/app_widget.dart';
+import 'package:frontend/injection.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter test new release',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
-        body: Center(child: Text('Hello World')),
-      ),
-    );
-  }
+  configurationInjection(Env.sit);
+  runApp(AppWidget());
 }
