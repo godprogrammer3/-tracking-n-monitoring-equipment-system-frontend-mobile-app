@@ -22,12 +22,12 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     yield* event.map(emailChanged: (e) async* {
       yield state.copyWith(
         emailAddress: EmailAddress(e.emailStr),
-        AuthenticatonFailureOrSuccess: null,
+        authenticatonFailureOrSuccess: null,
       );
     }, passwordChanged: (e) async* {
       yield state.copyWith(
         password: Password(e.passwordStr),
-        AuthenticatonFailureOrSuccess: null,
+        authenticatonFailureOrSuccess: null,
       );
     }, registerWithEmailAndPasswordPressed: (e) async* {
       yield* _performActionOnAuthFacadeWithEmailAndPassword(
@@ -35,16 +35,17 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     }, signinWithEmailAndPasswordPressed: (e) async* {
       yield* _performActionOnAuthFacadeWithEmailAndPassword(
           _authenticationRepository.signInWithEmailAndPassword);
+      print('signinWithEmailAndPasswordPressed');
     }, signinWithGooglePressed: (e) async* {
       yield state.copyWith(
         isSubmitting: true,
-        AuthenticatonFailureOrSuccess: null,
+        authenticatonFailureOrSuccess: null,
       );
       final failureOrSuccess =
           await _authenticationRepository.signInWithGoogle();
       yield state.copyWith(
         isSubmitting: false,
-        AuthenticatonFailureOrSuccess: failureOrSuccess,
+        authenticatonFailureOrSuccess: failureOrSuccess,
       );
     });
   }
@@ -59,7 +60,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     if (isEmailValid && isPasswordValid) {
       yield state.copyWith(
         isSubmitting: true,
-        AuthenticatonFailureOrSuccess: null,
+        authenticatonFailureOrSuccess: null,
       );
 
       failureOrSuccess = await forwardCall(
@@ -68,7 +69,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       yield state.copyWith(
         isSubmitting: false,
         isShowErrorMessage: true,
-        AuthenticatonFailureOrSuccess: failureOrSuccess,
+        authenticatonFailureOrSuccess: failureOrSuccess,
       );
     }
   }

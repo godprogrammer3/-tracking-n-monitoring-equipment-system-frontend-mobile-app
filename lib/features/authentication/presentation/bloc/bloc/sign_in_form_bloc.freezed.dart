@@ -874,13 +874,13 @@ class _$SignInFormStateTearOff {
       required bool isShowErrorMessage,
       required bool isSubmitting,
       required Either<AuthenticatonFailure, Unit>?
-          AuthenticatonFailureOrSuccess}) {
+          authenticatonFailureOrSuccess}) {
     return _SignInFormState(
       emailAddress: emailAddress,
       password: password,
       isShowErrorMessage: isShowErrorMessage,
       isSubmitting: isSubmitting,
-      AuthenticatonFailureOrSuccess: AuthenticatonFailureOrSuccess,
+      authenticatonFailureOrSuccess: authenticatonFailureOrSuccess,
     );
   }
 }
@@ -894,7 +894,7 @@ mixin _$SignInFormState {
   Password get password => throw _privateConstructorUsedError;
   bool get isShowErrorMessage => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
-  Either<AuthenticatonFailure, Unit>? get AuthenticatonFailureOrSuccess =>
+  Either<AuthenticatonFailure, Unit>? get authenticatonFailureOrSuccess =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -912,7 +912,7 @@ abstract class $SignInFormStateCopyWith<$Res> {
       Password password,
       bool isShowErrorMessage,
       bool isSubmitting,
-      Either<AuthenticatonFailure, Unit>? AuthenticatonFailureOrSuccess});
+      Either<AuthenticatonFailure, Unit>? authenticatonFailureOrSuccess});
 }
 
 /// @nodoc
@@ -930,7 +930,7 @@ class _$SignInFormStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? isShowErrorMessage = freezed,
     Object? isSubmitting = freezed,
-    Object? AuthenticatonFailureOrSuccess = freezed,
+    Object? authenticatonFailureOrSuccess = freezed,
   }) {
     return _then(_value.copyWith(
       emailAddress: emailAddress == freezed
@@ -949,9 +949,9 @@ class _$SignInFormStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      AuthenticatonFailureOrSuccess: AuthenticatonFailureOrSuccess == freezed
-          ? _value.AuthenticatonFailureOrSuccess
-          : AuthenticatonFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+      authenticatonFailureOrSuccess: authenticatonFailureOrSuccess == freezed
+          ? _value.authenticatonFailureOrSuccess
+          : authenticatonFailureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Either<AuthenticatonFailure, Unit>?,
     ));
   }
@@ -969,7 +969,7 @@ abstract class _$SignInFormStateCopyWith<$Res>
       Password password,
       bool isShowErrorMessage,
       bool isSubmitting,
-      Either<AuthenticatonFailure, Unit>? AuthenticatonFailureOrSuccess});
+      Either<AuthenticatonFailure, Unit>? authenticatonFailureOrSuccess});
 }
 
 /// @nodoc
@@ -989,7 +989,7 @@ class __$SignInFormStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? isShowErrorMessage = freezed,
     Object? isSubmitting = freezed,
-    Object? AuthenticatonFailureOrSuccess = freezed,
+    Object? authenticatonFailureOrSuccess = freezed,
   }) {
     return _then(_SignInFormState(
       emailAddress: emailAddress == freezed
@@ -1008,9 +1008,9 @@ class __$SignInFormStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      AuthenticatonFailureOrSuccess: AuthenticatonFailureOrSuccess == freezed
-          ? _value.AuthenticatonFailureOrSuccess
-          : AuthenticatonFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+      authenticatonFailureOrSuccess: authenticatonFailureOrSuccess == freezed
+          ? _value.authenticatonFailureOrSuccess
+          : authenticatonFailureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Either<AuthenticatonFailure, Unit>?,
     ));
   }
@@ -1024,7 +1024,7 @@ class _$_SignInFormState implements _SignInFormState {
       required this.password,
       required this.isShowErrorMessage,
       required this.isSubmitting,
-      required this.AuthenticatonFailureOrSuccess});
+      required this.authenticatonFailureOrSuccess});
 
   @override
   final EmailAddress emailAddress;
@@ -1035,11 +1035,11 @@ class _$_SignInFormState implements _SignInFormState {
   @override
   final bool isSubmitting;
   @override
-  final Either<AuthenticatonFailure, Unit>? AuthenticatonFailureOrSuccess;
+  final Either<AuthenticatonFailure, Unit>? authenticatonFailureOrSuccess;
 
   @override
   String toString() {
-    return 'SignInFormState(emailAddress: $emailAddress, password: $password, isShowErrorMessage: $isShowErrorMessage, isSubmitting: $isSubmitting, AuthenticatonFailureOrSuccess: $AuthenticatonFailureOrSuccess)';
+    return 'SignInFormState(emailAddress: $emailAddress, password: $password, isShowErrorMessage: $isShowErrorMessage, isSubmitting: $isSubmitting, authenticatonFailureOrSuccess: $authenticatonFailureOrSuccess)';
   }
 
   @override
@@ -1055,15 +1055,15 @@ class _$_SignInFormState implements _SignInFormState {
                 other.isShowErrorMessage == isShowErrorMessage) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 other.isSubmitting == isSubmitting) &&
-            (identical(other.AuthenticatonFailureOrSuccess,
-                    AuthenticatonFailureOrSuccess) ||
-                other.AuthenticatonFailureOrSuccess ==
-                    AuthenticatonFailureOrSuccess));
+            (identical(other.authenticatonFailureOrSuccess,
+                    authenticatonFailureOrSuccess) ||
+                other.authenticatonFailureOrSuccess ==
+                    authenticatonFailureOrSuccess));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, emailAddress, password,
-      isShowErrorMessage, isSubmitting, AuthenticatonFailureOrSuccess);
+      isShowErrorMessage, isSubmitting, authenticatonFailureOrSuccess);
 
   @JsonKey(ignore: true)
   @override
@@ -1078,7 +1078,7 @@ abstract class _SignInFormState implements SignInFormState {
       required bool isShowErrorMessage,
       required bool isSubmitting,
       required Either<AuthenticatonFailure, Unit>?
-          AuthenticatonFailureOrSuccess}) = _$_SignInFormState;
+          authenticatonFailureOrSuccess}) = _$_SignInFormState;
 
   @override
   EmailAddress get emailAddress;
@@ -1089,7 +1089,7 @@ abstract class _SignInFormState implements SignInFormState {
   @override
   bool get isSubmitting;
   @override
-  Either<AuthenticatonFailure, Unit>? get AuthenticatonFailureOrSuccess;
+  Either<AuthenticatonFailure, Unit>? get authenticatonFailureOrSuccess;
   @override
   @JsonKey(ignore: true)
   _$SignInFormStateCopyWith<_SignInFormState> get copyWith =>
