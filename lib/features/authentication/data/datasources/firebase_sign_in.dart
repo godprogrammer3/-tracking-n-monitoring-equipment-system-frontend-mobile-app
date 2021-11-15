@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
+import 'package:frontend/core/value_objects/value_objects.dart';
+import 'package:frontend/features/authentication/domain/entities/user.dart';
 import 'package:frontend/features/authentication/domain/repositories/authentication_failure.dart';
 import 'package:injectable/injectable.dart';
 
@@ -16,7 +17,7 @@ class FirebaseSignInAuth {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: emailAddress, password: password);
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const AuthenticatonFailure.emailAlreadyInuse());
       } else {
@@ -31,7 +32,8 @@ class FirebaseSignInAuth {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: emailAddress, password: password);
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
+      print(e);
       if (e.code == 'wrong-password' || e.code == 'user-not-found') {
         return left(
             const AuthenticatonFailure.invalidaEmailAndPasswordCombination());
@@ -42,7 +44,21 @@ class FirebaseSignInAuth {
   }
 
   Future<UserCredential> signInWithCredential(
-      AuthCredential authCredential) async {
-    return await _firebaseAuth.signInWithCredential(authCredential);
+    AuthCredential authCredential,
+  ) async {
+    return _firebaseAuth.signInWithCredential(authCredential);
+  }
+
+  Future<UserType?> getCurrentUser() async {
+    final user = _firebaseAuth.currentUser;
+    if (user != null) {
+      return UserType(id: UniqueId.fromUniqueString(user.uid));
+    } else {
+      return null;
+    }
+  }
+
+  Future<void> signOut() async {
+    _firebaseAuth.signOut();
   }
 }

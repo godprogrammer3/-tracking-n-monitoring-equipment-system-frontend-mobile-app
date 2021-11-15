@@ -10,14 +10,14 @@ import 'package:google_sign_in/google_sign_in.dart' as _i5;
 import 'package:injectable/injectable.dart' as _i2;
 
 import 'core/injection/firebase_injectable_module.dart' as _i10;
-import 'features/authentication/data/datasources/firebase-sign-in.dart' as _i4;
-import 'features/authentication/data/datasources/google-sign-in-auth.dart'
+import 'features/authentication/data/datasources/firebase_sign_in.dart' as _i4;
+import 'features/authentication/data/datasources/google_sign_in_auth.dart'
     as _i6;
 import 'features/authentication/data/repositories/authentication_repository_impl.dart'
     as _i8;
 import 'features/authentication/domain/repositories/authentication_repository.dart'
     as _i7;
-import 'features/authentication/presentation/bloc/bloc/sign_in_form_bloc.dart'
+import 'features/authentication/presentation/bloc/sign_in_form_bloc.dart'
     as _i9; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars

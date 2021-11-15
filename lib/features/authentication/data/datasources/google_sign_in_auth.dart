@@ -7,6 +7,10 @@ class GoogleSignInAuth {
 
   GoogleSignInAuth(this._googleSignIn);
   Future<GoogleSignInAccount?> signIn() async {
-    return await this._googleSignIn.signIn();
+    return _googleSignIn.signIn();
+  }
+
+  Future<GoogleSignInAccount?> signOut() async {
+    return _googleSignIn.signOut();
   }
 }
