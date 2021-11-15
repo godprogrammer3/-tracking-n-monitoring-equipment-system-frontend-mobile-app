@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/core/presentation/routes/router.gr.dart';
+import 'package:frontend/features/authentication/presentation/bloc/authen_bloc.dart';
 import 'package:frontend/features/authentication/presentation/pages/sing_in_page.dart';
+import 'package:frontend/injection.dart';
+import 'package:auto_route/annotations.dart';
 
 class AppWidget extends StatelessWidget {
+  final _appRouter = AppRouter();
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = ThemeData();
-    return MaterialApp(
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              getIt<AuthenBloc>()..add(const AuthenEvent.authCheckRequested()),
+        ),
+      ],
+      child: MaterialApp.router(
         title: 'toollo',
         debugShowCheckedModeBanner: false,
         theme: theme.copyWith(
@@ -22,6 +36,9 @@ class AppWidget extends StatelessWidget {
             ),
           ),
         ),
-        home: SignInPage());
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        routerDelegate: _appRouter.delegate(),
+      ),
+    );
   }
 }

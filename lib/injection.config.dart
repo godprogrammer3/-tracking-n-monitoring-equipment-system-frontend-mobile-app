@@ -9,7 +9,7 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:google_sign_in/google_sign_in.dart' as _i5;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'core/injection/firebase_injectable_module.dart' as _i10;
+import 'core/injection/firebase_injectable_module.dart' as _i11;
 import 'features/authentication/data/datasources/firebase_sign_in.dart' as _i4;
 import 'features/authentication/data/datasources/google_sign_in_auth.dart'
     as _i6;
@@ -17,6 +17,7 @@ import 'features/authentication/data/repositories/authentication_repository_impl
     as _i8;
 import 'features/authentication/domain/repositories/authentication_repository.dart'
     as _i7;
+import 'features/authentication/presentation/bloc/authen_bloc.dart' as _i10;
 import 'features/authentication/presentation/bloc/sign_in_form_bloc.dart'
     as _i9; // ignore_for_file: unnecessary_lambdas
 
@@ -39,7 +40,9 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
           get<_i4.FirebaseSignInAuth>(), get<_i6.GoogleSignInAuth>()));
   gh.factory<_i9.SignInFormBloc>(
       () => _i9.SignInFormBloc(get<_i7.AuthenticationRepository>()));
+  gh.factory<_i10.AuthenBloc>(
+      () => _i10.AuthenBloc(get<_i7.AuthenticationRepository>()));
   return get;
 }
 
-class _$FirebaseInjectableModule extends _i10.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i11.FirebaseInjectableModule {}
