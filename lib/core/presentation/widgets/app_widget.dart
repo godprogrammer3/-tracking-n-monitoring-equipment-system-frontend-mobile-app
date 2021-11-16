@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/core/presentation/routes/router.gr.dart';
 import 'package:frontend/features/authentication/presentation/bloc/authen_bloc.dart';
-import 'package:frontend/features/authentication/presentation/pages/sing_in_page.dart';
 import 'package:frontend/injection.dart';
-import 'package:auto_route/annotations.dart';
 
 class AppWidget extends StatelessWidget {
   final _appRouter = AppRouter();
