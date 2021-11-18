@@ -29,8 +29,15 @@ class AppWidget extends StatelessWidget {
           inputDecorationTheme:
               const InputDecorationTheme(border: InputBorder.none),
           primaryTextTheme: const TextTheme(
+            headline1: TextStyle(
+                color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
             bodyText1: TextStyle(
               color: Color.fromRGBO(35, 25, 47, 1),
+              fontSize: 20,
+            ),
+            caption: TextStyle(
+              color: Color.fromRGBO(60, 60, 67, 0.6),
+              fontSize: 15,
             ),
           ),
         ),
