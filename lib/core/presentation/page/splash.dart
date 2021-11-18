@@ -18,9 +18,27 @@ class SplashPage extends StatelessWidget {
               AutoRouter.of(context).replace(const SignInRoute()),
         );
       },
-      child: const Scaffold(
+      child: Scaffold(
         body: Center(
-          child: CircularProgressIndicator(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 50,
+                  right: 50,
+                ),
+                child: Image.asset(
+                  'assets/images/authentication_feature/name_image.png',
+                  height: 200,
+                ),
+              ),
+              const CircularProgressIndicator(),
+              const SizedBox(
+                height: 200,
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -9,6 +9,7 @@ class InputText extends HookWidget {
   final String? placeHolder;
   final Widget? suffixIcon;
   final bool isObscureText;
+  final TextInputType? keyboardType;
   const InputText({
     required this.onChanged,
     this.isError = false,
@@ -17,6 +18,7 @@ class InputText extends HookWidget {
     this.placeHolder,
     this.suffixIcon,
     this.isObscureText = false,
+    this.keyboardType,
   });
   @override
   Widget build(BuildContext context) {
@@ -63,6 +65,7 @@ class InputText extends HookWidget {
                     autocorrect: false,
                     onChanged: onChanged,
                     obscureText: isObscureText,
+                    keyboardType: keyboardType,
                   ),
                 )
               ],

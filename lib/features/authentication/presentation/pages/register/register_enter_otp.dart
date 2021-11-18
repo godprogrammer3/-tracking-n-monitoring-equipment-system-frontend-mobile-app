@@ -4,8 +4,8 @@ import 'package:frontend/core/presentation/routes/router.gr.dart';
 import 'package:frontend/core/presentation/widgets/button.dart';
 import 'package:frontend/core/presentation/widgets/input_text.dart';
 
-class RegisterEnterNamePage extends StatelessWidget {
-  const RegisterEnterNamePage({Key? key}) : super(key: key);
+class RegisterEnterOTPPage extends StatelessWidget {
+  const RegisterEnterOTPPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class RegisterEnterNamePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Name',
+          'Phone number',
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -33,7 +33,7 @@ class RegisterEnterNamePage extends StatelessWidget {
               children: [
                 Expanded(
                   child: Image.asset(
-                    'assets/images/authentication_feature/register_id_card.png',
+                    'assets/images/authentication_feature/register_phone.png',
                     height: 100,
                   ),
                 ),
@@ -43,13 +43,11 @@ class RegisterEnterNamePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Enter your ',
-                  style: Theme.of(context).primaryTextTheme.headline1,
-                ),
-                Text(
-                  'name',
-                  style: TextStyle(
-                      color: Theme.of(context).primaryColor, fontSize: 25),
+                  '096-904-3542',
+                  style: Theme.of(context)
+                      .primaryTextTheme
+                      .headline1!
+                      .copyWith(color: Theme.of(context).primaryColor),
                 ),
               ],
             ),
@@ -60,7 +58,7 @@ class RegisterEnterNamePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'กรอกชื่อจริงและนามสกุลของคุณ',
+                  'รหัส OTP ถูกส่งไปที่เบอร์นี้แล้ว',
                   style: Theme.of(context).primaryTextTheme.caption,
                 ),
               ],
@@ -72,17 +70,11 @@ class RegisterEnterNamePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InputText(
-                  label: 'ชื่อจริง',
-                  placeHolder: 'ชื่อจริง',
+                  label: 'กรอก OTP',
+                  placeHolder: 'กรอก OTP',
                   onChanged: (_) => _,
+                  keyboardType: TextInputType.number,
                 ),
-                const SizedBox(
-                  width: 5,
-                ),
-                InputText(
-                    label: 'นามสกุล',
-                    placeHolder: 'นามสกุล',
-                    onChanged: (_) => _),
               ],
             ),
             const SizedBox(
@@ -95,7 +87,7 @@ class RegisterEnterNamePage extends StatelessWidget {
                   'ถัดไป',
                   onPressed: () {
                     AutoRouter.of(context)
-                        .push(const RegisterEnterPhoneNumberRoute());
+                        .push(const RegisterEnterEmailRoute());
                   },
                 )
               ],

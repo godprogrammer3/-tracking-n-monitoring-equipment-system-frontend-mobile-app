@@ -1,6 +1,9 @@
 import 'package:auto_route/annotations.dart';
 import 'package:frontend/core/presentation/page/splash.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_name_page.dart';
+import 'package:frontend/features/authentication/presentation/pages/register/register_enter_otp.dart';
+import 'package:frontend/features/authentication/presentation/pages/register/register_enter_email.dart';
+import 'package:frontend/features/authentication/presentation/pages/register/register_enter_phone_number.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_welcome_page.dart';
 import 'package:frontend/features/authentication/presentation/pages/sign_in/sing_in_page.dart';
 
@@ -11,6 +14,9 @@ import 'package:frontend/features/authentication/presentation/pages/sign_in/sing
     AutoRoute(page: SignInPage),
     AutoRoute(page: RegisterWelcomePage),
     AutoRoute(page: RegisterEnterNamePage),
+    AutoRoute(page: RegisterEnterPhoneNumberPage),
+    AutoRoute(page: RegisterEnterOTPPage),
+    AutoRoute(page: RegisterEnterEmailPage),
   ],
 )
 class $AppRouter {}
