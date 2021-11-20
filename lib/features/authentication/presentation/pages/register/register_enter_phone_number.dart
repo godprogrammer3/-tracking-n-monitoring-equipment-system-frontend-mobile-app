@@ -18,6 +18,7 @@ class RegisterEnterPhoneNumberPage extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
+        elevation: 0,
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(

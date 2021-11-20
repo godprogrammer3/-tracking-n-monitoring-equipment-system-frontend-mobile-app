@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/core/presentation/routes/router.gr.dart';
+import 'package:frontend/core/presentation/widgets/bottom_sheet_single_select.dart';
 import 'package:frontend/core/presentation/widgets/button.dart';
 import 'package:frontend/core/presentation/widgets/input_text.dart';
 
-class RegisterEnterNamePage extends StatelessWidget {
-  const RegisterEnterNamePage({Key? key}) : super(key: key);
+class RegisterEnterRolePage extends StatelessWidget {
+  const RegisterEnterRolePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class RegisterEnterNamePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Name',
+          'Role',
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -34,7 +35,7 @@ class RegisterEnterNamePage extends StatelessWidget {
               children: [
                 Expanded(
                   child: Image.asset(
-                    'assets/images/authentication_feature/register_id_card.png',
+                    'assets/images/authentication_feature/register_role.png',
                     height: 100,
                   ),
                 ),
@@ -48,9 +49,11 @@ class RegisterEnterNamePage extends StatelessWidget {
                   style: Theme.of(context).primaryTextTheme.headline1,
                 ),
                 Text(
-                  'name',
+                  'role',
                   style: TextStyle(
-                      color: Theme.of(context).primaryColor, fontSize: 25),
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 25,
+                  ),
                 ),
               ],
             ),
@@ -61,7 +64,7 @@ class RegisterEnterNamePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'กรอกชื่อจริงและนามสกุลของคุณ',
+                  'เลือก role และแผนกของคุณ',
                   style: Theme.of(context).primaryTextTheme.caption,
                 ),
               ],
@@ -72,18 +75,35 @@ class RegisterEnterNamePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                InputText(
-                  label: 'ชื่อจริง',
-                  placeHolder: 'ชื่อจริง',
-                  onChanged: (_) => _,
+                BottomSheetSingleSelect(
+                  label: 'Role',
+                  placeHolder: 'Role',
+                  onChanged: (_) {},
+                  listChoice: const [
+                    {'displayText': 'Super admin', 'value': 1},
+                    {'displayText': 'Admin', 'value': 2},
+                    {'displayText': 'Master maintainer', 'value': 3},
+                    {'displayText': 'Maintainer', 'value': 4},
+                    {'displayText': 'User', 'value': 5},
+                  ],
                 ),
                 const SizedBox(
                   width: 5,
                 ),
-                InputText(
-                  label: 'นามสกุล',
-                  placeHolder: 'นามสกุล',
-                  onChanged: (_) => _,
+                BottomSheetSingleSelect(
+                  label: 'แผนก',
+                  placeHolder: 'แผนก',
+                  onChanged: (_) {},
+                  listChoice: const [
+                    {'displayText': 'แผนกบริหาร', 'value': 1},
+                    {'displayText': 'แผนกบุคคล', 'value': 2},
+                    {'displayText': 'แผนกจัดซื้อ', 'value': 3},
+                    {'displayText': 'แผนกบัญชี', 'value': 4},
+                    {'displayText': 'แผนกบัญชี', 'value': 5},
+                    {'displayText': 'แผนกขาย', 'value': 6},
+                    {'displayText': 'แผนกการตลาด', 'value': 7},
+                    {'displayText': 'แผนกประชาสัมพันธ์', 'value': 8},
+                  ],
                 ),
               ],
             ),
@@ -95,10 +115,7 @@ class RegisterEnterNamePage extends StatelessWidget {
               children: [
                 Button(
                   'ถัดไป',
-                  onPressed: () {
-                    AutoRouter.of(context)
-                        .push(const RegisterEnterPhoneNumberRoute());
-                  },
+                  onPressed: () {},
                 )
               ],
             ),

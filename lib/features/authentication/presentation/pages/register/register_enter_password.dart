@@ -4,8 +4,8 @@ import 'package:frontend/core/presentation/routes/router.gr.dart';
 import 'package:frontend/core/presentation/widgets/button.dart';
 import 'package:frontend/core/presentation/widgets/input_text.dart';
 
-class RegisterEnterNamePage extends StatelessWidget {
-  const RegisterEnterNamePage({Key? key}) : super(key: key);
+class RegisterEnterPasswordPage extends StatelessWidget {
+  const RegisterEnterPasswordPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class RegisterEnterNamePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Name',
+          'Password',
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -34,7 +34,7 @@ class RegisterEnterNamePage extends StatelessWidget {
               children: [
                 Expanded(
                   child: Image.asset(
-                    'assets/images/authentication_feature/register_id_card.png',
+                    'assets/images/authentication_feature/register_lock.png',
                     height: 100,
                   ),
                 ),
@@ -48,9 +48,11 @@ class RegisterEnterNamePage extends StatelessWidget {
                   style: Theme.of(context).primaryTextTheme.headline1,
                 ),
                 Text(
-                  'name',
+                  'password',
                   style: TextStyle(
-                      color: Theme.of(context).primaryColor, fontSize: 25),
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 25,
+                  ),
                 ),
               ],
             ),
@@ -61,7 +63,16 @@ class RegisterEnterNamePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'กรอกชื่อจริงและนามสกุลของคุณ',
+                  'รหัสผ่านต้องประกอบไปด้วย',
+                  style: Theme.of(context).primaryTextTheme.caption,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'อักษรภาษาอังกฤษอย่างน้อย 8 ตัวอักษร',
                   style: Theme.of(context).primaryTextTheme.caption,
                 ),
               ],
@@ -73,17 +84,34 @@ class RegisterEnterNamePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InputText(
-                  label: 'ชื่อจริง',
-                  placeHolder: 'ชื่อจริง',
+                  label: 'รหัสผ่าน',
+                  placeHolder: 'รหัสผ่าน',
                   onChanged: (_) => _,
+                  suffixIcon: IconButton(
+                    icon: const Icon(
+                      Icons.visibility,
+                    ),
+                    onPressed: () {},
+                  ),
                 ),
-                const SizedBox(
-                  width: 5,
-                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
                 InputText(
-                  label: 'นามสกุล',
-                  placeHolder: 'นามสกุล',
+                  label: 'ยืนยันรหัสผ่าน',
+                  placeHolder: 'ยืนยันรหัสผ่าน',
                   onChanged: (_) => _,
+                  suffixIcon: IconButton(
+                    icon: const Icon(
+                      Icons.visibility,
+                    ),
+                    onPressed: () {},
+                  ),
                 ),
               ],
             ),
@@ -96,8 +124,7 @@ class RegisterEnterNamePage extends StatelessWidget {
                 Button(
                   'ถัดไป',
                   onPressed: () {
-                    AutoRouter.of(context)
-                        .push(const RegisterEnterPhoneNumberRoute());
+                    AutoRouter.of(context).push(const RegisterEnterRoleRoute());
                   },
                 )
               ],

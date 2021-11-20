@@ -18,6 +18,7 @@ class RegisterEnterEmailPage extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
+        elevation: 0,
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(
@@ -89,7 +90,10 @@ class RegisterEnterEmailPage extends StatelessWidget {
               children: [
                 Button(
                   'ถัดไป',
-                  onPressed: () {},
+                  onPressed: () {
+                    AutoRouter.of(context)
+                        .push(const RegisterEnterPasswordRoute());
+                  },
                 )
               ],
             ),
