@@ -5,6 +5,8 @@ import 'package:frontend/features/authentication/presentation/pages/register/reg
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_email.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_password.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_phone_number.dart';
+import 'package:frontend/features/authentication/presentation/pages/register/register_enter_pin_setting.dart';
+import 'package:frontend/features/authentication/presentation/pages/register/register_enter_pin_setting_confirm.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_role.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_welcome_page.dart';
 import 'package:frontend/features/authentication/presentation/pages/sign_in/sing_in_page.dart';
@@ -21,6 +23,8 @@ import 'package:frontend/features/authentication/presentation/pages/sign_in/sing
     AutoRoute(page: RegisterEnterEmailPage),
     AutoRoute(page: RegisterEnterPasswordPage),
     AutoRoute(page: RegisterEnterRolePage),
+    AutoRoute(page: RegisterEnterPinSettingPage),
+    AutoRoute(page: RegisterEnterPinSettingConfirmPage),
   ],
 )
 class $AppRouter {}

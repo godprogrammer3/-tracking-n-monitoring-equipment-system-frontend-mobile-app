@@ -102,7 +102,7 @@ class RegisterEnterRolePage extends StatelessWidget {
                     {'displayText': 'แผนกบัญชี', 'value': 5},
                     {'displayText': 'แผนกขาย', 'value': 6},
                     {'displayText': 'แผนกการตลาด', 'value': 7},
-                    {'displayText': 'แผนกประชาสัมพันธ์', 'value': 8},
+                    {'displayText': 'แผนกประชาสัมพันธ์    ', 'value': 8},
                   ],
                 ),
               ],
@@ -115,7 +115,10 @@ class RegisterEnterRolePage extends StatelessWidget {
               children: [
                 Button(
                   'ถัดไป',
-                  onPressed: () {},
+                  onPressed: () {
+                    AutoRouter.of(context)
+                        .push(const RegisterEnterPinSettingRoute());
+                  },
                 )
               ],
             ),

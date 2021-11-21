@@ -23,6 +23,7 @@ class AppWidget extends StatelessWidget {
         theme: theme.copyWith(
           primaryColor: const Color.fromRGBO(85, 8, 182, 1),
           primaryColorDark: const Color.fromRGBO(35, 25, 47, 1),
+          dividerColor: const Color.fromRGBO(224, 224, 224, 1),
           colorScheme: theme.colorScheme.copyWith(
             secondary: const Color.fromRGBO(128, 36, 244, 1),
           ),
