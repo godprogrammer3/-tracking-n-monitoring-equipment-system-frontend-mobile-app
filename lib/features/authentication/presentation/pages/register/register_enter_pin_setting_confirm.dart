@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:frontend/core/presentation/routes/router.gr.dart';
 
 class RegisterEnterPinSettingConfirmPage extends HookWidget {
   const RegisterEnterPinSettingConfirmPage({Key? key}) : super(key: key);
@@ -132,6 +134,10 @@ class RegisterEnterPinSettingConfirmPage extends HookWidget {
                 child: TextButton(
                   onPressed: () {
                     pinCount.value++;
+                    if (pinCount.value == 6) {
+                      AutoRouter.of(context)
+                          .push(const RegisterVerifyEmailRoute());
+                    }
                   },
                   child: Text(
                     countNumber.toString(),

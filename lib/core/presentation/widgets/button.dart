@@ -22,7 +22,10 @@ class Button extends HookWidget {
             child: Center(
               child: Text(
                 displayText,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'IBM Plex Sans Thai',
+                ),
               ),
             ),
           ),

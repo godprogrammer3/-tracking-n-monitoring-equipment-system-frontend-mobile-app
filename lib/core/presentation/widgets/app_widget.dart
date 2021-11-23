@@ -9,7 +9,9 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = ThemeData();
+    final ThemeData theme = ThemeData(
+      fontFamily: 'IBM Plex Sans Thai',
+    );
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -31,14 +33,25 @@ class AppWidget extends StatelessWidget {
               const InputDecorationTheme(border: InputBorder.none),
           primaryTextTheme: const TextTheme(
             headline1: TextStyle(
-                color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
-            bodyText1: TextStyle(
-              color: Color.fromRGBO(35, 25, 47, 1),
+              color: Colors.black,
               fontSize: 20,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'IBM Plex Sans Thai',
+            ),
+            headline2: TextStyle(
+              color: Colors.black,
+              fontSize: 17,
+              fontFamily: 'IBM Plex Sans Thai',
+            ),
+            bodyText1: TextStyle(
+              color: Color.fromRGBO(51, 51, 51, 1),
+              fontSize: 15,
+              fontFamily: 'IBM Plex Sans Thai',
             ),
             caption: TextStyle(
               color: Color.fromRGBO(60, 60, 67, 0.6),
-              fontSize: 15,
+              fontSize: 13,
+              fontFamily: 'IBM Plex Sans Thai',
             ),
           ),
         ),

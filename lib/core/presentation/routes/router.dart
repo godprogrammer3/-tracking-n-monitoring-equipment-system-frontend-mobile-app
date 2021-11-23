@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:frontend/core/presentation/page/splash.dart';
+import 'package:frontend/features/authentication/presentation/pages/register/register_completed.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_name_page.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_otp.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_email.dart';
@@ -8,6 +9,7 @@ import 'package:frontend/features/authentication/presentation/pages/register/reg
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_pin_setting.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_pin_setting_confirm.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_role.dart';
+import 'package:frontend/features/authentication/presentation/pages/register/register_verify_email.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_welcome_page.dart';
 import 'package:frontend/features/authentication/presentation/pages/sign_in/sing_in_page.dart';
 
@@ -25,6 +27,8 @@ import 'package:frontend/features/authentication/presentation/pages/sign_in/sing
     AutoRoute(page: RegisterEnterRolePage),
     AutoRoute(page: RegisterEnterPinSettingPage),
     AutoRoute(page: RegisterEnterPinSettingConfirmPage),
+    AutoRoute(page: RegisterVerifyEmailPage),
+    AutoRoute(page: RegisterCompletedPage),
   ],
 )
 class $AppRouter {}

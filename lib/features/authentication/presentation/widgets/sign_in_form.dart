@@ -152,11 +152,14 @@ class SignInForm extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 10,
                       ),
-                      child: Text('หรือ'),
+                      child: Text(
+                        'หรือ',
+                        style: Theme.of(context).primaryTextTheme.caption,
+                      ),
                     ),
                     Expanded(
                       child: Container(
@@ -222,9 +225,6 @@ class SignInForm extends StatelessWidget {
                       'ยังไม่ได้เป็นสมาชิกใช่หรือไม่',
                       style: Theme.of(context).primaryTextTheme.caption,
                     ),
-                    const SizedBox(
-                      width: 5,
-                    ),
                     TextButton(
                       onPressed: () {
                         AutoRouter.of(context)
@@ -232,7 +232,10 @@ class SignInForm extends StatelessWidget {
                       },
                       child: Text(
                         'สมัครสมาชิก',
-                        style: TextStyle(color: Theme.of(context).primaryColor),
+                        style: Theme.of(context)
+                            .primaryTextTheme
+                            .caption
+                            ?.copyWith(color: Theme.of(context).primaryColor),
                       ),
                     ),
                   ],

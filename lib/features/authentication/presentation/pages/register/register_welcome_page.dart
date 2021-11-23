@@ -102,7 +102,10 @@ class RegisterWelcomePage extends StatelessWidget {
                     },
                     child: Text(
                       'เข้าสู่ระบบ',
-                      style: TextStyle(color: Theme.of(context).primaryColor),
+                      style: Theme.of(context)
+                          .primaryTextTheme
+                          .caption
+                          ?.copyWith(color: Theme.of(context).primaryColor),
                     ),
                   ),
                 ],

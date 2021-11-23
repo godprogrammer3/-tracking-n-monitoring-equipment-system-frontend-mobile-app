@@ -31,12 +31,14 @@ class InputText extends HookWidget {
             children: [
               Text(
                 label,
-                style: const TextStyle(fontSize: 20),
+                style: const TextStyle(
+                    fontSize: 20, fontFamily: 'IBM Plex Sans Thai'),
               ),
               if (isError) ...[
                 Text(
                   errorMessage,
-                  style: const TextStyle(color: Colors.red),
+                  style: const TextStyle(
+                      color: Colors.red, fontFamily: 'IBM Plex Sans Thai'),
                 ),
               ]
             ],
@@ -57,7 +59,8 @@ class InputText extends HookWidget {
               children: [
                 Expanded(
                   child: TextFormField(
-                    style: const TextStyle(fontSize: 20),
+                    style: const TextStyle(
+                        fontSize: 20, fontFamily: 'IBM Plex Sans Thai'),
                     decoration: InputDecoration(
                       hintText: placeHolder,
                       suffixIcon: suffixIcon,
