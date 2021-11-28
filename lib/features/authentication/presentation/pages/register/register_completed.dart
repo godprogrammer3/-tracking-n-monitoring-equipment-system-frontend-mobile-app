@@ -87,7 +87,11 @@ class RegisterCompletedPage extends StatelessWidget {
                 children: [
                   Button(
                     'กลับไปยังหน้าหลัก',
-                    onPressed: () {},
+                    onPressed: () {
+                      AutoRouter.of(context).popUntilRoot();
+                      AutoRouter.of(context)
+                          .push(const RegisterProfileDataRoute());
+                    },
                   )
                 ],
               ),
