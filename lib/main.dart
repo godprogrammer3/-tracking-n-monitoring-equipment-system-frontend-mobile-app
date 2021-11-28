@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Streaming from Locker Test'),
     );
   }
 }
@@ -35,9 +35,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool isLiving = false;
-  IO.Socket socket = IO.io('http://10.0.2.2:3000',
+  IO.Socket socket = IO.io('http://10.0.2.2:3000/locker',
       OptionBuilder().setTransports(['websocket']).build());
   Uint8List? bytesImage;
+  Uint8List? bytesImage2;
   Widget? cacheImage;
   bool isFirstTime = true;
   @override
@@ -55,19 +56,33 @@ class _MyHomePageState extends State<MyHomePage> {
       this.setState(() {
         this.isLiving = false;
       });
-      this.socket.emit('stop-live');
+      this.socket.disconnect();
     } else {
+      if (this.socket.disconnected) {
+        this.socket.connect();
+      }
       this.setState(() {
         this.isLiving = true;
       });
-      this.socket.emit('start-live');
+      this.socket.emit(
+          'join', {'room': '736e5c51-1480-48c4-9d9c-f475ee206dff/camera/0'});
+      this.socket.emit('start_live',
+          {"lockerUid": "736e5c51-1480-48c4-9d9c-f475ee206dff", "camera": 0});
+      this.socket.emit(
+          'join', {'room': '736e5c51-1480-48c4-9d9c-f475ee206dff/camera/1'});
+      this.socket.emit('start_live',
+          {"lockerUid": "736e5c51-1480-48c4-9d9c-f475ee206dff", "camera": 1});
     }
   }
 
   void liveHandler(dynamic data) {
-    print('live');
+    // print(data);
     setState(() {
-      this.bytesImage = base64Decode(data);
+      if (data['camera'] == 0) {
+        this.bytesImage = base64Decode(data['picture']);
+      } else {
+        this.bytesImage2 = base64Decode(data['picture']);
+      }
     });
   }
 
@@ -78,19 +93,39 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            (this.bytesImage != null)
-                ? Image(
-                    image: MemoryImage(this.bytesImage as Uint8List),
-                    gaplessPlayback: true)
-                : Text('No data.'),
-            ElevatedButton(
-                onPressed: this.onToggleLive,
-                child: Text(isLiving ? 'stop live' : 'start live'))
-          ],
-        ),
+        child: Column(children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              (this.bytesImage != null)
+                  ? Expanded(
+                      child: Column(children: [
+                        Text('camera 0'),
+                        Image(
+                            fit: BoxFit.cover,
+                            image: MemoryImage(this.bytesImage as Uint8List),
+                            gaplessPlayback: true),
+                      ]),
+                    )
+                  : Text('No data.'),
+              (this.bytesImage2 != null)
+                  ? Expanded(
+                      child: Column(children: [
+                        Text('camera 1'),
+                        Image(
+                            fit: BoxFit.cover,
+                            image: MemoryImage(this.bytesImage2 as Uint8List),
+                            gaplessPlayback: true),
+                      ]),
+                    )
+                  : Text('No data.'),
+            ],
+          ),
+          ElevatedButton(
+              onPressed: this.onToggleLive,
+              child: Text(isLiving ? 'stop live' : 'start live')),
+        ]),
       ),
     );
   }
