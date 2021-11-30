@@ -39,6 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
       OptionBuilder().setTransports(['websocket']).build());
   Uint8List? bytesImage;
   Uint8List? bytesImage2;
+  Uint8List? bytesImage3;
+  Uint8List? bytesImage4;
   Widget? cacheImage;
   bool isFirstTime = true;
   @override
@@ -65,13 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
         this.isLiving = true;
       });
       this.socket.emit(
-          'join', {'room': '736e5c51-1480-48c4-9d9c-f475ee206dff/camera/0'});
+          'join', {'room': '2b5d9627-7187-485e-b245-95787089ff0d/camera/0'});
       this.socket.emit('start_live',
-          {"lockerUid": "736e5c51-1480-48c4-9d9c-f475ee206dff", "camera": 0});
-      this.socket.emit(
-          'join', {'room': '736e5c51-1480-48c4-9d9c-f475ee206dff/camera/1'});
-      this.socket.emit('start_live',
-          {"lockerUid": "736e5c51-1480-48c4-9d9c-f475ee206dff", "camera": 1});
+          {"lockerUid": "2b5d9627-7187-485e-b245-95787089ff0d", "camera": 0});
     }
   }
 
@@ -80,8 +78,12 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       if (data['camera'] == 0) {
         this.bytesImage = base64Decode(data['picture']);
-      } else {
+      } else if (data['camera'] == 1) {
         this.bytesImage2 = base64Decode(data['picture']);
+      } else if (data['camera'] == 2) {
+        this.bytesImage3 = base64Decode(data['picture']);
+      } else {
+        this.bytesImage4 = base64Decode(data['picture']);
       }
     });
   }
@@ -100,24 +102,10 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               (this.bytesImage != null)
                   ? Expanded(
-                      child: Column(children: [
-                        Text('camera 0'),
-                        Image(
-                            fit: BoxFit.cover,
-                            image: MemoryImage(this.bytesImage as Uint8List),
-                            gaplessPlayback: true),
-                      ]),
-                    )
-                  : Text('No data.'),
-              (this.bytesImage2 != null)
-                  ? Expanded(
-                      child: Column(children: [
-                        Text('camera 1'),
-                        Image(
-                            fit: BoxFit.cover,
-                            image: MemoryImage(this.bytesImage2 as Uint8List),
-                            gaplessPlayback: true),
-                      ]),
+                      child: Image(
+                          fit: BoxFit.cover,
+                          image: MemoryImage(this.bytesImage as Uint8List),
+                          gaplessPlayback: true),
                     )
                   : Text('No data.'),
             ],
