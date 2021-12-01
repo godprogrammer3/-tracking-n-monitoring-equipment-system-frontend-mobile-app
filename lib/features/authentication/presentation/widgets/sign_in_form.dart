@@ -205,7 +205,9 @@ class SignInForm extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        print('twitter sign in pressed');
+                        context.read<SignInFormBloc>().add(
+                              const SignInFormEvent.signInWithTwitterPressed(),
+                            );
                       },
                       child: SizedBox(
                         width: 80,

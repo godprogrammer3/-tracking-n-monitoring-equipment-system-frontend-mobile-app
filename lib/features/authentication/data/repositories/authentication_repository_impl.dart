@@ -6,11 +6,13 @@ import 'package:frontend/core/value_objects/value_objects.dart';
 import 'package:frontend/features/authentication/data/datasources/facebook_sign_in_auth.dart';
 import 'package:frontend/features/authentication/data/datasources/firebase_sign_in.dart';
 import 'package:frontend/features/authentication/data/datasources/google_sign_in_auth.dart';
+import 'package:frontend/features/authentication/data/datasources/twitter_sign_in_auth.dart';
 import 'package:frontend/features/authentication/domain/entities/user.dart';
 import 'package:frontend/features/authentication/domain/repositories/authentication_failure.dart';
 import 'package:frontend/features/authentication/domain/repositories/authentication_repository.dart';
 import 'package:frontend/features/authentication/domain/value_objects/value_objects.dart';
 import 'package:injectable/injectable.dart';
+import 'package:twitter_login/twitter_login.dart';
 import '../datasources/firebase_user_mapper.dart';
 
 @LazySingleton(as: AuthenticationRepository)
@@ -18,11 +20,12 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   final FirebaseSignInAuth _firebaseSigInAuth;
   final GoogleSignInAuth _googleSignInAuth;
   final FacebookSiginInAuth _facebookSiginInAuth;
-
+  final TwitterSignInAuth _twitterSignInAuth;
   AuthenticationRepositoryImpl(
     this._firebaseSigInAuth,
     this._googleSignInAuth,
     this._facebookSiginInAuth,
+    this._twitterSignInAuth,
   );
   @override
   Future<Either<AuthenticatonFailure, Unit>> registerWithEmailAndPassword(
@@ -72,18 +75,41 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   Future<Either<AuthenticatonFailure, Unit>> signInWithFacebook() async {
     try {
       final logInResult = await _facebookSiginInAuth.signIn();
-      print(logInResult.message);
       if (logInResult.status == LoginStatus.cancelled) {
         return left(const AuthenticatonFailure.cancelledByUser());
       }
 
       if (logInResult.accessToken == null) {
-        print(logInResult.status);
         return left(const AuthenticatonFailure.serverError());
       }
       final OAuthCredential facebookAuthCredential =
           FacebookAuthProvider.credential(logInResult.accessToken!.token);
       await _firebaseSigInAuth.signInWithCredential(facebookAuthCredential);
+      return right(unit);
+    } on PlatformException catch (error) {
+      print('Error :');
+      print(error);
+      return left(const AuthenticatonFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<AuthenticatonFailure, Unit>> signInWithTwitter() async {
+    try {
+      final logInResult = await _twitterSignInAuth.signIn();
+      print(logInResult);
+      if (logInResult.status == TwitterLoginStatus.cancelledByUser) {
+        return left(const AuthenticatonFailure.cancelledByUser());
+      }
+
+      if (logInResult.status == TwitterLoginStatus.error) {
+        return left(const AuthenticatonFailure.serverError());
+      }
+      final twitterAuthCredential = TwitterAuthProvider.credential(
+        accessToken: logInResult.authToken!,
+        secret: logInResult.authTokenSecret!,
+      );
+      await _firebaseSigInAuth.signInWithCredential(twitterAuthCredential);
       return right(unit);
     } on PlatformException catch (error) {
       print('Error :');

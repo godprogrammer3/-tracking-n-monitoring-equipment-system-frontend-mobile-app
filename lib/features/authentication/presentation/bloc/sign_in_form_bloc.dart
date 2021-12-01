@@ -19,55 +19,58 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
   @override
   Stream<SignInFormState> mapEventToState(SignInFormEvent event) async* {
-    yield* event.map(
-      emailChanged: (e) async* {
-        yield state.copyWith(
-          emailAddress: EmailAddress(e.emailStr),
-          authenticatonFailureOrSuccess: null,
-        );
-      },
-      passwordChanged: (e) async* {
-        yield state.copyWith(
-          password: Password(e.passwordStr),
-          authenticatonFailureOrSuccess: null,
-        );
-      },
-      registerWithEmailAndPasswordPressed: (e) async* {
-        yield* _performActionOnAuthFacadeWithEmailAndPassword(
-            _authenticationRepository.registerWithEmailAndPassword);
-      },
-      signinWithEmailAndPasswordPressed: (e) async* {
-        yield* _performActionOnAuthFacadeWithEmailAndPassword(
-            _authenticationRepository.signInWithEmailAndPassword);
-      },
-      signinWithGooglePressed: (e) async* {
-        yield state.copyWith(
-          isSubmitting: true,
-          authenticatonFailureOrSuccess: null,
-        );
-        final failureOrSuccess =
-            await _authenticationRepository.signInWithGoogle();
-        yield state.copyWith(
-          isSubmitting: false,
-          authenticatonFailureOrSuccess: failureOrSuccess,
-        );
-      },
-      toggleShowPasswordPressed: (e) async* {
-        yield state.copyWith(isShowPassword: !state.isShowPassword);
-      },
-      signInWithFacebookPressed: (e) async* {
-        yield state.copyWith(
-          isSubmitting: true,
-          authenticatonFailureOrSuccess: null,
-        );
-        final failureOrSuccess =
-            await _authenticationRepository.signInWithFacebook();
-        yield state.copyWith(
-          isSubmitting: false,
-          authenticatonFailureOrSuccess: failureOrSuccess,
-        );
-      },
-    );
+    yield* event.map(emailChanged: (e) async* {
+      yield state.copyWith(
+        emailAddress: EmailAddress(e.emailStr),
+        authenticatonFailureOrSuccess: null,
+      );
+    }, passwordChanged: (e) async* {
+      yield state.copyWith(
+        password: Password(e.passwordStr),
+        authenticatonFailureOrSuccess: null,
+      );
+    }, registerWithEmailAndPasswordPressed: (e) async* {
+      yield* _performActionOnAuthFacadeWithEmailAndPassword(
+          _authenticationRepository.registerWithEmailAndPassword);
+    }, signinWithEmailAndPasswordPressed: (e) async* {
+      yield* _performActionOnAuthFacadeWithEmailAndPassword(
+          _authenticationRepository.signInWithEmailAndPassword);
+    }, signinWithGooglePressed: (e) async* {
+      yield state.copyWith(
+        isSubmitting: true,
+        authenticatonFailureOrSuccess: null,
+      );
+      final failureOrSuccess =
+          await _authenticationRepository.signInWithGoogle();
+      yield state.copyWith(
+        isSubmitting: false,
+        authenticatonFailureOrSuccess: failureOrSuccess,
+      );
+    }, toggleShowPasswordPressed: (e) async* {
+      yield state.copyWith(isShowPassword: !state.isShowPassword);
+    }, signInWithFacebookPressed: (e) async* {
+      yield state.copyWith(
+        isSubmitting: true,
+        authenticatonFailureOrSuccess: null,
+      );
+      final failureOrSuccess =
+          await _authenticationRepository.signInWithFacebook();
+      yield state.copyWith(
+        isSubmitting: false,
+        authenticatonFailureOrSuccess: failureOrSuccess,
+      );
+    }, signInWithTwitterPressed: (e) async* {
+      yield state.copyWith(
+        isSubmitting: true,
+        authenticatonFailureOrSuccess: null,
+      );
+      final failureOrSuccess =
+          await _authenticationRepository.signInWithTwitter();
+      yield state.copyWith(
+        isSubmitting: false,
+        authenticatonFailureOrSuccess: failureOrSuccess,
+      );
+    });
   }
 
   Stream<SignInFormState> _performActionOnAuthFacadeWithEmailAndPassword(

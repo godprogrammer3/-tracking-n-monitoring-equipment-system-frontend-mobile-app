@@ -15,4 +15,6 @@ class SignInFormEvent with _$SignInFormEvent {
       ToggleShowPasswordPressed;
   const factory SignInFormEvent.signInWithFacebookPressed() =
       SignInWithFacebookPressed;
+  const factory SignInFormEvent.signInWithTwitterPressed() =
+      SignInWithTwitterPressed;
 }

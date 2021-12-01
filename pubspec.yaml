@@ -46,6 +46,7 @@ dependencies:
   flutter_hooks: ^0.18.1
   syncfusion_flutter_datepicker: ^19.3.55
   flutter_facebook_auth: ^3.5.6
+  twitter_login: ^4.0.1
 
 dev_dependencies:
   flutter_test:

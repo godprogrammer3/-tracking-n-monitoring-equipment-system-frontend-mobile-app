@@ -18,5 +18,6 @@ abstract class AuthenticationRepository {
   });
   Future<Either<AuthenticatonFailure, Unit>> signInWithGoogle();
   Future<Either<AuthenticatonFailure, Unit>> signInWithFacebook();
+  Future<Either<AuthenticatonFailure, Unit>> signInWithTwitter();
   Future<void> signOut();
 }
