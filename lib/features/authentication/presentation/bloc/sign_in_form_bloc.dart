@@ -55,6 +55,18 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       toggleShowPasswordPressed: (e) async* {
         yield state.copyWith(isShowPassword: !state.isShowPassword);
       },
+      signInWithFacebookPressed: (e) async* {
+        yield state.copyWith(
+          isSubmitting: true,
+          authenticatonFailureOrSuccess: null,
+        );
+        final failureOrSuccess =
+            await _authenticationRepository.signInWithFacebook();
+        yield state.copyWith(
+          isSubmitting: false,
+          authenticatonFailureOrSuccess: failureOrSuccess,
+        );
+      },
     );
   }
 

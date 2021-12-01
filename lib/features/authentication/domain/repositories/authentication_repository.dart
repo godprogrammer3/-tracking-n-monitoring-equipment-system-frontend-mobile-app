@@ -17,5 +17,6 @@ abstract class AuthenticationRepository {
     required Password password,
   });
   Future<Either<AuthenticatonFailure, Unit>> signInWithGoogle();
+  Future<Either<AuthenticatonFailure, Unit>> signInWithFacebook();
   Future<void> signOut();
 }

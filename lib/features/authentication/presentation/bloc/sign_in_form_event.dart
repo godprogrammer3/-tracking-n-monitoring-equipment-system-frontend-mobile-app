@@ -13,4 +13,6 @@ class SignInFormEvent with _$SignInFormEvent {
       SigninWithWithGooglePressed;
   const factory SignInFormEvent.toggleShowPasswordPressed() =
       ToggleShowPasswordPressed;
+  const factory SignInFormEvent.signInWithFacebookPressed() =
+      SignInWithFacebookPressed;
 }

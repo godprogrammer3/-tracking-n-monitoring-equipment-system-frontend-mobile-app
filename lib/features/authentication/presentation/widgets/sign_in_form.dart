@@ -177,7 +177,9 @@ class SignInForm extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () {
-                        print('facebook sign in pressed');
+                        context.read<SignInFormBloc>().add(
+                              const SignInFormEvent.signInWithFacebookPressed(),
+                            );
                       },
                       child: SizedBox(
                         width: 80,

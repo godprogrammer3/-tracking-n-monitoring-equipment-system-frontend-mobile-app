@@ -15,6 +15,7 @@ import 'package:frontend/features/authentication/presentation/pages/register/reg
 import 'package:frontend/features/authentication/presentation/pages/register/register_verify_email.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_welcome_page.dart';
 import 'package:frontend/features/authentication/presentation/pages/sign_in/sing_in_page.dart';
+import 'package:frontend/features/authentication/presentation/pages/test_page/social_login_test.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -35,6 +36,7 @@ import 'package:frontend/features/authentication/presentation/pages/sign_in/sing
     AutoRoute(page: RegisterProfileDataPage),
     AutoRoute(page: RegisterProfileDataFormPage),
     AutoRoute(page: DatePickerTestPage),
+    AutoRoute(page: SocialLoginTestPage),
   ],
 )
 class $AppRouter {}

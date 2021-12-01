@@ -1,7 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:frontend/core/value_objects/value_objects.dart';
+import 'package:frontend/features/authentication/data/datasources/facebook_sign_in_auth.dart';
 import 'package:frontend/features/authentication/data/datasources/firebase_sign_in.dart';
 import 'package:frontend/features/authentication/data/datasources/google_sign_in_auth.dart';
 import 'package:frontend/features/authentication/domain/entities/user.dart';
@@ -15,8 +17,13 @@ import '../datasources/firebase_user_mapper.dart';
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
   final FirebaseSignInAuth _firebaseSigInAuth;
   final GoogleSignInAuth _googleSignInAuth;
+  final FacebookSiginInAuth _facebookSiginInAuth;
 
-  AuthenticationRepositoryImpl(this._firebaseSigInAuth, this._googleSignInAuth);
+  AuthenticationRepositoryImpl(
+    this._firebaseSigInAuth,
+    this._googleSignInAuth,
+    this._facebookSiginInAuth,
+  );
   @override
   Future<Either<AuthenticatonFailure, Unit>> registerWithEmailAndPassword(
       {required EmailAddress emailAddress, required Password password}) async {
@@ -62,6 +69,30 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   }
 
   @override
+  Future<Either<AuthenticatonFailure, Unit>> signInWithFacebook() async {
+    try {
+      final logInResult = await _facebookSiginInAuth.signIn();
+      print(logInResult.message);
+      if (logInResult.status == LoginStatus.cancelled) {
+        return left(const AuthenticatonFailure.cancelledByUser());
+      }
+
+      if (logInResult.accessToken == null) {
+        print(logInResult.status);
+        return left(const AuthenticatonFailure.serverError());
+      }
+      final OAuthCredential facebookAuthCredential =
+          FacebookAuthProvider.credential(logInResult.accessToken!.token);
+      await _firebaseSigInAuth.signInWithCredential(facebookAuthCredential);
+      return right(unit);
+    } on PlatformException catch (error) {
+      print('Error :');
+      print(error);
+      return left(const AuthenticatonFailure.serverError());
+    }
+  }
+
+  @override
   Future<UserType?> getSignedInUser() {
     return _firebaseSigInAuth.getCurrentUser();
   }
@@ -70,5 +101,6 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   Future<void> signOut() => Future.wait([
         _firebaseSigInAuth.signOut(),
         _googleSignInAuth.signOut(),
+        _facebookSiginInAuth.signOut(),
       ]);
 }
