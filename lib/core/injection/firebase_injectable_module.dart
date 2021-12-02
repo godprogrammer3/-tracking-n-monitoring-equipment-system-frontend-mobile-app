@@ -19,6 +19,6 @@ abstract class FirebaseInjectableModule {
   TwitterLogin get twitterSignin => TwitterLogin(
         apiKey: 'qZ5mQkXzNtKaH4NWrtFd2C4IY',
         apiSecretKey: 'U4yTiqC4x2G1alBpAd3B8mD3ruGRCYpHVpIqM1PSBVTUbXQbsk',
-        redirectURI: 'twittersdk://',
+        redirectURI: 'toollo://',
       );
 }

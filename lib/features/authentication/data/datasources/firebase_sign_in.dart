@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:frontend/core/value_objects/value_objects.dart';
 import 'package:frontend/features/authentication/domain/entities/user.dart';
 import 'package:frontend/features/authentication/domain/repositories/authentication_failure.dart';
+import 'package:frontend/features/authentication/domain/value_objects/value_objects.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
@@ -52,7 +53,11 @@ class FirebaseSignInAuth {
   Future<UserType?> getCurrentUser() async {
     final user = _firebaseAuth.currentUser;
     if (user != null) {
-      return UserType(id: UniqueId.fromUniqueString(user.uid));
+      final userInfo = user.providerData[0];
+      return UserType(
+          id: UniqueId.fromUniqueString(user.uid),
+          emailAddress: EmailAddress(userInfo.email ?? ''),
+          providerId: userInfo.providerId);
     } else {
       return null;
     }
