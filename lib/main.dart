@@ -35,7 +35,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool isLiving = false;
-  IO.Socket socket = IO.io('http://10.0.2.2:3000/locker',
+  IO.Socket socket = IO.io('http://10.0.2.2:3000/video',
       OptionBuilder().setTransports(['websocket']).build());
   Uint8List? bytesImage;
   Uint8List? bytesImage2;
