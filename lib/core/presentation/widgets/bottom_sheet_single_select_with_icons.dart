@@ -29,75 +29,29 @@ class BottomSheetSingleSelectWithIcons extends HookWidget {
   Widget build(BuildContext context) {
     final ValueNotifier<Map<String, dynamic>?> currentValue =
         useState(initialValue);
+    final controller = useTextEditingController();
     return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                label,
-                style: const TextStyle(fontSize: 20),
-              ),
-              if (isError) ...[
-                Text(
-                  errorMessage,
-                  style: const TextStyle(color: Colors.red),
-                ),
-              ]
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          InkWell(
-            onTap: () => _onPressed(
-              context,
-              currentValue,
+      child: InkWell(
+        onTap: () => _onPressed(context, currentValue, controller),
+        child: TextFormField(
+          controller: controller,
+          decoration: InputDecoration(
+            suffixIcon: const Icon(
+              Icons.keyboard_arrow_down,
             ),
-            child: Container(
-              padding: const EdgeInsets.only(left: 20),
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(8)),
-                color: const Color.fromRGBO(242, 241, 244, 1),
-                border: isError ? Border.all(color: Colors.red) : null,
-              ),
-              height: 50,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            currentValue.value != null
-                                ? currentValue.value!['displayText'].toString()
-                                : placeHolder,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: currentValue.value != null
-                                  ? Colors.black
-                                  : const Color.fromRGBO(60, 60, 67, 0.6),
-                              overflow: TextOverflow.fade,
-                            ),
-                          ),
-                        ),
-                        suffixIcon ??
-                            const Icon(
-                              Icons.keyboard_arrow_down,
-                              size: 30,
-                            ),
-                      ],
-                    ),
-                  )
-                ],
+            hintText: placeHolder,
+            label: Text(
+              label,
+              style: const TextStyle(
+                fontFamily: 'IBM Plex Sans Thai',
+                fontSize: 25,
               ),
             ),
-          )
-        ],
+            errorText: isError ? errorMessage : null,
+          ),
+          enabled: false,
+          style: const TextStyle(overflow: TextOverflow.ellipsis),
+        ),
       ),
     );
   }
@@ -105,6 +59,7 @@ class BottomSheetSingleSelectWithIcons extends HookWidget {
   void _onPressed(
     BuildContext context,
     ValueNotifier<Map<String, dynamic>?> currentValue,
+    TextEditingController controller,
   ) {
     showModalBottomSheet<dynamic>(
       context: context,
@@ -123,7 +78,11 @@ class BottomSheetSingleSelectWithIcons extends HookWidget {
                   topRight: Radius.circular(24),
                 ),
               ),
-              child: _buildBody(context, currentValue),
+              child: _buildBody(
+                context,
+                currentValue,
+                controller,
+              ),
             ),
           ),
         );
@@ -134,6 +93,7 @@ class BottomSheetSingleSelectWithIcons extends HookWidget {
   Widget _buildBody(
     BuildContext context,
     ValueNotifier<Map<String, dynamic>?> currentValue,
+    TextEditingController controller,
   ) {
     return StatefulBuilder(
       builder: (BuildContext context, void Function(void Function()) setState) {
@@ -170,6 +130,7 @@ class BottomSheetSingleSelectWithIcons extends HookWidget {
                     onTap: () {
                       if (choice['value'] != currentValue.value?['value']) {
                         currentValue.value = choice;
+                        controller.text = choice['displayText'].toString();
                         onChanged(currentValue.value);
                         setState(() {});
                         AutoRouter.of(context).pop();
