@@ -27,10 +27,9 @@ class AppWidget extends StatelessWidget {
           primaryColorDark: const Color.fromRGBO(35, 25, 47, 1),
           dividerColor: const Color.fromRGBO(224, 224, 224, 1),
           colorScheme: theme.colorScheme.copyWith(
+            primary: const Color.fromRGBO(85, 8, 182, 1),
             secondary: const Color.fromRGBO(128, 36, 244, 1),
           ),
-          inputDecorationTheme:
-              const InputDecorationTheme(border: InputBorder.none),
           primaryTextTheme: const TextTheme(
             headline1: TextStyle(
               color: Colors.black,
