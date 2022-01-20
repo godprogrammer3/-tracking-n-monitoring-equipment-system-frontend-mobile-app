@@ -1,4 +1,6 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:frontend/core/presentation/page/home.dart';
 import 'package:frontend/core/presentation/page/splash.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_add_face_id.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_add_face_id_completed.dart';
@@ -18,6 +20,11 @@ import 'package:frontend/features/authentication/presentation/pages/register/reg
 import 'package:frontend/features/authentication/presentation/pages/register/register_welcome_page.dart';
 import 'package:frontend/features/authentication/presentation/pages/sign_in/sing_in_page.dart';
 import 'package:frontend/features/authentication/presentation/pages/test_page/social_login_test.dart';
+import 'package:frontend/features/borrowing/presentation/pages/account/account.dart';
+import 'package:frontend/features/borrowing/presentation/pages/dash_board/dash_board.dart';
+import 'package:frontend/features/borrowing/presentation/pages/history/hostory.dart';
+import 'package:frontend/features/borrowing/presentation/pages/notification/notification.dart';
+import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/unlock_locker.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -38,9 +45,70 @@ import 'package:frontend/features/authentication/presentation/pages/test_page/so
     AutoRoute(page: RegisterProfileDataPage),
     AutoRoute(page: RegisterProfileDataFormPage),
     AutoRoute(page: SocialLoginTestPage),
-    AutoRoute(page: RegisterProfileDataCompletedPage, initial: true),
+    AutoRoute(page: RegisterProfileDataCompletedPage),
     AutoRoute(page: RegisterAddFaceIdPage),
     AutoRoute(page: RegisterAddFaceIdCompletedPage),
+    AutoRoute(
+      path: '/',
+      page: HomePage,
+      children: [
+        AutoRoute(
+          path: 'dash_board',
+          name: 'DashBoardRouter',
+          page: EmptyRouterPage,
+          children: [
+            AutoRoute(
+              path: '',
+              page: DashBoardPage,
+            ),
+          ],
+        ),
+        AutoRoute(
+          path: 'history',
+          name: 'HistoryRouter',
+          page: EmptyRouterPage,
+          children: [
+            AutoRoute(
+              path: '',
+              page: HistoryPage,
+            ),
+          ],
+        ),
+        AutoRoute(
+          path: 'notification',
+          name: 'NotificationRouter',
+          page: EmptyRouterPage,
+          children: [
+            AutoRoute(
+              path: '',
+              page: NotificationPage,
+            ),
+          ],
+        ),
+        AutoRoute(
+          path: 'unlock_locker',
+          name: 'UnlockLockerRouter',
+          page: EmptyRouterPage,
+          children: [
+            AutoRoute(
+              path: '',
+              page: UnlockLockerPage,
+            ),
+          ],
+        ),
+        AutoRoute(
+          path: 'account',
+          name: 'AccountRouter',
+          page: EmptyRouterPage,
+          children: [
+            AutoRoute(
+              path: '',
+              page: AccountPage,
+            ),
+          ],
+        ),
+      ],
+    ),
   ],
 )
 class $AppRouter {}

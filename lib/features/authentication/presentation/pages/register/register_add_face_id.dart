@@ -9,7 +9,6 @@ import 'package:frontend/core/presentation/widgets/button.dart';
 import 'package:frontend/core/presentation/widgets/date_time_picker.dart';
 import 'package:frontend/core/presentation/widgets/image_picker_widget.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class RegisterAddFaceIdPage extends HookWidget {
   const RegisterAddFaceIdPage({Key? key}) : super(key: key);

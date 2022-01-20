@@ -5,7 +5,6 @@ import 'package:frontend/core/presentation/widgets/bottom_sheet_single_select_wi
 import 'package:frontend/core/presentation/widgets/button.dart';
 import 'package:frontend/core/presentation/widgets/date_time_picker.dart';
 import 'package:frontend/core/presentation/widgets/image_picker_widget.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class RegisterProfileDataFormPage extends StatelessWidget {
   const RegisterProfileDataFormPage({Key? key}) : super(key: key);

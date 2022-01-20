@@ -123,8 +123,7 @@ class RegisterAddFaceIdCompletedPage extends StatelessWidget {
                         Button(
                           'เริ่มต้นใช้งาน',
                           onPressed: () {
-                            AutoRouter.of(context)
-                                .push(const RegisterAddFaceIdRoute());
+                            AutoRouter.of(context).push(const HomeRoute());
                           },
                         )
                       ],
