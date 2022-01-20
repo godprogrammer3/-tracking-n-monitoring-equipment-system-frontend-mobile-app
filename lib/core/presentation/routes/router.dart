@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:frontend/core/presentation/page/splash.dart';
-import 'package:frontend/features/authentication/presentation/pages/register/date_picker_test.dart';
+import 'package:frontend/features/authentication/presentation/pages/register/register_add_face_id.dart';
+import 'package:frontend/features/authentication/presentation/pages/register/register_add_face_id_completed.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_completed.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_name_page.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_otp.dart';
@@ -11,6 +12,7 @@ import 'package:frontend/features/authentication/presentation/pages/register/reg
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_pin_setting_confirm.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_role.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_profile_data.dart';
+import 'package:frontend/features/authentication/presentation/pages/register/register_profile_data_completed.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_profile_data_form.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_verify_email.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_welcome_page.dart';
@@ -20,7 +22,7 @@ import 'package:frontend/features/authentication/presentation/pages/test_page/so
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: SplashPage, initial: true),
+    AutoRoute(page: SplashPage),
     AutoRoute(page: SignInPage),
     AutoRoute(page: RegisterWelcomePage),
     AutoRoute(page: RegisterEnterNamePage),
@@ -35,8 +37,10 @@ import 'package:frontend/features/authentication/presentation/pages/test_page/so
     AutoRoute(page: RegisterCompletedPage),
     AutoRoute(page: RegisterProfileDataPage),
     AutoRoute(page: RegisterProfileDataFormPage),
-    AutoRoute(page: DatePickerTestPage),
     AutoRoute(page: SocialLoginTestPage),
+    AutoRoute(page: RegisterProfileDataCompletedPage, initial: true),
+    AutoRoute(page: RegisterAddFaceIdPage),
+    AutoRoute(page: RegisterAddFaceIdCompletedPage),
   ],
 )
 class $AppRouter {}
