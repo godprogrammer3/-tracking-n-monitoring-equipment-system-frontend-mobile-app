@@ -11,8 +11,8 @@ class HomePage extends StatelessWidget {
       routes: const [
         DashBoardRouter(),
         HistoryRouter(),
-        NotificationRouter(),
         UnlockLockerRouter(),
+        NotificationRouter(),
         AccountRouter(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
@@ -55,8 +55,8 @@ class HomePage extends StatelessWidget {
                 onTap: () => tabsRouter.setActiveIndex(2),
                 child: Image.asset(
                   tabsRouter.activeIndex == 2
-                      ? 'assets/icons/core/icon_nav_noti_active.png'
-                      : 'assets/icons/core/icon_nav_noti.png',
+                      ? 'assets/icons/core/icon_nav_unlock_locker_active.png'
+                      : 'assets/icons/core/icon_nav_unlock_locker.png',
                   width: 28,
                   height: 28,
                 ),
@@ -65,8 +65,8 @@ class HomePage extends StatelessWidget {
                 onTap: () => tabsRouter.setActiveIndex(3),
                 child: Image.asset(
                   tabsRouter.activeIndex == 3
-                      ? 'assets/icons/core/icon_nav_unlock_locker_active.png'
-                      : 'assets/icons/core/icon_nav_unlock_locker.png',
+                      ? 'assets/icons/core/icon_nav_noti_active.png'
+                      : 'assets/icons/core/icon_nav_noti.png',
                   width: 28,
                   height: 28,
                 ),

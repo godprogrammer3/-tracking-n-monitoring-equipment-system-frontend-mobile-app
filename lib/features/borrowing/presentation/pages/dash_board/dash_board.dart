@@ -1,16 +1,19 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:frontend/core/presentation/widgets/tabs_widget.dart';
+import 'package:frontend/features/borrowing/presentation/pages/dash_board/equipment_tab.dart';
+import 'package:frontend/features/borrowing/presentation/pages/dash_board/locker_tab.dart';
 
 class DashBoardPage extends HookWidget {
   final CarouselController _controller = CarouselController();
-
+  final List<Widget> tabs = const <Widget>[EquipmentTab(), LockerTab()];
+  final List<String> tabsBar = const ['อุปกรณ์', 'ตู้ล็อกเกอร์'];
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final List<int> list = [1, 2, 3, 4, 5];
     final ValueNotifier<int> currentCarouselIndex = useState(0);
-    final ValueNotifier<int> currentTabIndex = useState(0);
     return Scaffold(
       body: Stack(
         children: [
@@ -101,95 +104,19 @@ class DashBoardPage extends HookWidget {
                   );
                 }).toList(),
               ),
-              Expanded(child: _buildBody(context, currentTabIndex)),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TabsWidget(
+                    tabsBar: tabsBar,
+                    tabs: tabs,
+                  ),
+                ),
+              ),
             ],
           ),
         ],
       ),
     );
-  }
-
-  Widget _buildBody(BuildContext context, ValueNotifier<int> currentTabIndex) {
-    return DefaultTabController(
-      length: 2,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Expanded(
-                  child: InkWell(
-                    onTap: () => currentTabIndex.value = 0,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'อุปกรณ์',
-                          style: Theme.of(context)
-                              .primaryTextTheme
-                              .headline1!
-                              .copyWith(
-                                  color:
-                                      Theme.of(context).colorScheme.secondary),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: InkWell(
-                    onTap: () => currentTabIndex.value = 1,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'ตู้ล็อกเกอร์',
-                          style: Theme.of(context)
-                              .primaryTextTheme
-                              .headline1!
-                              .copyWith(
-                                  color:
-                                      Theme.of(context).colorScheme.secondary),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: renderTab(context, currentTabIndex.value),
-          ),
-        ]),
-      ),
-    );
-  }
-
-  Widget renderTab(BuildContext context, int tabIndex) {
-    const List<Widget> tabs = [
-      Icon(Icons.directions_car),
-      Icon(Icons.directions_transit),
-    ];
-
-    return tabs[tabIndex];
   }
 }

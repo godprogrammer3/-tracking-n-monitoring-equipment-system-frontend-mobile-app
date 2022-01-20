@@ -22,7 +22,7 @@ import 'package:frontend/features/authentication/presentation/pages/sign_in/sing
 import 'package:frontend/features/authentication/presentation/pages/test_page/social_login_test.dart';
 import 'package:frontend/features/borrowing/presentation/pages/account/account.dart';
 import 'package:frontend/features/borrowing/presentation/pages/dash_board/dash_board.dart';
-import 'package:frontend/features/borrowing/presentation/pages/history/hostory.dart';
+import 'package:frontend/features/borrowing/presentation/pages/history/history.dart';
 import 'package:frontend/features/borrowing/presentation/pages/notification/notification.dart';
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/unlock_locker.dart';
 

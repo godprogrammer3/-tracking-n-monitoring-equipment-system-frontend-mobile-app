@@ -51,7 +51,7 @@ import '../../../features/borrowing/presentation/pages/account/account.dart'
     as _i26;
 import '../../../features/borrowing/presentation/pages/dash_board/dash_board.dart'
     as _i22;
-import '../../../features/borrowing/presentation/pages/history/hostory.dart'
+import '../../../features/borrowing/presentation/pages/history/history.dart'
     as _i23;
 import '../../../features/borrowing/presentation/pages/notification/notification.dart'
     as _i24;
