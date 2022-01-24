@@ -2,12 +2,13 @@ import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:frontend/core/presentation/page/home.dart';
 import 'package:frontend/core/presentation/page/splash.dart';
+import 'package:frontend/features/account/presentation/pages/account.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_add_face_id.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_add_face_id_completed.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_completed.dart';
+import 'package:frontend/features/authentication/presentation/pages/register/register_enter_email.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_name_page.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_otp.dart';
-import 'package:frontend/features/authentication/presentation/pages/register/register_enter_email.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_password.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_phone_number.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_enter_pin_setting.dart';
@@ -20,16 +21,16 @@ import 'package:frontend/features/authentication/presentation/pages/register/reg
 import 'package:frontend/features/authentication/presentation/pages/register/register_welcome_page.dart';
 import 'package:frontend/features/authentication/presentation/pages/sign_in/sing_in_page.dart';
 import 'package:frontend/features/authentication/presentation/pages/test_page/social_login_test.dart';
-import 'package:frontend/features/borrowing/presentation/pages/account/account.dart';
 import 'package:frontend/features/borrowing/presentation/pages/dash_board/dash_board.dart';
-import 'package:frontend/features/borrowing/presentation/pages/history/history.dart';
-import 'package:frontend/features/borrowing/presentation/pages/notification/notification.dart';
+import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/list_locker.dart';
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/unlock_locker.dart';
+import 'package:frontend/features/history/presentation/pages/history.dart';
+import 'package:frontend/features/notification/presentation/pages/notification.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: SplashPage),
+    AutoRoute(page: SplashPage, initial: true),
     AutoRoute(page: SignInPage),
     AutoRoute(page: RegisterWelcomePage),
     AutoRoute(page: RegisterEnterNamePage),
@@ -94,6 +95,7 @@ import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/unl
               path: '',
               page: UnlockLockerPage,
             ),
+            AutoRoute(path: 'list_locker', page: ListLockerPage)
           ],
         ),
         AutoRoute(

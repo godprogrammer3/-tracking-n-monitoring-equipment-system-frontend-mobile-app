@@ -2,8 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:frontend/core/presentation/widgets/tabs_widget.dart';
-import 'package:frontend/features/borrowing/presentation/pages/dash_board/equipment_tab.dart';
-import 'package:frontend/features/borrowing/presentation/pages/dash_board/locker_tab.dart';
+import 'package:frontend/features/borrowing/presentation/widgets/equipment_tab.dart';
+import 'package:frontend/features/borrowing/presentation/widgets/locker_tab.dart';
 
 class DashBoardPage extends HookWidget {
   final CarouselController _controller = CarouselController();

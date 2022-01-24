@@ -42,6 +42,11 @@ class AppWidget extends StatelessWidget {
               fontSize: 17,
               fontFamily: 'IBM Plex Sans Thai',
             ),
+            headline3: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              fontFamily: 'IBM Plex Sans Thai',
+            ),
             bodyText1: TextStyle(
               color: Color.fromRGBO(51, 51, 51, 1),
               fontSize: 15,

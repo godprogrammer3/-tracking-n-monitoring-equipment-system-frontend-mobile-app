@@ -73,9 +73,23 @@ flutter:
     - assets/icons/authentication_feature/
     - assets/images/authentication_feature/
     - assets/icons/core/
+    - assets/images/core/
+    - assets/icons/borrowing/
     - assets/images/borrowing/
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+    - assets/icons/account/
+    - assets/images/account/
+    - assets/icons/history/
+    - assets/images/history/
+    - assets/icons/manage_locker_and_equipment/
+    - assets/images/manage_locker_and_equipment/
+    - assets/icons/notification/
+    - assets/images/notification/
+    - assets/icons/report_problem/
+    - assets/images/report_problem/
+    - assets/icons/role_management/
+    - assets/images/role_management/
+    - assets/icons/streaming_and_record/
+    - assets/images/streaming_and_record/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

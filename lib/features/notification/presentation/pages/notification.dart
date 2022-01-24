@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/core/presentation/widgets/tabs_widget.dart';
-import 'package:frontend/features/borrowing/presentation/pages/history/borrowing_list_tab.dart';
-import 'package:frontend/features/borrowing/presentation/pages/history/fixing_request_list_tab.dart';
+import 'package:frontend/features/notification/presentation/widgets/admin_tab.dart';
+import 'package:frontend/features/notification/presentation/widgets/user_tab.dart';
 
-class HistoryPage extends StatelessWidget {
-  final List<String> tabsBar = const ['รายการยืม/คืน', 'คำร้องขอแจ้งซ่อม'];
-  final List<Widget> tabs = const <Widget>[
-    BorrowingListTab(),
-    FixingRequestListTab()
-  ];
+class NotificationPage extends StatelessWidget {
+  final List<String> tabsBar = const ['ฝั่งผู้ใช้งาน', 'ฝั่งผู้ดูแล'];
+  final List<Widget> tabs = const <Widget>[UserTab(), AdminTab()];
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'ประวัติ',
+          'การแจ้งเตือน',
           style: Theme.of(context).primaryTextTheme.headline1,
         ),
         centerTitle: true,
