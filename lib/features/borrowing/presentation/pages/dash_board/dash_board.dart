@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:frontend/core/presentation/widgets/tabs_widget.dart';
 import 'package:frontend/features/borrowing/presentation/widgets/equipment_tab.dart';
+import 'package:frontend/features/borrowing/presentation/widgets/home_drawer.dart';
 import 'package:frontend/features/borrowing/presentation/widgets/locker_tab.dart';
 
 class DashBoardPage extends HookWidget {
   final CarouselController _controller = CarouselController();
   final List<Widget> tabs = const <Widget>[EquipmentTab(), LockerTab()];
   final List<String> tabsBar = const ['อุปกรณ์', 'ตู้ล็อกเกอร์'];
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final List<int> list = [1, 2, 3, 4, 5];
     final ValueNotifier<int> currentCarouselIndex = useState(0);
     return Scaffold(
+      key: _key,
+      drawer: const HomeDrawer(),
       body: Stack(
         children: [
           SizedBox(
@@ -36,6 +40,13 @@ class DashBoardPage extends HookWidget {
                 ),
                 child: Row(
                   children: [
+                    IconButton(
+                      onPressed: () => _key.currentState!.openDrawer(),
+                      icon: const Icon(
+                        Icons.menu,
+                        color: Colors.white,
+                      ),
+                    ),
                     Text(
                       'Welcome, Saitan',
                       style: Theme.of(context)

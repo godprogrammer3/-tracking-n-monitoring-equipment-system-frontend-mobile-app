@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:frontend/core/presentation/routes/router.gr.dart';
 import 'package:frontend/features/borrowing/presentation/widgets/open_bluetooth_popup.dart';
 
 class ListLockerPage extends HookWidget {
@@ -38,7 +40,8 @@ class ListLockerPage extends HookWidget {
           children: List<Widget>.generate(
             10,
             (index) => InkWell(
-              onTap: () => true,
+              onTap: () =>
+                  AutoRouter.of(context).push(ToggleLockerRoute(lockerId: 1)),
               child: Container(
                 width: 100,
                 height: 100,

@@ -29,6 +29,7 @@ class AppWidget extends StatelessWidget {
           colorScheme: theme.colorScheme.copyWith(
             primary: const Color.fromRGBO(85, 8, 182, 1),
             secondary: const Color.fromRGBO(128, 36, 244, 1),
+            error: Colors.red,
           ),
           primaryTextTheme: const TextTheme(
             headline1: TextStyle(
@@ -45,6 +46,11 @@ class AppWidget extends StatelessWidget {
             headline3: TextStyle(
               color: Colors.black,
               fontSize: 15,
+              fontFamily: 'IBM Plex Sans Thai',
+            ),
+            subtitle1: TextStyle(
+              color: Colors.black,
+              fontSize: 17,
               fontFamily: 'IBM Plex Sans Thai',
             ),
             bodyText1: TextStyle(

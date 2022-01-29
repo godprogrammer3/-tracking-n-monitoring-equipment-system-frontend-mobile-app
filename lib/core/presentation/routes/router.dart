@@ -23,6 +23,7 @@ import 'package:frontend/features/authentication/presentation/pages/sign_in/sing
 import 'package:frontend/features/authentication/presentation/pages/test_page/social_login_test.dart';
 import 'package:frontend/features/borrowing/presentation/pages/dash_board/dash_board.dart';
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/list_locker.dart';
+import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/toggle_locker.dart';
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/unlock_locker.dart';
 import 'package:frontend/features/history/presentation/pages/history.dart';
 import 'package:frontend/features/notification/presentation/pages/notification.dart';
@@ -30,7 +31,7 @@ import 'package:frontend/features/notification/presentation/pages/notification.d
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: SplashPage, initial: true),
+    AutoRoute(page: SplashPage),
     AutoRoute(page: SignInPage),
     AutoRoute(page: RegisterWelcomePage),
     AutoRoute(page: RegisterEnterNamePage),
@@ -95,7 +96,8 @@ import 'package:frontend/features/notification/presentation/pages/notification.d
               path: '',
               page: UnlockLockerPage,
             ),
-            AutoRoute(path: 'list_locker', page: ListLockerPage)
+            AutoRoute(path: 'list_locker', page: ListLockerPage),
+            AutoRoute(path: ':lockerId', page: ToggleLockerPage),
           ],
         ),
         AutoRoute(
