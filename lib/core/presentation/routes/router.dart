@@ -27,6 +27,9 @@ import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/tog
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/unlock_locker.dart';
 import 'package:frontend/features/history/presentation/pages/history.dart';
 import 'package:frontend/features/notification/presentation/pages/notification.dart';
+import 'package:frontend/features/role_management/presentation/pages/add_user.dart';
+import 'package:frontend/features/role_management/presentation/pages/approve_user.dart';
+import 'package:frontend/features/role_management/presentation/pages/role_management.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -63,6 +66,10 @@ import 'package:frontend/features/notification/presentation/pages/notification.d
               path: '',
               page: DashBoardPage,
             ),
+            AutoRoute(
+              path: 'role_management',
+              page: RoleManagementPage,
+            )
           ],
         ),
         AutoRoute(
@@ -113,6 +120,8 @@ import 'package:frontend/features/notification/presentation/pages/notification.d
         ),
       ],
     ),
+    AutoRoute(page: AddUserPage),
+    AutoRoute(page: ApproveUserPage),
   ],
 )
 class $AppRouter {}
