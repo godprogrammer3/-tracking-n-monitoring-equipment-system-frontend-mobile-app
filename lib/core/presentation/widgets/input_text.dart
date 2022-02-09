@@ -10,6 +10,7 @@ class InputText extends HookWidget {
   final Widget? suffixIcon;
   final bool isObscureText;
   final TextInputType? keyboardType;
+  final String? initialValue;
   const InputText({
     required this.onChanged,
     this.isError = false,
@@ -19,11 +20,13 @@ class InputText extends HookWidget {
     this.suffixIcon,
     this.isObscureText = false,
     this.keyboardType,
+    this.initialValue,
   });
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: TextFormField(
+        initialValue: initialValue,
         decoration: InputDecoration(
           label: Text(
             label,

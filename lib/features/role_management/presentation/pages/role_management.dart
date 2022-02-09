@@ -80,7 +80,9 @@ class RoleManagementPage extends StatelessWidget {
                 ),
                 title: const Text('สมาชิกทั้งหมด'),
                 trailing: const Icon(Icons.arrow_forward_ios),
-                onTap: () {},
+                onTap: () {
+                  AutoRouter.of(context).push(const AllAccountRoute());
+                },
               ),
             ),
             const SizedBox(
@@ -95,7 +97,10 @@ class RoleManagementPage extends StatelessWidget {
                 ),
                 title: const Text('จัดการแผนก'),
                 trailing: const Icon(Icons.arrow_forward_ios),
-                onTap: () {},
+                onTap: () {
+                  AutoRouter.of(context)
+                      .push(const DapartmentManagementRoute());
+                },
               ),
             ),
             const SizedBox(

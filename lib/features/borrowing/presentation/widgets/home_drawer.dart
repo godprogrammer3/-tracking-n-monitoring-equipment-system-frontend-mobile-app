@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:frontend/core/presentation/routes/router.gr.dart';
+import 'package:frontend/core/presentation/widgets/account_card_widget.dart';
+import 'package:frontend/core/utils/enum.dart';
 
 class HomeDrawer extends HookWidget {
   const HomeDrawer({Key? key}) : super(key: key);
@@ -26,29 +28,18 @@ class HomeDrawer extends HookWidget {
                 ],
                 color: Colors.white,
               ),
-              child: ListTile(
-                leading: CircleAvatar(
-                  radius: 30,
-                  backgroundImage: Image.asset(
-                    'assets/images/account/profile_image_example.png',
-                    fit: BoxFit.fill,
-                  ).image,
+              child: const SizedBox(
+                width: 300,
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: AccountCardWidget(
+                    imagePath:
+                        'assets/images/account/profile_image_example.png',
+                    name: 'Darlene Robertson',
+                    role: Role.superAdmin,
+                    dapartment: 'แผนกบริหาร',
+                  ),
                 ),
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Darlene Robertson',
-                      style: Theme.of(context).primaryTextTheme.headline2,
-                    ),
-                    Image.asset(
-                      'assets/icons/account/super_admin_icon.png',
-                      width: 40,
-                      height: 40,
-                    ),
-                  ],
-                ),
-                subtitle: const Text('Super admin | แผนกบริหาร'),
               ),
             ),
             Expanded(

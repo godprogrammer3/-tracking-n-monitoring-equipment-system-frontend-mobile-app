@@ -30,11 +30,12 @@ class AppWidget extends StatelessWidget {
             primary: const Color.fromRGBO(85, 8, 182, 1),
             secondary: const Color.fromRGBO(128, 36, 244, 1),
             error: Colors.red,
+            background: const Color.fromRGBO(240, 240, 240, 1),
           ),
           primaryTextTheme: const TextTheme(
             headline1: TextStyle(
               color: Colors.black,
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
               fontFamily: 'IBM Plex Sans Thai',
             ),
@@ -45,17 +46,17 @@ class AppWidget extends StatelessWidget {
             ),
             headline3: TextStyle(
               color: Colors.black,
-              fontSize: 15,
+              fontSize: 16,
               fontFamily: 'IBM Plex Sans Thai',
             ),
             subtitle1: TextStyle(
               color: Colors.black,
-              fontSize: 17,
+              fontSize: 15,
               fontFamily: 'IBM Plex Sans Thai',
             ),
             bodyText1: TextStyle(
               color: Color.fromRGBO(51, 51, 51, 1),
-              fontSize: 15,
+              fontSize: 14,
               fontFamily: 'IBM Plex Sans Thai',
             ),
             caption: TextStyle(

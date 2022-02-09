@@ -36,7 +36,7 @@ class AccountPage extends StatelessWidget {
                               width: 20,
                             ),
                             Image.asset(
-                              'assets/icons/account/super_admin_icon.png',
+                              'assets/icons/role_management/super_admin_icon.png',
                               width: 40,
                               height: 40,
                             ),
