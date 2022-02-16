@@ -23,7 +23,11 @@ class AllLockerPage extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+          IconButton(
+              onPressed: () {
+                AutoRouter.of(context).push(const QrScanningRoute());
+              },
+              icon: const Icon(Icons.add)),
         ],
       ),
       body: Padding(
