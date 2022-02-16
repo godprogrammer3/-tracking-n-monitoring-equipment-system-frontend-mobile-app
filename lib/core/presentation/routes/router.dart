@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:frontend/core/presentation/page/home.dart';
 import 'package:frontend/core/presentation/page/splash.dart';
 import 'package:frontend/features/account/presentation/pages/account.dart';
+import 'package:frontend/features/account/presentation/pages/edit_account.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_add_face_id.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_add_face_id_completed.dart';
 import 'package:frontend/features/authentication/presentation/pages/register/register_completed.dart';
@@ -26,11 +27,14 @@ import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/lis
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/toggle_locker.dart';
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/unlock_locker.dart';
 import 'package:frontend/features/history/presentation/pages/history.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/all_locker.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/manage_locker_and_equipment.dart';
 import 'package:frontend/features/notification/presentation/pages/notification.dart';
 import 'package:frontend/features/role_management/presentation/pages/account_detail.dart';
 import 'package:frontend/features/role_management/presentation/pages/add_user.dart';
 import 'package:frontend/features/role_management/presentation/pages/all_account.dart';
 import 'package:frontend/features/role_management/presentation/pages/approve_user.dart';
+import 'package:frontend/features/role_management/presentation/pages/block_account.dart';
 import 'package:frontend/features/role_management/presentation/pages/department_add_account.dart';
 import 'package:frontend/features/role_management/presentation/pages/department_detail.dart';
 import 'package:frontend/features/role_management/presentation/pages/department_management.dart';
@@ -127,11 +131,15 @@ import 'package:frontend/features/role_management/presentation/pages/role_manage
     ),
     AutoRoute(page: AddUserPage),
     AutoRoute(page: ApproveUserPage),
-    AutoRoute(page: DapartmentManagementPage),
-    AutoRoute(page: DapartmentDetailPage),
+    AutoRoute(page: DepartmentManagementPage),
+    AutoRoute(page: DepartmentDetailPage),
     AutoRoute(page: DepartmentAddAccountPage),
     AutoRoute(page: AllAccountPage),
     AutoRoute(page: AccountDetailPage),
+    AutoRoute(page: EditAccountPage),
+    AutoRoute(page: BlockAccountPage),
+    AutoRoute(page: ManageLockerAndEquipmentPage),
+    AutoRoute(page: AllLockerPage),
   ],
 )
 class $AppRouter {}

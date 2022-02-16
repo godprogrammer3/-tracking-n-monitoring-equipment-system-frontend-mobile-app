@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:frontend/features/role_management/presentation/widgets/add_dapartment_widget.dart';
 import 'package:frontend/core/presentation/routes/router.gr.dart';
 
-class DapartmentManagementPage extends StatelessWidget {
-  const DapartmentManagementPage({Key? key}) : super(key: key);
+class DepartmentManagementPage extends StatelessWidget {
+  const DepartmentManagementPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class DapartmentManagementPage extends StatelessWidget {
             ),
             trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {
-              AutoRouter.of(context).push(const DapartmentDetailRoute());
+              AutoRouter.of(context).push(const DepartmentDetailRoute());
             },
           );
         },

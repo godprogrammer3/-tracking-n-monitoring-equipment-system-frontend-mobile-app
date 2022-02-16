@@ -48,6 +48,7 @@ dependencies:
   twitter_login: ^4.0.1
   image_picker: ^0.8.4+4
   carousel_slider: ^4.0.0
+  qr_code_scanner: ^0.6.1
 
 dev_dependencies:
   flutter_test:

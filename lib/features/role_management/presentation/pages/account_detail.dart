@@ -13,17 +13,15 @@ class AccountDetailPage extends StatelessWidget {
       length: 6,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Darlene Roberson',
-            style: TextStyle(color: Colors.black),
-          ),
           backgroundColor: Colors.white,
           iconTheme: const IconThemeData(color: Colors.black),
           elevation: 0,
           actions: [
             PopupMenuButton(
               onSelected: (value) {
-                print(value);
+                if (value == 1) {
+                  AutoRouter.of(context).push(const EditAccountRoute());
+                }
               },
               icon: const Icon(Icons.more_vert),
               itemBuilder: (context) => [

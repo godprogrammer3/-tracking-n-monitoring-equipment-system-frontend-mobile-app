@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/core/presentation/routes/router.gr.dart';
 import 'package:frontend/features/borrowing/presentation/widgets/home_drawer.dart';
 
-class RoleManagementPage extends StatelessWidget {
+class ManageLockerAndEquipmentPage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class RoleManagementPage extends StatelessWidget {
       key: _key,
       appBar: AppBar(
         title: Text(
-          'การจัดการสิทธิ',
+          'ตู้และอุปกรณ์',
           style: Theme.of(context).primaryTextTheme.headline1,
         ),
         centerTitle: true,
@@ -35,19 +35,18 @@ class RoleManagementPage extends StatelessWidget {
           20,
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Card(
               child: ListTile(
                 leading: Image.asset(
-                  'assets/icons/role_management/add_user_icon.png',
+                  'assets/icons/manage_locker_and_equipment/locker_icon_medium.png',
                   width: 50,
                   height: 50,
                 ),
-                title: const Text('เพิ่มผู้ใช้'),
+                title: const Text('จัดการตู้และอุปกรณ์'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  AutoRouter.of(context).push(const AddUserRoute());
+                  AutoRouter.of(context).push(const AllLockerRoute());
                 },
               ),
             ),
@@ -57,11 +56,11 @@ class RoleManagementPage extends StatelessWidget {
             Card(
               child: ListTile(
                 leading: Image.asset(
-                  'assets/icons/role_management/approve_user_icon.png',
+                  'assets/icons/manage_locker_and_equipment/location_icon_medium.png',
                   width: 50,
                   height: 50,
                 ),
-                title: const Text('อนุมัติผู้ใช้งาน'),
+                title: const Text('จัดการสถานที่'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
                   AutoRouter.of(context).push(const ApproveUserRoute());
@@ -74,49 +73,14 @@ class RoleManagementPage extends StatelessWidget {
             Card(
               child: ListTile(
                 leading: Image.asset(
-                  'assets/icons/core/account_group_icon_active.png',
+                  'assets/icons/manage_locker_and_equipment/category_icon_medium.png',
                   width: 50,
                   height: 50,
                 ),
-                title: const Text('สมาชิกทั้งหมด'),
+                title: const Text('จัดการหมวดหมู่'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
                   AutoRouter.of(context).push(const AllAccountRoute());
-                },
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Card(
-              child: ListTile(
-                leading: Image.asset(
-                  'assets/icons/role_management/role_icon.png',
-                  width: 50,
-                  height: 50,
-                ),
-                title: const Text('จัดการแผนก'),
-                trailing: const Icon(Icons.arrow_forward_ios),
-                onTap: () {
-                  AutoRouter.of(context)
-                      .push(const DepartmentManagementRoute());
-                },
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Card(
-              child: ListTile(
-                leading: Image.asset(
-                  'assets/icons/role_management/block_icon.png',
-                  width: 50,
-                  height: 50,
-                ),
-                title: const Text('การบล็อก'),
-                trailing: const Icon(Icons.arrow_forward_ios),
-                onTap: () {
-                  AutoRouter.of(context).push(const BlockAccountRoute());
                 },
               ),
             ),

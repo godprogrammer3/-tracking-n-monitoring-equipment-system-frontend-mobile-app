@@ -6,8 +6,8 @@ import 'package:frontend/core/presentation/widgets/search_box_widget.dart';
 import 'package:frontend/core/utils/enum.dart';
 import 'package:frontend/features/role_management/presentation/widgets/edit_dapartment_widget.dart';
 
-class DapartmentDetailPage extends StatelessWidget {
-  const DapartmentDetailPage({Key? key}) : super(key: key);
+class DepartmentDetailPage extends StatelessWidget {
+  const DepartmentDetailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

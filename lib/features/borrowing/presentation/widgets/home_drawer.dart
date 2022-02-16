@@ -11,7 +11,6 @@ class HomeDrawer extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final topRoute = RouteData.of(context).router.topRoute;
-    print(topRoute.name);
     return Drawer(
       child: SafeArea(
         child: Column(
@@ -51,18 +50,20 @@ class HomeDrawer extends HookWidget {
                     InkWell(
                       onTap: () {},
                       child: Container(
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color.fromRGBO(255, 241, 248, 1),
-                              Color.fromRGBO(250, 245, 255, 1),
-                              Color.fromRGBO(243, 232, 255, 1),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
+                        decoration: topRoute.name != 'RoleManagementRoute'
+                            ? null
+                            : BoxDecoration(
+                                gradient: const LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Color.fromRGBO(255, 241, 248, 1),
+                                    Color.fromRGBO(250, 245, 255, 1),
+                                    Color.fromRGBO(243, 232, 255, 1),
+                                  ],
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
                         child: ListTile(
                           leading: Image.asset(
                             'assets/icons/core/account_group_icon_active.png',
@@ -93,20 +94,21 @@ class HomeDrawer extends HookWidget {
                       ),
                     ),
                     Container(
-                      decoration: true
-                          ? null
-                          : BoxDecoration(
-                              gradient: const LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  Color.fromRGBO(255, 241, 248, 1),
-                                  Color.fromRGBO(250, 245, 255, 1),
-                                  Color.fromRGBO(243, 232, 255, 1),
-                                ],
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
+                      decoration:
+                          topRoute.name != 'ManageLockerAndEquipmentRoute'
+                              ? null
+                              : BoxDecoration(
+                                  gradient: const LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: [
+                                      Color.fromRGBO(255, 241, 248, 1),
+                                      Color.fromRGBO(250, 245, 255, 1),
+                                      Color.fromRGBO(243, 232, 255, 1),
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
                       child: ListTile(
                         leading: Image.asset(
                           'assets/icons/core/locker_icon_inactive.png',
@@ -118,6 +120,16 @@ class HomeDrawer extends HookWidget {
                           'ตู้และอุปกรณ์',
                           style: Theme.of(context).primaryTextTheme.headline1,
                         ),
+                        onTap: () {
+                          if (topRoute.name == 'DashBoardRoute') {
+                            AutoRouter.of(context).popAndPush(
+                                const ManageLockerAndEquipmentRoute());
+                          } else {
+                            AutoRouter.of(context).pop();
+                            AutoRouter.of(context).popAndPush(
+                                const ManageLockerAndEquipmentRoute());
+                          }
+                        },
                       ),
                     ),
                     Container(

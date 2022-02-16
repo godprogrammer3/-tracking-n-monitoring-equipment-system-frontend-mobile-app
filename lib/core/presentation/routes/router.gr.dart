@@ -8,10 +8,11 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-import 'package:auto_route/auto_route.dart' as _i28;
-import 'package:flutter/material.dart' as _i37;
+import 'package:auto_route/auto_route.dart' as _i32;
+import 'package:flutter/material.dart' as _i41;
 
-import '../../../features/account/presentation/pages/account.dart' as _i36;
+import '../../../features/account/presentation/pages/account.dart' as _i40;
+import '../../../features/account/presentation/pages/edit_account.dart' as _i28;
 import '../../../features/authentication/presentation/pages/register/register_add_face_id.dart'
     as _i18;
 import '../../../features/authentication/presentation/pages/register/register_add_face_id_completed.dart'
@@ -49,16 +50,20 @@ import '../../../features/authentication/presentation/pages/sign_in/sing_in_page
 import '../../../features/authentication/presentation/pages/test_page/social_login_test.dart'
     as _i16;
 import '../../../features/borrowing/presentation/pages/dash_board/dash_board.dart'
-    as _i29;
-import '../../../features/borrowing/presentation/pages/unlock_locker/list_locker.dart'
-    as _i34;
-import '../../../features/borrowing/presentation/pages/unlock_locker/toggle_locker.dart'
-    as _i35;
-import '../../../features/borrowing/presentation/pages/unlock_locker/unlock_locker.dart'
     as _i33;
-import '../../../features/history/presentation/pages/history.dart' as _i31;
+import '../../../features/borrowing/presentation/pages/unlock_locker/list_locker.dart'
+    as _i38;
+import '../../../features/borrowing/presentation/pages/unlock_locker/toggle_locker.dart'
+    as _i39;
+import '../../../features/borrowing/presentation/pages/unlock_locker/unlock_locker.dart'
+    as _i37;
+import '../../../features/history/presentation/pages/history.dart' as _i35;
+import '../../../features/manage_locker_and_equipment/presentation/pages/all_locker.dart'
+    as _i31;
+import '../../../features/manage_locker_and_equipment/presentation/pages/manage_locker_and_equipment.dart'
+    as _i30;
 import '../../../features/notification/presentation/pages/notification.dart'
-    as _i32;
+    as _i36;
 import '../../../features/role_management/presentation/pages/account_detail.dart'
     as _i27;
 import '../../../features/role_management/presentation/pages/add_user.dart'
@@ -67,6 +72,8 @@ import '../../../features/role_management/presentation/pages/all_account.dart'
     as _i26;
 import '../../../features/role_management/presentation/pages/approve_user.dart'
     as _i22;
+import '../../../features/role_management/presentation/pages/block_account.dart'
+    as _i29;
 import '../../../features/role_management/presentation/pages/department_add_account.dart'
     as _i25;
 import '../../../features/role_management/presentation/pages/department_detail.dart'
@@ -74,306 +81,327 @@ import '../../../features/role_management/presentation/pages/department_detail.d
 import '../../../features/role_management/presentation/pages/department_management.dart'
     as _i23;
 import '../../../features/role_management/presentation/pages/role_management.dart'
-    as _i30;
+    as _i34;
 import '../page/home.dart' as _i20;
 import '../page/splash.dart' as _i1;
 
-class AppRouter extends _i28.RootStackRouter {
-  AppRouter([_i37.GlobalKey<_i37.NavigatorState>? navigatorKey])
+class AppRouter extends _i32.RootStackRouter {
+  AppRouter([_i41.GlobalKey<_i41.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i28.PageFactory> pagesMap = {
+  final Map<String, _i32.PageFactory> pagesMap = {
     SplashRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: _i1.SplashPage());
     },
     SignInRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: _i2.SignInPage());
     },
     RegisterWelcomeRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i3.RegisterWelcomePage());
     },
     RegisterEnterNameRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i4.RegisterEnterNamePage());
     },
     RegisterEnterPhoneNumberRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData,
           child: const _i5.RegisterEnterPhoneNumberPage());
     },
     RegisterEnterOTPRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i6.RegisterEnterOTPPage());
     },
     RegisterEnterEmailRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i7.RegisterEnterEmailPage());
     },
     RegisterEnterPasswordRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i8.RegisterEnterPasswordPage());
     },
     RegisterEnterRoleRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i9.RegisterEnterRolePage());
     },
     RegisterEnterPinSettingRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData,
           child: const _i10.RegisterEnterPinSettingPage());
     },
     RegisterEnterPinSettingConfirmRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData,
           child: const _i11.RegisterEnterPinSettingConfirmPage());
     },
     RegisterVerifyEmailRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i12.RegisterVerifyEmailPage());
     },
     RegisterCompletedRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i13.RegisterCompletedPage());
     },
     RegisterProfileDataRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i14.RegisterProfileDataPage());
     },
     RegisterProfileDataFormRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData,
           child: const _i15.RegisterProfileDataFormPage());
     },
     SocialLoginTestRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: _i16.SocialLoginTestPage());
     },
     RegisterProfileDataCompletedRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData,
           child: const _i17.RegisterProfileDataCompletedPage());
     },
     RegisterAddFaceIdRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i18.RegisterAddFaceIdPage());
     },
     RegisterAddFaceIdCompletedRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData,
           child: const _i19.RegisterAddFaceIdCompletedPage());
     },
     HomeRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i20.HomePage());
     },
     AddUserRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i21.AddUserPage());
     },
     ApproveUserRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i22.ApproveUserPage());
     },
-    DapartmentManagementRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i23.DapartmentManagementPage());
+    DepartmentManagementRoute.name: (routeData) {
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i23.DepartmentManagementPage());
     },
-    DapartmentDetailRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i24.DapartmentDetailPage());
+    DepartmentDetailRoute.name: (routeData) {
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i24.DepartmentDetailPage());
     },
     DepartmentAddAccountRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i25.DepartmentAddAccountPage());
     },
     AllAccountRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i26.AllAccountPage());
     },
     AccountDetailRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i27.AccountDetailPage());
     },
+    EditAccountRoute.name: (routeData) {
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i28.EditAccountPage());
+    },
+    BlockAccountRoute.name: (routeData) {
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i29.BlockAccountPage());
+    },
+    ManageLockerAndEquipmentRoute.name: (routeData) {
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: _i30.ManageLockerAndEquipmentPage());
+    },
+    AllLockerRoute.name: (routeData) {
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i31.AllLockerPage());
+    },
     DashBoardRouter.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i28.EmptyRouterPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i32.EmptyRouterPage());
     },
     HistoryRouter.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i28.EmptyRouterPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i32.EmptyRouterPage());
     },
     NotificationRouter.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i28.EmptyRouterPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i32.EmptyRouterPage());
     },
     UnlockLockerRouter.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i28.EmptyRouterPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i32.EmptyRouterPage());
     },
     AccountRouter.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i28.EmptyRouterPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i32.EmptyRouterPage());
     },
     DashBoardRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i29.DashBoardPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: _i33.DashBoardPage());
     },
     RoleManagementRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i30.RoleManagementPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: _i34.RoleManagementPage());
     },
     HistoryRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i31.HistoryPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: _i35.HistoryPage());
     },
     NotificationRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i32.NotificationPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: _i36.NotificationPage());
     },
     UnlockLockerRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i33.UnlockLockerPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i37.UnlockLockerPage());
     },
     ListLockerRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i34.ListLockerPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: _i38.ListLockerPage());
     },
     ToggleLockerRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<ToggleLockerRouteArgs>(
           orElse: () =>
               ToggleLockerRouteArgs(lockerId: pathParams.getInt('lockerId')));
-      return _i28.MaterialPageX<dynamic>(
+      return _i32.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i35.ToggleLockerPage(key: args.key, lockerId: args.lockerId));
+          child: _i39.ToggleLockerPage(key: args.key, lockerId: args.lockerId));
     },
     AccountRoute.name: (routeData) {
-      return _i28.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i36.AccountPage());
+      return _i32.MaterialPageX<dynamic>(
+          routeData: routeData, child: _i40.AccountPage());
     }
   };
 
   @override
-  List<_i28.RouteConfig> get routes => [
-        _i28.RouteConfig(SplashRoute.name, path: '/splash-page'),
-        _i28.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
-        _i28.RouteConfig(RegisterWelcomeRoute.name,
+  List<_i32.RouteConfig> get routes => [
+        _i32.RouteConfig(SplashRoute.name, path: '/splash-page'),
+        _i32.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
+        _i32.RouteConfig(RegisterWelcomeRoute.name,
             path: '/register-welcome-page'),
-        _i28.RouteConfig(RegisterEnterNameRoute.name,
+        _i32.RouteConfig(RegisterEnterNameRoute.name,
             path: '/register-enter-name-page'),
-        _i28.RouteConfig(RegisterEnterPhoneNumberRoute.name,
+        _i32.RouteConfig(RegisterEnterPhoneNumberRoute.name,
             path: '/register-enter-phone-number-page'),
-        _i28.RouteConfig(RegisterEnterOTPRoute.name,
+        _i32.RouteConfig(RegisterEnterOTPRoute.name,
             path: '/register-enter-ot-pPage'),
-        _i28.RouteConfig(RegisterEnterEmailRoute.name,
+        _i32.RouteConfig(RegisterEnterEmailRoute.name,
             path: '/register-enter-email-page'),
-        _i28.RouteConfig(RegisterEnterPasswordRoute.name,
+        _i32.RouteConfig(RegisterEnterPasswordRoute.name,
             path: '/register-enter-password-page'),
-        _i28.RouteConfig(RegisterEnterRoleRoute.name,
+        _i32.RouteConfig(RegisterEnterRoleRoute.name,
             path: '/register-enter-role-page'),
-        _i28.RouteConfig(RegisterEnterPinSettingRoute.name,
+        _i32.RouteConfig(RegisterEnterPinSettingRoute.name,
             path: '/register-enter-pin-setting-page'),
-        _i28.RouteConfig(RegisterEnterPinSettingConfirmRoute.name,
+        _i32.RouteConfig(RegisterEnterPinSettingConfirmRoute.name,
             path: '/register-enter-pin-setting-confirm-page'),
-        _i28.RouteConfig(RegisterVerifyEmailRoute.name,
+        _i32.RouteConfig(RegisterVerifyEmailRoute.name,
             path: '/register-verify-email-page'),
-        _i28.RouteConfig(RegisterCompletedRoute.name,
+        _i32.RouteConfig(RegisterCompletedRoute.name,
             path: '/register-completed-page'),
-        _i28.RouteConfig(RegisterProfileDataRoute.name,
+        _i32.RouteConfig(RegisterProfileDataRoute.name,
             path: '/register-profile-data-page'),
-        _i28.RouteConfig(RegisterProfileDataFormRoute.name,
+        _i32.RouteConfig(RegisterProfileDataFormRoute.name,
             path: '/register-profile-data-form-page'),
-        _i28.RouteConfig(SocialLoginTestRoute.name,
+        _i32.RouteConfig(SocialLoginTestRoute.name,
             path: '/social-login-test-page'),
-        _i28.RouteConfig(RegisterProfileDataCompletedRoute.name,
+        _i32.RouteConfig(RegisterProfileDataCompletedRoute.name,
             path: '/register-profile-data-completed-page'),
-        _i28.RouteConfig(RegisterAddFaceIdRoute.name,
+        _i32.RouteConfig(RegisterAddFaceIdRoute.name,
             path: '/register-add-face-id-page'),
-        _i28.RouteConfig(RegisterAddFaceIdCompletedRoute.name,
+        _i32.RouteConfig(RegisterAddFaceIdCompletedRoute.name,
             path: '/register-add-face-id-completed-page'),
-        _i28.RouteConfig(HomeRoute.name, path: '/', children: [
-          _i28.RouteConfig(DashBoardRouter.name,
+        _i32.RouteConfig(HomeRoute.name, path: '/', children: [
+          _i32.RouteConfig(DashBoardRouter.name,
               path: 'dash_board',
               parent: HomeRoute.name,
               children: [
-                _i28.RouteConfig(DashBoardRoute.name,
+                _i32.RouteConfig(DashBoardRoute.name,
                     path: '', parent: DashBoardRouter.name),
-                _i28.RouteConfig(RoleManagementRoute.name,
+                _i32.RouteConfig(RoleManagementRoute.name,
                     path: 'role_management', parent: DashBoardRouter.name)
               ]),
-          _i28.RouteConfig(HistoryRouter.name,
+          _i32.RouteConfig(HistoryRouter.name,
               path: 'history',
               parent: HomeRoute.name,
               children: [
-                _i28.RouteConfig(HistoryRoute.name,
+                _i32.RouteConfig(HistoryRoute.name,
                     path: '', parent: HistoryRouter.name)
               ]),
-          _i28.RouteConfig(NotificationRouter.name,
+          _i32.RouteConfig(NotificationRouter.name,
               path: 'notification',
               parent: HomeRoute.name,
               children: [
-                _i28.RouteConfig(NotificationRoute.name,
+                _i32.RouteConfig(NotificationRoute.name,
                     path: '', parent: NotificationRouter.name)
               ]),
-          _i28.RouteConfig(UnlockLockerRouter.name,
+          _i32.RouteConfig(UnlockLockerRouter.name,
               path: 'unlock_locker',
               parent: HomeRoute.name,
               children: [
-                _i28.RouteConfig(UnlockLockerRoute.name,
+                _i32.RouteConfig(UnlockLockerRoute.name,
                     path: '', parent: UnlockLockerRouter.name),
-                _i28.RouteConfig(ListLockerRoute.name,
+                _i32.RouteConfig(ListLockerRoute.name,
                     path: 'list_locker', parent: UnlockLockerRouter.name),
-                _i28.RouteConfig(ToggleLockerRoute.name,
+                _i32.RouteConfig(ToggleLockerRoute.name,
                     path: ':lockerId', parent: UnlockLockerRouter.name)
               ]),
-          _i28.RouteConfig(AccountRouter.name,
+          _i32.RouteConfig(AccountRouter.name,
               path: 'account',
               parent: HomeRoute.name,
               children: [
-                _i28.RouteConfig(AccountRoute.name,
+                _i32.RouteConfig(AccountRoute.name,
                     path: '', parent: AccountRouter.name)
               ])
         ]),
-        _i28.RouteConfig(AddUserRoute.name, path: '/add-user-page'),
-        _i28.RouteConfig(ApproveUserRoute.name, path: '/approve-user-page'),
-        _i28.RouteConfig(DapartmentManagementRoute.name,
-            path: '/dapartment-management-page'),
-        _i28.RouteConfig(DapartmentDetailRoute.name,
-            path: '/dapartment-detail-page'),
-        _i28.RouteConfig(DepartmentAddAccountRoute.name,
+        _i32.RouteConfig(AddUserRoute.name, path: '/add-user-page'),
+        _i32.RouteConfig(ApproveUserRoute.name, path: '/approve-user-page'),
+        _i32.RouteConfig(DepartmentManagementRoute.name,
+            path: '/department-management-page'),
+        _i32.RouteConfig(DepartmentDetailRoute.name,
+            path: '/department-detail-page'),
+        _i32.RouteConfig(DepartmentAddAccountRoute.name,
             path: '/department-add-account-page'),
-        _i28.RouteConfig(AllAccountRoute.name, path: '/all-account-page'),
-        _i28.RouteConfig(AccountDetailRoute.name, path: '/account-detail-page')
+        _i32.RouteConfig(AllAccountRoute.name, path: '/all-account-page'),
+        _i32.RouteConfig(AccountDetailRoute.name, path: '/account-detail-page'),
+        _i32.RouteConfig(EditAccountRoute.name, path: '/edit-account-page'),
+        _i32.RouteConfig(BlockAccountRoute.name, path: '/block-account-page'),
+        _i32.RouteConfig(ManageLockerAndEquipmentRoute.name,
+            path: '/manage-locker-and-equipment-page'),
+        _i32.RouteConfig(AllLockerRoute.name, path: '/all-locker-page')
       ];
 }
 
 /// generated route for [_i1.SplashPage]
-class SplashRoute extends _i28.PageRouteInfo<void> {
+class SplashRoute extends _i32.PageRouteInfo<void> {
   const SplashRoute() : super(name, path: '/splash-page');
 
   static const String name = 'SplashRoute';
 }
 
 /// generated route for [_i2.SignInPage]
-class SignInRoute extends _i28.PageRouteInfo<void> {
+class SignInRoute extends _i32.PageRouteInfo<void> {
   const SignInRoute() : super(name, path: '/sign-in-page');
 
   static const String name = 'SignInRoute';
 }
 
 /// generated route for [_i3.RegisterWelcomePage]
-class RegisterWelcomeRoute extends _i28.PageRouteInfo<void> {
+class RegisterWelcomeRoute extends _i32.PageRouteInfo<void> {
   const RegisterWelcomeRoute() : super(name, path: '/register-welcome-page');
 
   static const String name = 'RegisterWelcomeRoute';
 }
 
 /// generated route for [_i4.RegisterEnterNamePage]
-class RegisterEnterNameRoute extends _i28.PageRouteInfo<void> {
+class RegisterEnterNameRoute extends _i32.PageRouteInfo<void> {
   const RegisterEnterNameRoute()
       : super(name, path: '/register-enter-name-page');
 
@@ -381,7 +409,7 @@ class RegisterEnterNameRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i5.RegisterEnterPhoneNumberPage]
-class RegisterEnterPhoneNumberRoute extends _i28.PageRouteInfo<void> {
+class RegisterEnterPhoneNumberRoute extends _i32.PageRouteInfo<void> {
   const RegisterEnterPhoneNumberRoute()
       : super(name, path: '/register-enter-phone-number-page');
 
@@ -389,14 +417,14 @@ class RegisterEnterPhoneNumberRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i6.RegisterEnterOTPPage]
-class RegisterEnterOTPRoute extends _i28.PageRouteInfo<void> {
+class RegisterEnterOTPRoute extends _i32.PageRouteInfo<void> {
   const RegisterEnterOTPRoute() : super(name, path: '/register-enter-ot-pPage');
 
   static const String name = 'RegisterEnterOTPRoute';
 }
 
 /// generated route for [_i7.RegisterEnterEmailPage]
-class RegisterEnterEmailRoute extends _i28.PageRouteInfo<void> {
+class RegisterEnterEmailRoute extends _i32.PageRouteInfo<void> {
   const RegisterEnterEmailRoute()
       : super(name, path: '/register-enter-email-page');
 
@@ -404,7 +432,7 @@ class RegisterEnterEmailRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i8.RegisterEnterPasswordPage]
-class RegisterEnterPasswordRoute extends _i28.PageRouteInfo<void> {
+class RegisterEnterPasswordRoute extends _i32.PageRouteInfo<void> {
   const RegisterEnterPasswordRoute()
       : super(name, path: '/register-enter-password-page');
 
@@ -412,7 +440,7 @@ class RegisterEnterPasswordRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i9.RegisterEnterRolePage]
-class RegisterEnterRoleRoute extends _i28.PageRouteInfo<void> {
+class RegisterEnterRoleRoute extends _i32.PageRouteInfo<void> {
   const RegisterEnterRoleRoute()
       : super(name, path: '/register-enter-role-page');
 
@@ -420,7 +448,7 @@ class RegisterEnterRoleRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i10.RegisterEnterPinSettingPage]
-class RegisterEnterPinSettingRoute extends _i28.PageRouteInfo<void> {
+class RegisterEnterPinSettingRoute extends _i32.PageRouteInfo<void> {
   const RegisterEnterPinSettingRoute()
       : super(name, path: '/register-enter-pin-setting-page');
 
@@ -428,7 +456,7 @@ class RegisterEnterPinSettingRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i11.RegisterEnterPinSettingConfirmPage]
-class RegisterEnterPinSettingConfirmRoute extends _i28.PageRouteInfo<void> {
+class RegisterEnterPinSettingConfirmRoute extends _i32.PageRouteInfo<void> {
   const RegisterEnterPinSettingConfirmRoute()
       : super(name, path: '/register-enter-pin-setting-confirm-page');
 
@@ -436,7 +464,7 @@ class RegisterEnterPinSettingConfirmRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i12.RegisterVerifyEmailPage]
-class RegisterVerifyEmailRoute extends _i28.PageRouteInfo<void> {
+class RegisterVerifyEmailRoute extends _i32.PageRouteInfo<void> {
   const RegisterVerifyEmailRoute()
       : super(name, path: '/register-verify-email-page');
 
@@ -444,7 +472,7 @@ class RegisterVerifyEmailRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i13.RegisterCompletedPage]
-class RegisterCompletedRoute extends _i28.PageRouteInfo<void> {
+class RegisterCompletedRoute extends _i32.PageRouteInfo<void> {
   const RegisterCompletedRoute()
       : super(name, path: '/register-completed-page');
 
@@ -452,7 +480,7 @@ class RegisterCompletedRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i14.RegisterProfileDataPage]
-class RegisterProfileDataRoute extends _i28.PageRouteInfo<void> {
+class RegisterProfileDataRoute extends _i32.PageRouteInfo<void> {
   const RegisterProfileDataRoute()
       : super(name, path: '/register-profile-data-page');
 
@@ -460,7 +488,7 @@ class RegisterProfileDataRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i15.RegisterProfileDataFormPage]
-class RegisterProfileDataFormRoute extends _i28.PageRouteInfo<void> {
+class RegisterProfileDataFormRoute extends _i32.PageRouteInfo<void> {
   const RegisterProfileDataFormRoute()
       : super(name, path: '/register-profile-data-form-page');
 
@@ -468,14 +496,14 @@ class RegisterProfileDataFormRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i16.SocialLoginTestPage]
-class SocialLoginTestRoute extends _i28.PageRouteInfo<void> {
+class SocialLoginTestRoute extends _i32.PageRouteInfo<void> {
   const SocialLoginTestRoute() : super(name, path: '/social-login-test-page');
 
   static const String name = 'SocialLoginTestRoute';
 }
 
 /// generated route for [_i17.RegisterProfileDataCompletedPage]
-class RegisterProfileDataCompletedRoute extends _i28.PageRouteInfo<void> {
+class RegisterProfileDataCompletedRoute extends _i32.PageRouteInfo<void> {
   const RegisterProfileDataCompletedRoute()
       : super(name, path: '/register-profile-data-completed-page');
 
@@ -483,7 +511,7 @@ class RegisterProfileDataCompletedRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i18.RegisterAddFaceIdPage]
-class RegisterAddFaceIdRoute extends _i28.PageRouteInfo<void> {
+class RegisterAddFaceIdRoute extends _i32.PageRouteInfo<void> {
   const RegisterAddFaceIdRoute()
       : super(name, path: '/register-add-face-id-page');
 
@@ -491,7 +519,7 @@ class RegisterAddFaceIdRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i19.RegisterAddFaceIdCompletedPage]
-class RegisterAddFaceIdCompletedRoute extends _i28.PageRouteInfo<void> {
+class RegisterAddFaceIdCompletedRoute extends _i32.PageRouteInfo<void> {
   const RegisterAddFaceIdCompletedRoute()
       : super(name, path: '/register-add-face-id-completed-page');
 
@@ -499,44 +527,44 @@ class RegisterAddFaceIdCompletedRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i20.HomePage]
-class HomeRoute extends _i28.PageRouteInfo<void> {
-  const HomeRoute({List<_i28.PageRouteInfo>? children})
+class HomeRoute extends _i32.PageRouteInfo<void> {
+  const HomeRoute({List<_i32.PageRouteInfo>? children})
       : super(name, path: '/', initialChildren: children);
 
   static const String name = 'HomeRoute';
 }
 
 /// generated route for [_i21.AddUserPage]
-class AddUserRoute extends _i28.PageRouteInfo<void> {
+class AddUserRoute extends _i32.PageRouteInfo<void> {
   const AddUserRoute() : super(name, path: '/add-user-page');
 
   static const String name = 'AddUserRoute';
 }
 
 /// generated route for [_i22.ApproveUserPage]
-class ApproveUserRoute extends _i28.PageRouteInfo<void> {
+class ApproveUserRoute extends _i32.PageRouteInfo<void> {
   const ApproveUserRoute() : super(name, path: '/approve-user-page');
 
   static const String name = 'ApproveUserRoute';
 }
 
-/// generated route for [_i23.DapartmentManagementPage]
-class DapartmentManagementRoute extends _i28.PageRouteInfo<void> {
-  const DapartmentManagementRoute()
-      : super(name, path: '/dapartment-management-page');
+/// generated route for [_i23.DepartmentManagementPage]
+class DepartmentManagementRoute extends _i32.PageRouteInfo<void> {
+  const DepartmentManagementRoute()
+      : super(name, path: '/department-management-page');
 
-  static const String name = 'DapartmentManagementRoute';
+  static const String name = 'DepartmentManagementRoute';
 }
 
-/// generated route for [_i24.DapartmentDetailPage]
-class DapartmentDetailRoute extends _i28.PageRouteInfo<void> {
-  const DapartmentDetailRoute() : super(name, path: '/dapartment-detail-page');
+/// generated route for [_i24.DepartmentDetailPage]
+class DepartmentDetailRoute extends _i32.PageRouteInfo<void> {
+  const DepartmentDetailRoute() : super(name, path: '/department-detail-page');
 
-  static const String name = 'DapartmentDetailRoute';
+  static const String name = 'DepartmentDetailRoute';
 }
 
 /// generated route for [_i25.DepartmentAddAccountPage]
-class DepartmentAddAccountRoute extends _i28.PageRouteInfo<void> {
+class DepartmentAddAccountRoute extends _i32.PageRouteInfo<void> {
   const DepartmentAddAccountRoute()
       : super(name, path: '/department-add-account-page');
 
@@ -544,104 +572,133 @@ class DepartmentAddAccountRoute extends _i28.PageRouteInfo<void> {
 }
 
 /// generated route for [_i26.AllAccountPage]
-class AllAccountRoute extends _i28.PageRouteInfo<void> {
+class AllAccountRoute extends _i32.PageRouteInfo<void> {
   const AllAccountRoute() : super(name, path: '/all-account-page');
 
   static const String name = 'AllAccountRoute';
 }
 
 /// generated route for [_i27.AccountDetailPage]
-class AccountDetailRoute extends _i28.PageRouteInfo<void> {
+class AccountDetailRoute extends _i32.PageRouteInfo<void> {
   const AccountDetailRoute() : super(name, path: '/account-detail-page');
 
   static const String name = 'AccountDetailRoute';
 }
 
-/// generated route for [_i28.EmptyRouterPage]
-class DashBoardRouter extends _i28.PageRouteInfo<void> {
-  const DashBoardRouter({List<_i28.PageRouteInfo>? children})
+/// generated route for [_i28.EditAccountPage]
+class EditAccountRoute extends _i32.PageRouteInfo<void> {
+  const EditAccountRoute() : super(name, path: '/edit-account-page');
+
+  static const String name = 'EditAccountRoute';
+}
+
+/// generated route for [_i29.BlockAccountPage]
+class BlockAccountRoute extends _i32.PageRouteInfo<void> {
+  const BlockAccountRoute() : super(name, path: '/block-account-page');
+
+  static const String name = 'BlockAccountRoute';
+}
+
+/// generated route for [_i30.ManageLockerAndEquipmentPage]
+class ManageLockerAndEquipmentRoute extends _i32.PageRouteInfo<void> {
+  const ManageLockerAndEquipmentRoute()
+      : super(name, path: '/manage-locker-and-equipment-page');
+
+  static const String name = 'ManageLockerAndEquipmentRoute';
+}
+
+/// generated route for [_i31.AllLockerPage]
+class AllLockerRoute extends _i32.PageRouteInfo<void> {
+  const AllLockerRoute() : super(name, path: '/all-locker-page');
+
+  static const String name = 'AllLockerRoute';
+}
+
+/// generated route for [_i32.EmptyRouterPage]
+class DashBoardRouter extends _i32.PageRouteInfo<void> {
+  const DashBoardRouter({List<_i32.PageRouteInfo>? children})
       : super(name, path: 'dash_board', initialChildren: children);
 
   static const String name = 'DashBoardRouter';
 }
 
-/// generated route for [_i28.EmptyRouterPage]
-class HistoryRouter extends _i28.PageRouteInfo<void> {
-  const HistoryRouter({List<_i28.PageRouteInfo>? children})
+/// generated route for [_i32.EmptyRouterPage]
+class HistoryRouter extends _i32.PageRouteInfo<void> {
+  const HistoryRouter({List<_i32.PageRouteInfo>? children})
       : super(name, path: 'history', initialChildren: children);
 
   static const String name = 'HistoryRouter';
 }
 
-/// generated route for [_i28.EmptyRouterPage]
-class NotificationRouter extends _i28.PageRouteInfo<void> {
-  const NotificationRouter({List<_i28.PageRouteInfo>? children})
+/// generated route for [_i32.EmptyRouterPage]
+class NotificationRouter extends _i32.PageRouteInfo<void> {
+  const NotificationRouter({List<_i32.PageRouteInfo>? children})
       : super(name, path: 'notification', initialChildren: children);
 
   static const String name = 'NotificationRouter';
 }
 
-/// generated route for [_i28.EmptyRouterPage]
-class UnlockLockerRouter extends _i28.PageRouteInfo<void> {
-  const UnlockLockerRouter({List<_i28.PageRouteInfo>? children})
+/// generated route for [_i32.EmptyRouterPage]
+class UnlockLockerRouter extends _i32.PageRouteInfo<void> {
+  const UnlockLockerRouter({List<_i32.PageRouteInfo>? children})
       : super(name, path: 'unlock_locker', initialChildren: children);
 
   static const String name = 'UnlockLockerRouter';
 }
 
-/// generated route for [_i28.EmptyRouterPage]
-class AccountRouter extends _i28.PageRouteInfo<void> {
-  const AccountRouter({List<_i28.PageRouteInfo>? children})
+/// generated route for [_i32.EmptyRouterPage]
+class AccountRouter extends _i32.PageRouteInfo<void> {
+  const AccountRouter({List<_i32.PageRouteInfo>? children})
       : super(name, path: 'account', initialChildren: children);
 
   static const String name = 'AccountRouter';
 }
 
-/// generated route for [_i29.DashBoardPage]
-class DashBoardRoute extends _i28.PageRouteInfo<void> {
+/// generated route for [_i33.DashBoardPage]
+class DashBoardRoute extends _i32.PageRouteInfo<void> {
   const DashBoardRoute() : super(name, path: '');
 
   static const String name = 'DashBoardRoute';
 }
 
-/// generated route for [_i30.RoleManagementPage]
-class RoleManagementRoute extends _i28.PageRouteInfo<void> {
+/// generated route for [_i34.RoleManagementPage]
+class RoleManagementRoute extends _i32.PageRouteInfo<void> {
   const RoleManagementRoute() : super(name, path: 'role_management');
 
   static const String name = 'RoleManagementRoute';
 }
 
-/// generated route for [_i31.HistoryPage]
-class HistoryRoute extends _i28.PageRouteInfo<void> {
+/// generated route for [_i35.HistoryPage]
+class HistoryRoute extends _i32.PageRouteInfo<void> {
   const HistoryRoute() : super(name, path: '');
 
   static const String name = 'HistoryRoute';
 }
 
-/// generated route for [_i32.NotificationPage]
-class NotificationRoute extends _i28.PageRouteInfo<void> {
+/// generated route for [_i36.NotificationPage]
+class NotificationRoute extends _i32.PageRouteInfo<void> {
   const NotificationRoute() : super(name, path: '');
 
   static const String name = 'NotificationRoute';
 }
 
-/// generated route for [_i33.UnlockLockerPage]
-class UnlockLockerRoute extends _i28.PageRouteInfo<void> {
+/// generated route for [_i37.UnlockLockerPage]
+class UnlockLockerRoute extends _i32.PageRouteInfo<void> {
   const UnlockLockerRoute() : super(name, path: '');
 
   static const String name = 'UnlockLockerRoute';
 }
 
-/// generated route for [_i34.ListLockerPage]
-class ListLockerRoute extends _i28.PageRouteInfo<void> {
+/// generated route for [_i38.ListLockerPage]
+class ListLockerRoute extends _i32.PageRouteInfo<void> {
   const ListLockerRoute() : super(name, path: 'list_locker');
 
   static const String name = 'ListLockerRoute';
 }
 
-/// generated route for [_i35.ToggleLockerPage]
-class ToggleLockerRoute extends _i28.PageRouteInfo<ToggleLockerRouteArgs> {
-  ToggleLockerRoute({_i37.Key? key, required int lockerId})
+/// generated route for [_i39.ToggleLockerPage]
+class ToggleLockerRoute extends _i32.PageRouteInfo<ToggleLockerRouteArgs> {
+  ToggleLockerRoute({_i41.Key? key, required int lockerId})
       : super(name,
             path: ':lockerId',
             args: ToggleLockerRouteArgs(key: key, lockerId: lockerId),
@@ -653,7 +710,7 @@ class ToggleLockerRoute extends _i28.PageRouteInfo<ToggleLockerRouteArgs> {
 class ToggleLockerRouteArgs {
   const ToggleLockerRouteArgs({this.key, required this.lockerId});
 
-  final _i37.Key? key;
+  final _i41.Key? key;
 
   final int lockerId;
 
@@ -663,8 +720,8 @@ class ToggleLockerRouteArgs {
   }
 }
 
-/// generated route for [_i36.AccountPage]
-class AccountRoute extends _i28.PageRouteInfo<void> {
+/// generated route for [_i40.AccountPage]
+class AccountRoute extends _i32.PageRouteInfo<void> {
   const AccountRoute() : super(name, path: '');
 
   static const String name = 'AccountRoute';
