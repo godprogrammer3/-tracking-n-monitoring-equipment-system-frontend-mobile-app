@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:frontend/core/presentation/page/add_account.dart';
 import 'package:frontend/core/presentation/page/home.dart';
 import 'package:frontend/core/presentation/page/splash.dart';
 import 'package:frontend/features/account/presentation/pages/account.dart';
@@ -37,7 +38,6 @@ import 'package:frontend/features/role_management/presentation/pages/add_user.da
 import 'package:frontend/features/role_management/presentation/pages/all_account.dart';
 import 'package:frontend/features/role_management/presentation/pages/approve_user.dart';
 import 'package:frontend/features/role_management/presentation/pages/block_account.dart';
-import 'package:frontend/features/role_management/presentation/pages/department_add_account.dart';
 import 'package:frontend/features/role_management/presentation/pages/department_detail.dart';
 import 'package:frontend/features/role_management/presentation/pages/department_management.dart';
 import 'package:frontend/features/role_management/presentation/pages/role_management.dart';
@@ -80,7 +80,11 @@ import 'package:frontend/features/role_management/presentation/pages/role_manage
             AutoRoute(
               path: 'role_management',
               page: RoleManagementPage,
-            )
+            ),
+            AutoRoute(
+              path: 'manage_locker_and_equipment_page',
+              page: ManageLockerAndEquipmentPage,
+            ),
           ],
         ),
         AutoRoute(
@@ -135,12 +139,11 @@ import 'package:frontend/features/role_management/presentation/pages/role_manage
     AutoRoute(page: ApproveUserPage),
     AutoRoute(page: DepartmentManagementPage),
     AutoRoute(page: DepartmentDetailPage),
-    AutoRoute(page: DepartmentAddAccountPage),
+    AutoRoute(page: AddAccountPage),
     AutoRoute(page: AllAccountPage),
     AutoRoute(page: AccountDetailPage),
     AutoRoute(page: EditAccountPage),
     AutoRoute(page: BlockAccountPage),
-    AutoRoute(page: ManageLockerAndEquipmentPage),
     AutoRoute(page: AllLockerPage),
     AutoRoute(page: QrScanningPage),
     AutoRoute(page: AddLockerPage),

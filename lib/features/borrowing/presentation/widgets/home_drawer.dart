@@ -84,7 +84,13 @@ class HomeDrawer extends HookWidget {
                             if (topRoute.name == 'DashBoardRoute') {
                               AutoRouter.of(context)
                                   .popAndPush(const RoleManagementRoute());
+                            } else if (topRoute.name ==
+                                'ManageLockerAndEquipmentRoute') {
+                              AutoRouter.of(context).pop();
+                              AutoRouter.of(context)
+                                  .popAndPush(const RoleManagementRoute());
                             } else {
+                              AutoRouter.of(context).pop();
                               AutoRouter.of(context).pop();
                               AutoRouter.of(context)
                                   .popAndPush(const RoleManagementRoute());
@@ -123,8 +129,15 @@ class HomeDrawer extends HookWidget {
                         onTap: () {
                           if (topRoute.name == 'DashBoardRoute') {
                             AutoRouter.of(context).popAndPush(
+                              const ManageLockerAndEquipmentRoute(),
+                            );
+                          } else if (topRoute.name ==
+                              'ManageLockerAndEquipmentRoute') {
+                            AutoRouter.of(context).pop();
+                            AutoRouter.of(context).popAndPush(
                                 const ManageLockerAndEquipmentRoute());
                           } else {
+                            AutoRouter.of(context).pop();
                             AutoRouter.of(context).pop();
                             AutoRouter.of(context).popAndPush(
                                 const ManageLockerAndEquipmentRoute());

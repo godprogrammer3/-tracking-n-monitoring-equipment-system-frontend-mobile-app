@@ -25,7 +25,7 @@ class DepartmentDetailPage extends StatelessWidget {
           PopupMenuButton(
             onSelected: (value) {
               if (value == 1) {
-                AutoRouter.of(context).push(const DepartmentAddAccountRoute());
+                AutoRouter.of(context).push(const AddAccountRoute());
               } else if (value == 2) {
                 showModalBottomSheet<dynamic>(
                   context: context,

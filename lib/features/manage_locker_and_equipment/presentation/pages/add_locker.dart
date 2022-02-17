@@ -1,18 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:frontend/core/presentation/routes/router.gr.dart';
 import 'package:frontend/core/presentation/widgets/bottom_sheet_multiple_select.dart';
 import 'package:frontend/core/presentation/widgets/bottom_sheet_single_select.dart';
 import 'package:frontend/core/presentation/widgets/button.dart';
 import 'package:frontend/core/presentation/widgets/input_text.dart';
-import 'package:frontend/features/role_management/presentation/widgets/add_user_popup_confirm.dart';
+import 'package:frontend/core/presentation/widgets/multiple_select_custom_widget.dart';
 
-class AddLockerPage extends StatelessWidget {
+class AddLockerPage extends HookWidget {
   const AddLockerPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    final ValueNotifier<List<String>?> selectedAccount = useState(null);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -210,6 +212,32 @@ class AddLockerPage extends StatelessWidget {
                   ),
                   const SizedBox(
                     height: 20,
+                  ),
+                  Row(
+                    children: [
+                      MultipleSelectCustomWidget(
+                        listValue: null,
+                        label: 'บัญชีผู้ใช้ (ถ้ามี)',
+                        placeHolder: 'บัญชีผู้ใช้ (ถ้ามี)',
+                        onTap: () async {
+                          return await AutoRouter.of(context)
+                              .push(const AddAccountRoute()) as List<String>?;
+                        },
+                        onChanged: (value) {
+                          print(value);
+                        },
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    width: 300,
+                    child: Button(
+                      'ถัดไป',
+                      onPressed: () {},
+                    ),
                   ),
                 ],
               ),

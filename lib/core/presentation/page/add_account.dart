@@ -1,11 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/core/presentation/widgets/account_card_widget.dart';
-import 'package:frontend/core/presentation/widgets/button.dart';
 import 'package:frontend/core/presentation/widgets/search_box_widget.dart';
 import 'package:frontend/core/utils/enum.dart';
 
-class DepartmentAddAccountPage extends StatelessWidget {
-  const DepartmentAddAccountPage({Key? key}) : super(key: key);
+class AddAccountPage extends StatelessWidget {
+  const AddAccountPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,13 @@ class DepartmentAddAccountPage extends StatelessWidget {
           backgroundColor: Colors.white,
           iconTheme: const IconThemeData(color: Colors.black),
           elevation: 0,
-          actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.done))],
+          actions: [
+            IconButton(
+                onPressed: () {
+                  AutoRouter.of(context).pop(['บัญชี1', 'บัญชี2', 'บัญชี3']);
+                },
+                icon: const Icon(Icons.done))
+          ],
           bottom: TabBar(
             indicatorColor: Theme.of(context).colorScheme.secondary,
             isScrollable: true,
