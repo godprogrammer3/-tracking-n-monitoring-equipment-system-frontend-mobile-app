@@ -1,20 +1,25 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter/material.dart';
+import 'package:numberpicker/numberpicker.dart';
 
-class BottomSheetSingleSelect extends HookWidget {
+class BottomSheetNumberPicker extends HookWidget {
   final String label;
-  final void Function(Map<String, dynamic>?) onChanged;
+  final void Function(int) onChanged;
   final bool isError;
   final String errorMessage;
   final String placeHolder;
   final Widget? suffixIcon;
   final bool isObscureText;
-  final Map<String, dynamic>? initialValue;
+  final double? initialValue;
   final List<Map<String, dynamic>> listChoice;
   final Widget? headerWidget;
-  const BottomSheetSingleSelect({
+  final int min;
+  final int max;
+  const BottomSheetNumberPicker({
     required this.onChanged,
+    required this.min,
+    required this.max,
     this.isError = false,
     this.errorMessage = 'กรุณากรอกข้อมูลให้ถูกต้อง',
     this.label = '',
@@ -27,8 +32,7 @@ class BottomSheetSingleSelect extends HookWidget {
   });
   @override
   Widget build(BuildContext context) {
-    final ValueNotifier<Map<String, dynamic>?> currentValue =
-        useState(initialValue);
+    final ValueNotifier<double> currentValue = useState(initialValue ?? 1.0);
     final controller = useTextEditingController();
     return Expanded(
       child: InkWell(
@@ -44,7 +48,7 @@ class BottomSheetSingleSelect extends HookWidget {
               label,
               style: const TextStyle(
                 fontFamily: 'IBM Plex Sans Thai',
-                fontSize: 14,
+                fontSize: 25,
               ),
             ),
             errorText: isError ? errorMessage : null,
@@ -58,7 +62,7 @@ class BottomSheetSingleSelect extends HookWidget {
 
   void _onPressed(
     BuildContext context,
-    ValueNotifier<Map<String, dynamic>?> currentValue,
+    ValueNotifier<double> currentValue,
     TextEditingController controller,
   ) {
     showModalBottomSheet<dynamic>(
@@ -88,59 +92,41 @@ class BottomSheetSingleSelect extends HookWidget {
 
   Widget _buildBody(
     BuildContext context,
-    ValueNotifier<Map<String, dynamic>?> currentValue,
+    ValueNotifier<double> currentValue,
     TextEditingController controller,
   ) {
-    return StatefulBuilder(
-      builder: (BuildContext context, void Function(void Function()) setState) {
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 12),
-                  width: 40,
-                  height: 5,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: const Color.fromRGBO(224, 224, 224, 1),
-                  ),
-                )
-              ],
-            ),
-            if (headerWidget != null) ...[headerWidget!, const Divider()],
-            ListView(
-              shrinkWrap: true,
-              children: <Widget>[
-                ...listChoice.map(
-                  (choice) => ListTile(
-                    leading: Icon(
-                      (currentValue.value?['value'] == choice['value'])
-                          ? Icons.radio_button_checked
-                          : Icons.radio_button_off,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                    title: Text(choice['displayText'].toString()),
-                    onTap: () {
-                      if (choice['value'] != currentValue.value?['value']) {
-                        currentValue.value = choice;
-                        controller.text = choice['displayText'].toString();
-                        onChanged(currentValue.value);
-                        setState(() {});
-                        AutoRouter.of(context).pop();
-                      } else {
-                        AutoRouter.of(context).pop();
-                      }
-                    },
-                  ),
+    return StatefulBuilder(builder:
+        (BuildContext context, void Function(void Function()) setState) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 12),
+                width: 40,
+                height: 5,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: const Color.fromRGBO(224, 224, 224, 1),
                 ),
-              ],
-            ),
-          ],
-        );
-      },
-    );
+              )
+            ],
+          ),
+          DecimalNumberPicker(
+            value: currentValue.value,
+            minValue: min,
+            maxValue: max,
+            onChanged: (value) {
+              currentValue.value = value;
+              controller.text = (value * 10).toInt().toString();
+              onChanged((value * 10).toInt());
+              setState(() {});
+            },
+          ),
+        ],
+      );
+    });
   }
 }

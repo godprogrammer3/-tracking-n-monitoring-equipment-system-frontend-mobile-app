@@ -32,7 +32,7 @@ class InputText extends HookWidget {
             label,
             style: const TextStyle(
               fontFamily: 'IBM Plex Sans Thai',
-              fontSize: 25,
+              fontSize: 14,
             ),
           ),
           hintText: placeHolder,

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:frontend/core/presentation/routes/router.gr.dart';
 import 'package:frontend/core/presentation/widgets/bottom_sheet_single_select.dart';
 import 'package:frontend/core/presentation/widgets/button.dart';
-import 'package:frontend/core/presentation/widgets/input_text.dart';
 
 class RegisterEnterRolePage extends StatelessWidget {
   const RegisterEnterRolePage({Key? key}) : super(key: key);

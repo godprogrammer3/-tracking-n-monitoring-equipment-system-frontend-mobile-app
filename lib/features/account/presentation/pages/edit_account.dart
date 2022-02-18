@@ -1,11 +1,8 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/core/presentation/routes/router.gr.dart';
 import 'package:frontend/core/presentation/widgets/bottom_sheet_single_select.dart';
 import 'package:frontend/core/presentation/widgets/bottom_sheet_single_select_with_icons.dart';
 import 'package:frontend/core/presentation/widgets/date_time_picker.dart';
 import 'package:frontend/core/presentation/widgets/input_text.dart';
-import 'package:frontend/features/role_management/presentation/widgets/edit_dapartment_widget.dart';
 
 class EditAccountPage extends StatelessWidget {
   const EditAccountPage({Key? key}) : super(key: key);

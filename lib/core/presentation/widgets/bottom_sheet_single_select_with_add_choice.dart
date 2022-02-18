@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class BottomSheetSingleSelect extends HookWidget {
+class BottomSheetSingleSelectWithAddChoice extends HookWidget {
   final String label;
   final void Function(Map<String, dynamic>?) onChanged;
   final bool isError;
@@ -12,9 +12,12 @@ class BottomSheetSingleSelect extends HookWidget {
   final bool isObscureText;
   final Map<String, dynamic>? initialValue;
   final List<Map<String, dynamic>> listChoice;
-  final Widget? headerWidget;
-  const BottomSheetSingleSelect({
+  final String addChoiceText;
+  final void Function(BuildContext context) onAddChoice;
+  const BottomSheetSingleSelectWithAddChoice({
     required this.onChanged,
+    required this.addChoiceText,
+    required this.onAddChoice,
     this.isError = false,
     this.errorMessage = 'กรุณากรอกข้อมูลให้ถูกต้อง',
     this.label = '',
@@ -23,7 +26,6 @@ class BottomSheetSingleSelect extends HookWidget {
     this.isObscureText = false,
     this.initialValue,
     this.listChoice = const [],
-    this.headerWidget,
   });
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,7 @@ class BottomSheetSingleSelect extends HookWidget {
               label,
               style: const TextStyle(
                 fontFamily: 'IBM Plex Sans Thai',
-                fontSize: 14,
+                fontSize: 25,
               ),
             ),
             errorText: isError ? errorMessage : null,
@@ -110,7 +112,6 @@ class BottomSheetSingleSelect extends HookWidget {
                 )
               ],
             ),
-            if (headerWidget != null) ...[headerWidget!, const Divider()],
             ListView(
               shrinkWrap: true,
               children: <Widget>[
@@ -138,6 +139,17 @@ class BottomSheetSingleSelect extends HookWidget {
                 ),
               ],
             ),
+            const Divider(),
+            ListTile(
+              leading: Icon(Icons.add,
+                  color: Theme.of(context).colorScheme.secondary),
+              title: Text(
+                addChoiceText,
+                style:
+                    TextStyle(color: Theme.of(context).colorScheme.secondary),
+              ),
+              onTap: () => onAddChoice(context),
+            )
           ],
         );
       },

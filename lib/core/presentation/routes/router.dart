@@ -28,8 +28,12 @@ import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/lis
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/toggle_locker.dart';
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/unlock_locker.dart';
 import 'package:frontend/features/history/presentation/pages/history.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_equipment.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_locker.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/adding_equipment.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/all_equipment.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/all_locker.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/mac_address_help.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/manage_locker_and_equipment.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/qr_scanning.dart';
 import 'package:frontend/features/notification/presentation/pages/notification.dart';
@@ -147,6 +151,10 @@ import 'package:frontend/features/role_management/presentation/pages/role_manage
     AutoRoute(page: AllLockerPage),
     AutoRoute(page: QrScanningPage),
     AutoRoute(page: AddLockerPage),
+    AutoRoute(page: AllEquipmentPage),
+    AutoRoute(page: AddingEquipment),
+    AutoRoute(page: AddEquipmentPage, initial: true),
+    AutoRoute(page: MacAddressHelpPage)
   ],
 )
 class $AppRouter {}
