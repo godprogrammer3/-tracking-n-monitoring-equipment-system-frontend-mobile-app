@@ -1,14 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:frontend/core/presentation/widgets/bottom_sheet_single_select.dart';
 import 'package:frontend/core/presentation/widgets/button.dart';
 import 'package:frontend/core/presentation/widgets/button_outline_widget.dart';
 import 'package:frontend/core/presentation/widgets/input_text.dart';
 
-class DepartmentFilterWidget extends HookWidget {
+class LocationFilterWidget extends HookWidget {
   final List<Map<String, dynamic>> listChoices;
 
-  const DepartmentFilterWidget({required this.listChoices});
+  const LocationFilterWidget({required this.listChoices});
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -62,30 +63,58 @@ class DepartmentFilterWidget extends HookWidget {
                 ),
               ],
             ),
-            ListTile(
-              leading: Icon(
-                Icons.check_box_rounded,
-                color: Theme.of(context).colorScheme.secondary,
-              ),
-              title: const Text('ทั้งหมด'),
-            ),
-            const Divider(),
-            ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: screenSize.height * 0.6),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: List<Widget>.generate(listChoices.length, (index) {
-                    return ListTile(
-                      leading: Icon(
-                        Icons.check_box_rounded,
-                        color: Theme.of(context).colorScheme.secondary,
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      BottomSheetSingleSelect(
+                        label: 'อาคาร',
+                        placeHolder: 'อาคาร',
+                        onChanged: (_) {},
+                        listChoice: const [
+                          {'displayText': 'อาคาร 1', 'value': 1},
+                          {'displayText': 'อาคาร 2', 'value': 2},
+                          {'displayText': 'อาคาร 3', 'value': 3},
+                          {'displayText': 'อาคาร 4', 'value': 4},
+                          {'displayText': 'อาคาร 5', 'value': 5},
+                        ],
                       ),
-                      title: Text(listChoices[index]['displayText'] as String),
-                      onTap: () {},
-                    );
-                  }),
-                ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      BottomSheetSingleSelect(
+                        label: 'ชั้น',
+                        placeHolder: 'ชั้น',
+                        onChanged: (_) {},
+                        listChoice: const [
+                          {'displayText': 'ชั้น 1', 'value': 1},
+                          {'displayText': 'ชั้น 2', 'value': 2},
+                          {'displayText': 'ชั้น 3', 'value': 3},
+                          {'displayText': 'ชั้น 4', 'value': 4},
+                          {'displayText': 'ชั้น 5', 'value': 5},
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      BottomSheetSingleSelect(
+                        label: 'ห้อง',
+                        placeHolder: 'ห้อง',
+                        onChanged: (_) {},
+                        listChoice: const [
+                          {'displayText': 'ห้อง 1', 'value': 1},
+                          {'displayText': 'ห้อง 2', 'value': 2},
+                          {'displayText': 'ห้อง 3', 'value': 3},
+                          {'displayText': 'ห้อง 4', 'value': 4},
+                          {'displayText': 'ห้อง 5', 'value': 5},
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
             Row(

@@ -3,6 +3,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:frontend/core/utils/enum.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/widgets/department_filter_widget.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/widgets/equipment_display_widget.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/widgets/equipment_filter_widget.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/widgets/location_filter_widget.dart';
 
 class ListLockerAndEquipmentWidget extends HookWidget {
   final ManagementLockerAndEquipmentView viewBy;
@@ -49,7 +51,7 @@ class ListLockerAndEquipmentWidget extends HookWidget {
                       context: context,
                       isScrollControlled: true,
                       builder: (context) {
-                        return DepartmentFilterWidget(
+                        return const DepartmentFilterWidget(
                           listChoices: [
                             {'displayText': 'แผนกบริหาร'},
                             {'displayText': 'แผนกบุคคล'},
@@ -58,6 +60,100 @@ class ListLockerAndEquipmentWidget extends HookWidget {
                             {'displayText': 'แผนกขาย'},
                             {'displayText': 'แผนกการตลาด'},
                           ],
+                        );
+                      },
+                    );
+                  } else if (viewBy ==
+                      ManagementLockerAndEquipmentView.location) {
+                    showModalBottomSheet<dynamic>(
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (context) {
+                        return const LocationFilterWidget(
+                          listChoices: [
+                            {
+                              'displayText': 'อาคาร 1',
+                              'floors': {
+                                'displayText': 'ชั้น 1',
+                                'rooms': [
+                                  {'displayText': 'ห้อง 1'},
+                                  {'displayText': 'ห้อง 2'},
+                                  {'displayText': 'ห้อง 3'},
+                                ]
+                              },
+                            },
+                            {
+                              'displayText': 'อาคาร 2',
+                              'floors': {
+                                'displayText': 'ชั้น 1',
+                                'rooms': [
+                                  {'displayText': 'ห้อง 1'},
+                                  {'displayText': 'ห้อง 2'},
+                                  {'displayText': 'ห้อง 3'},
+                                ]
+                              },
+                            },
+                            {
+                              'displayText': 'อาคาร 3',
+                              'floors': {
+                                'displayText': 'ชั้น 1',
+                                'rooms': [
+                                  {'displayText': 'ห้อง 1'},
+                                  {'displayText': 'ห้อง 2'},
+                                  {'displayText': 'ห้อง 3'},
+                                ]
+                              },
+                            },
+                            {
+                              'displayText': 'อาคาร 4',
+                              'floors': {
+                                'displayText': 'ชั้น 1',
+                                'rooms': [
+                                  {'displayText': 'ห้อง 1'},
+                                  {'displayText': 'ห้อง 2'},
+                                  {'displayText': 'ห้อง 3'},
+                                ]
+                              },
+                            },
+                          ],
+                        );
+                      },
+                    );
+                  } else if (viewBy ==
+                      ManagementLockerAndEquipmentView.equipment) {
+                    showModalBottomSheet<dynamic>(
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (context) {
+                        return const EquipmentFilterWidget(
+                          listChoices: {
+                            'equipmentType': [
+                              {'displayText': 'สว่านไฟฟ้า'},
+                              {'displayText': 'ค้อน'},
+                              {'displayText': 'Macbook'},
+                              {'displayText': 'อุปกรณ์สำนักงาน'},
+                              {'displayText': 'ไม่มีชนิด'},
+                            ],
+                            'equipmentStatus': [
+                              {'displayText': 'พร้อมใช้งาน'},
+                              {'displayText': 'ถูกยืม'},
+                              {'displayText': 'ส่งซ่อม'},
+                            ],
+                            'department': [
+                              {'displayText': 'แผนกบริหาร'},
+                              {'displayText': 'แผนกบุคคล'},
+                              {'displayText': 'แผนกจัดซื้อ'},
+                              {'displayText': 'แผนกการตลาด'},
+                              {'displayText': 'แผนกบัญชี'},
+                            ],
+                            'lockers': [
+                              {'displayText': 'locker 1'},
+                              {'displayText': 'locker 2'},
+                              {'displayText': 'locker 3'},
+                              {'displayText': 'locker 4'},
+                              {'displayText': 'locker 5'},
+                            ]
+                          },
                         );
                       },
                     );
