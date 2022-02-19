@@ -51,7 +51,7 @@ class AccountCardWidget extends HookWidget {
                 Row(
                   children: [
                     Text(
-                      '${helper.roleToString(role)} | $dapartment',
+                      '${role.toNameString()} | $dapartment',
                       style: Theme.of(context).primaryTextTheme.caption,
                     ),
                   ],

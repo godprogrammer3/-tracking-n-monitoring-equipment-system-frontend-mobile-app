@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/core/presentation/routes/router.gr.dart';
+import 'package:frontend/core/utils/enum.dart';
 import 'package:frontend/features/borrowing/presentation/widgets/home_drawer.dart';
 
 class ManageLockerAndEquipmentPage extends StatelessWidget {
@@ -63,7 +64,12 @@ class ManageLockerAndEquipmentPage extends StatelessWidget {
                 title: const Text('จัดการสถานที่'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  AutoRouter.of(context).push(const ApproveUserRoute());
+                  AutoRouter.of(context).push(
+                    AllLocationRoute(
+                      title: 'จัดการสถานที่',
+                      viewBy: ManagementLocationView.building,
+                    ),
+                  );
                 },
               ),
             ),
