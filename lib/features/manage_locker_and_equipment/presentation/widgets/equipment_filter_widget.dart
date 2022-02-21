@@ -70,13 +70,13 @@ class EquipmentFilterWidget extends HookWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      if ((listChoices['equipmentType'] as List).isNotEmpty)
+                      if ((listChoices['equipmentType'] as List?) != null)
                         _buildEquipmentTypeFilter(context),
-                      if ((listChoices['equipmentStatus'] as List).isNotEmpty)
+                      if ((listChoices['equipmentStatus'] as List?) != null)
                         _buildEquipmentStatusFilter(context),
-                      if ((listChoices['department'] as List).isNotEmpty)
+                      if ((listChoices['department'] as List?) != null)
                         _buildDepartmentFilter(context),
-                      if ((listChoices['lockers'] as List).isNotEmpty)
+                      if ((listChoices['lockers'] as List?) != null)
                         _buildLockersFilter(context),
                     ],
                   ),

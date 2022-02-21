@@ -86,7 +86,7 @@ class ManageLockerAndEquipmentPage extends StatelessWidget {
                 title: const Text('จัดการหมวดหมู่'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  AutoRouter.of(context).push(const AllAccountRoute());
+                  AutoRouter.of(context).push(AllCategoryRoute());
                 },
               ),
             ),

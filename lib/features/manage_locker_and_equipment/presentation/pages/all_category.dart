@@ -5,9 +5,9 @@ import 'package:frontend/core/presentation/widgets/tabs_widget.dart';
 import 'package:frontend/core/utils/enum.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/widgets/list_locker_and_equipment_widget.dart';
 
-class AllLockerPage extends StatelessWidget {
-  final bool isHasLocker;
-  const AllLockerPage({Key? key, this.isHasLocker = true}) : super(key: key);
+class AllCategoryPage extends StatelessWidget {
+  final bool isHaCategory;
+  const AllCategoryPage({Key? key, this.isHaCategory = true}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -15,17 +15,16 @@ class AllLockerPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'จัดการตู้และอุปกรณ์',
+          'จัดการหมวดหมู่',
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
         elevation: 0,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           IconButton(
             onPressed: () {
-              AutoRouter.of(context).push(const QrScanningRoute());
+              AutoRouter.of(context).push(const AddCategoryRoute());
             },
             icon: const Icon(Icons.add),
           ),
@@ -38,7 +37,7 @@ class AllLockerPage extends StatelessWidget {
           screenSize.width * 0.1,
           0,
         ),
-        child: isHasLocker
+        child: isHaCategory
             ? _buildFoundCase(context)
             : _buildNotFoundCase(context),
       ),
@@ -53,7 +52,7 @@ class AllLockerPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/icons/manage_locker_and_equipment/locker_icon_large.png',
+              'assets/icons/manage_locker_and_equipment/category_icon_large.png',
               width: 100,
               height: 100,
               fit: BoxFit.fill,
@@ -66,7 +65,7 @@ class AllLockerPage extends StatelessWidget {
             TextButton(
               onPressed: () {},
               child: Text(
-                '+ เพิ่มตู้ล็อกเกอร์',
+                '+ เพิ่มหมวดหมู่ของอุปกรณ์',
                 style: Theme.of(context).primaryTextTheme.headline3!.copyWith(
                       color: Theme.of(context).colorScheme.secondary,
                     ),
@@ -79,21 +78,20 @@ class AllLockerPage extends StatelessWidget {
   }
 
   Widget _buildFoundCase(BuildContext context) {
-    const tabs = <Widget>[
-      ListLockerAndEquipmentWidget(
-        viewBy: ManagementLockerAndEquipmentView.department,
-      ),
-      ListLockerAndEquipmentWidget(
-        viewBy: ManagementLockerAndEquipmentView.location,
-      ),
-      ListLockerAndEquipmentWidget(
-        viewBy: ManagementLockerAndEquipmentView.equipment,
-      )
-    ];
-    const tabsBar = ['แผนก', 'ที่ตั้ง', 'อุปกรณ์'];
-    return TabsWidget(
-      tabsBar: tabsBar,
-      tabs: tabs,
-    );
+    const categories = ['สว่านไฟฟ้า', 'ค้อน'];
+    return ListView.builder(
+        itemCount: categories.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              title: Text(categories[index]),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () {
+                AutoRouter.of(context)
+                    .push(CategoryDetailRoute(title: categories[index]));
+              },
+            ),
+          );
+        });
   }
 }

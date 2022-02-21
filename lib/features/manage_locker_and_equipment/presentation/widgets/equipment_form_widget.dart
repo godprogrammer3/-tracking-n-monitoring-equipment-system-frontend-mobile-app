@@ -101,7 +101,7 @@ class EquipmentFormWidget extends StatelessWidget {
                                         .secondary),
                           ),
                           Text(
-                            'ให้ตรงกับอุกรณ์ของคุณ',
+                            'ให้ตรงกับอุปกรณ์ของคุณ',
                             style: Theme.of(context).primaryTextTheme.caption,
                           )
                         ],

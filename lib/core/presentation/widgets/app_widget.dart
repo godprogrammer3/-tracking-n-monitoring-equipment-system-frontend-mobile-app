@@ -30,6 +30,7 @@ class AppWidget extends StatelessWidget {
             primary: const Color.fromRGBO(85, 8, 182, 1),
             secondary: const Color.fromRGBO(128, 36, 244, 1),
             error: Colors.red,
+            onBackground: Colors.grey.shade400,
             background: const Color.fromRGBO(240, 240, 240, 1),
           ),
           primaryTextTheme: const TextTheme(

@@ -237,7 +237,7 @@ class AddLockerPage extends HookWidget {
                     child: Button(
                       'ถัดไป',
                       onPressed: () {
-                        AutoRouter.of(context).push(const AllEquipmentRoute());
+                        AutoRouter.of(context).push(AllEquipmentRoute());
                       },
                     ),
                   ),

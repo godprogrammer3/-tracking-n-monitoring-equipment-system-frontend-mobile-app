@@ -28,16 +28,21 @@ import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/lis
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/toggle_locker.dart';
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/unlock_locker.dart';
 import 'package:frontend/features/history/presentation/pages/history.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_category.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_equipment.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_location.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_locker.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/adding_equipment.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/all_category.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/all_equipment.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/all_location.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/all_locker.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/category_detail.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/equipment_detail.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/mac_address_help.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/manage_locker_and_equipment.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/qr_scanning.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/widgets/list_equipment_widget.dart';
 import 'package:frontend/features/notification/presentation/pages/notification.dart';
 import 'package:frontend/features/role_management/presentation/pages/account_detail.dart';
 import 'package:frontend/features/role_management/presentation/pages/add_user.dart';
@@ -159,6 +164,10 @@ import 'package:frontend/features/role_management/presentation/pages/role_manage
     AutoRoute(page: MacAddressHelpPage),
     AutoRoute(page: AllLocationPage),
     AutoRoute(page: AddLocationPage),
+    AutoRoute(page: AllCategoryPage),
+    AutoRoute(page: AddCategoryPage),
+    AutoRoute(page: CategoryDetailPage),
+    AutoRoute(page: EquipmentDetailPage),
   ],
 )
 class $AppRouter {}

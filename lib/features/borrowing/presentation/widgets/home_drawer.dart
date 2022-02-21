@@ -250,7 +250,7 @@ class HomeDrawer extends HookWidget {
                           height: 50,
                         ),
                         title: Text(
-                          'การแจ้งซ่อม',
+                          'การแจ้งปัญหา',
                           style: Theme.of(context).primaryTextTheme.headline1,
                         ),
                       ),

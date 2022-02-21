@@ -4,10 +4,13 @@ import 'package:frontend/core/presentation/routes/router.gr.dart';
 import 'package:frontend/core/presentation/widgets/bottom_sheet_single_select_with_add_choice.dart';
 import 'package:frontend/core/presentation/widgets/button.dart';
 import 'package:frontend/core/presentation/widgets/input_text.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/widgets/list_equipment_widget.dart';
 import 'package:frontend/features/role_management/presentation/widgets/add_user_popup_confirm.dart';
 
 class AllEquipmentPage extends StatelessWidget {
-  const AllEquipmentPage({Key? key}) : super(key: key);
+  final bool isHasEquipment;
+  const AllEquipmentPage({Key? key, this.isHasEquipment = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,16 +32,13 @@ class AllEquipmentPage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.fromLTRB(
           screenSize.width * 0.1,
-          screenSize.height * 0.05,
+          screenSize.height * 0.01,
           screenSize.width * 0.1,
           0,
         ),
-        child: Center(
-          child: Text(
-            'ไม่พบอุปกรณ์ในตู้นี้',
-            style: Theme.of(context).primaryTextTheme.caption,
-          ),
-        ),
+        child: isHasEquipment
+            ? _buildFoundCase(context)
+            : _buildNotFoundCase(context),
       ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(10),
@@ -50,5 +50,18 @@ class AllEquipmentPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildNotFoundCase(BuildContext context) {
+    return Center(
+      child: Text(
+        'ไม่พบอุปกรณ์ในตู้นี้',
+        style: Theme.of(context).primaryTextTheme.caption,
+      ),
+    );
+  }
+
+  Widget _buildFoundCase(BuildContext context) {
+    return const ListEquipmentWidget();
   }
 }
