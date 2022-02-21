@@ -1,11 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/core/presentation/routes/router.gr.dart';
-import 'package:frontend/core/presentation/widgets/bottom_sheet_single_select_with_add_choice.dart';
 import 'package:frontend/core/presentation/widgets/button.dart';
-import 'package:frontend/core/presentation/widgets/input_text.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/widgets/list_equipment_widget.dart';
-import 'package:frontend/features/role_management/presentation/widgets/add_user_popup_confirm.dart';
 
 class AllEquipmentPage extends StatelessWidget {
   final bool isHasEquipment;
@@ -26,7 +23,60 @@ class AllEquipmentPage extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
+          PopupMenuButton(
+            onSelected: (value) {
+              switch (value) {
+                case 1:
+                  AutoRouter.of(context)
+                      .push(AddOrEditLockerRoute(isEdit: true));
+                  break;
+                case 2:
+                  AutoRouter.of(context).push(const LockerDetailRoute());
+                  break;
+              }
+            },
+            icon: const Icon(Icons.more_vert),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 1,
+                child: Text(
+                  "แก้ไขข้อมูล",
+                  style: Theme.of(context).primaryTextTheme.bodyText1,
+                ),
+              ),
+              PopupMenuItem(
+                value: 2,
+                child: Text(
+                  "รายละเอียด",
+                  style: Theme.of(context).primaryTextTheme.bodyText1,
+                ),
+              ),
+              PopupMenuItem(
+                value: 3,
+                child: Text(
+                  "จัดการสิทธิการใช้งาน",
+                  style: Theme.of(context).primaryTextTheme.bodyText1,
+                ),
+              ),
+              PopupMenuItem(
+                value: 4,
+                child: Text(
+                  "รีเซ็ตเลข Mac address",
+                  style: Theme.of(context).primaryTextTheme.bodyText1,
+                ),
+              ),
+              PopupMenuItem(
+                value: 5,
+                child: Text(
+                  "ลบตู้ล็อกเกอร์",
+                  style: Theme.of(context)
+                      .primaryTextTheme
+                      .bodyText1!
+                      .copyWith(color: Theme.of(context).colorScheme.error),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
       body: Padding(

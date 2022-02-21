@@ -33,7 +33,7 @@ class _QrScanningPageState extends State<QrScanningPage> {
   @override
   void initState() {
     super.initState();
-    AutoRouter.of(context).replace(const AddLockerRoute());
+    AutoRouter.of(context).replace(AddOrEditLockerRoute());
   }
 
   @override
@@ -98,7 +98,7 @@ class _QrScanningPageState extends State<QrScanningPage> {
       this.controller = controller;
     });
     controller.scannedDataStream.listen((scanData) {
-      AutoRouter.of(context).navigate(const AddLockerRoute());
+      AutoRouter.of(context).navigate(AddOrEditLockerRoute());
     });
   }
 

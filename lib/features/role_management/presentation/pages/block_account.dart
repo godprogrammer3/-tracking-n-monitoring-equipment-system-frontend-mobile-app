@@ -84,7 +84,7 @@ class BlockAccountPage extends StatelessWidget {
                                     'assets/images/account/profile_image_example.png',
                                 name: 'Darlene Robertson',
                                 role: Role.superAdmin,
-                                dapartment: 'แผนกบริหาร',
+                                department: 'แผนกบริหาร',
                                 email: 'dolores.chambers@example.com',
                               ),
                             ),

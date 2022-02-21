@@ -36,7 +36,7 @@ class HomeDrawer extends HookWidget {
                         'assets/images/account/profile_image_example.png',
                     name: 'Darlene Robertson',
                     role: Role.superAdmin,
-                    dapartment: 'แผนกบริหาร',
+                    department: 'แผนกบริหาร',
                   ),
                 ),
               ),

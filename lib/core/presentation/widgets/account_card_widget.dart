@@ -9,13 +9,15 @@ class AccountCardWidget extends HookWidget {
   final String name;
   final String? email;
   final Role role;
-  final String dapartment;
+  final String department;
+  final Widget? bottomWidget;
   const AccountCardWidget({
     required this.imagePath,
     required this.name,
     required this.role,
     this.email = '',
-    required this.dapartment,
+    required this.department,
+    this.bottomWidget,
   });
   @override
   Widget build(BuildContext context) {
@@ -51,7 +53,7 @@ class AccountCardWidget extends HookWidget {
                 Row(
                   children: [
                     Text(
-                      '${role.toNameString()} | $dapartment',
+                      '${role.toNameString()} | $department',
                       style: Theme.of(context).primaryTextTheme.caption,
                     ),
                   ],
@@ -63,6 +65,12 @@ class AccountCardWidget extends HookWidget {
                         email!,
                         style: Theme.of(context).primaryTextTheme.caption,
                       )
+                    ],
+                  ),
+                if (bottomWidget != null)
+                  Row(
+                    children: [
+                      bottomWidget!,
                     ],
                   ),
               ],

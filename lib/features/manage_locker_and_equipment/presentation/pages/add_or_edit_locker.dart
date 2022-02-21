@@ -8,8 +8,9 @@ import 'package:frontend/core/presentation/widgets/button.dart';
 import 'package:frontend/core/presentation/widgets/input_text.dart';
 import 'package:frontend/core/presentation/widgets/multiple_select_custom_widget.dart';
 
-class AddLockerPage extends HookWidget {
-  const AddLockerPage({Key? key}) : super(key: key);
+class AddOrEditLockerPage extends HookWidget {
+  final bool isEdit;
+  const AddOrEditLockerPage({Key? key, this.isEdit = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +18,9 @@ class AddLockerPage extends HookWidget {
     final ValueNotifier<List<String>?> selectedAccount = useState(null);
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'เพิ่มตู้ล็อกเกอร์',
-          style: TextStyle(color: Colors.black),
+        title: Text(
+          isEdit ? 'แก้ไขข้อมูล' : 'เพิ่มตู้ล็อกเกอร์',
+          style: const TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
