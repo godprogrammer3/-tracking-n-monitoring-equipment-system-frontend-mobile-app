@@ -92,9 +92,9 @@ class AddLocationPage extends StatelessWidget {
                 Expanded(
                   child: SearchField(
                     hint: 'อาคาร',
-                    suggestions: const [
-                      'ECC Bulding',
-                      'ECC Bulding ตึกมหัศจรรย์',
+                    suggestions: [
+                      SearchFieldListItem('ECC Bulding'),
+                      SearchFieldListItem('ECC Bulding ตึกมหัศจรรย์'),
                     ],
                     searchInputDecoration: InputDecoration(
                       label: Text(
@@ -118,9 +118,9 @@ class AddLocationPage extends StatelessWidget {
                 Expanded(
                   child: SearchField(
                     hint: 'ชั้น',
-                    suggestions: const [
-                      'ชั้น 1',
-                      'ชั้น 2',
+                    suggestions: [
+                      SearchFieldListItem('ชั้น 1'),
+                      SearchFieldListItem('ชั้น 2'),
                     ],
                     searchInputDecoration: InputDecoration(
                       label: Text(
@@ -139,9 +139,9 @@ class AddLocationPage extends StatelessWidget {
                 Expanded(
                   child: SearchField(
                     hint: 'ห้อง',
-                    suggestions: const [
-                      'ห้อง 1',
-                      'ห้อง 2',
+                    suggestions: [
+                      SearchFieldListItem('ห้อง 1'),
+                      SearchFieldListItem('ห้อง 2'),
                     ],
                     searchInputDecoration: InputDecoration(
                       label: Text(
