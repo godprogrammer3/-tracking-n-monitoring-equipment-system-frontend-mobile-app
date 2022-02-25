@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/core/presentation/routes/router.gr.dart';
 import 'package:frontend/core/utils/enum.dart';
-import 'package:frontend/features/borrowing/presentation/widgets/home_drawer.dart';
+import 'package:frontend/core/presentation/widgets/home_drawer.dart';
 
 class ManageLockerAndEquipmentPage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _key = GlobalKey();

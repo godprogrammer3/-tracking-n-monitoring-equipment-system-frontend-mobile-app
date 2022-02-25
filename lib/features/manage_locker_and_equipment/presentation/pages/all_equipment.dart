@@ -33,6 +33,9 @@ class AllEquipmentPage extends StatelessWidget {
                 case 2:
                   AutoRouter.of(context).push(const LockerDetailRoute());
                   break;
+                case 3:
+                  AutoRouter.of(context).push(const ManagePermissionRoute());
+                  break;
               }
             },
             icon: const Icon(Icons.more_vert),

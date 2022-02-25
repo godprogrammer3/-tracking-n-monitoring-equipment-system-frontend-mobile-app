@@ -27,21 +27,26 @@ import 'package:frontend/features/borrowing/presentation/pages/dash_board/dash_b
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/list_locker.dart';
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/toggle_locker.dart';
 import 'package:frontend/features/borrowing/presentation/pages/unlock_locker/unlock_locker.dart';
+import 'package:frontend/features/fixing/presentation/pages/fixing.dart';
 import 'package:frontend/features/history/presentation/pages/history.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_category.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_equipment.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_location.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_or_edit_locker.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_permanent_permission.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/add_temporary_permission.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/adding_equipment.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/all_category.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/all_equipment.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/all_location.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/all_locker.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/category_detail.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/change_permission_type.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/equipment_detail.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/locker_detail.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/mac_address_help.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/manage_locker_and_equipment.dart';
+import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/manage_permission.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/qr_scanning.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/pages/request_fixing_detail.dart';
 import 'package:frontend/features/notification/presentation/pages/notification.dart';
@@ -53,6 +58,10 @@ import 'package:frontend/features/role_management/presentation/pages/block_accou
 import 'package:frontend/features/role_management/presentation/pages/department_detail.dart';
 import 'package:frontend/features/role_management/presentation/pages/department_management.dart';
 import 'package:frontend/features/role_management/presentation/pages/role_management.dart';
+import 'package:frontend/features/streaming_and_record/presentation/pages/all_camera.dart';
+import 'package:frontend/features/streaming_and_record/presentation/pages/live_camera.dart';
+import 'package:frontend/features/streaming_and_record/presentation/pages/record_video.dart';
+import 'package:frontend/features/streaming_and_record/presentation/pages/streaming_and_record.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -97,6 +106,11 @@ import 'package:frontend/features/role_management/presentation/pages/role_manage
               path: 'manage_locker_and_equipment_page',
               page: ManageLockerAndEquipmentPage,
             ),
+            AutoRoute(
+              path: 'streaming_and_record',
+              page: StreamingAndRecordPage,
+            ),
+            AutoRoute(path: 'fixing', page: FixingPage),
           ],
         ),
         AutoRoute(
@@ -171,6 +185,13 @@ import 'package:frontend/features/role_management/presentation/pages/role_manage
     AutoRoute(page: EquipmentDetailPage),
     AutoRoute(page: RequestFixingDetailPage),
     AutoRoute(page: LockerDetailPage),
+    AutoRoute(page: ManagePermissionPage),
+    AutoRoute(page: AddPermanentPermissionPage),
+    AutoRoute(page: AddTemporaryPermissionPage),
+    AutoRoute(page: ChangePermissionTypePage),
+    AutoRoute(page: AllCameraPage),
+    AutoRoute(page: LiveCameraPage),
+    AutoRoute(page: RecordVideoPage),
   ],
 )
 class $AppRouter {}

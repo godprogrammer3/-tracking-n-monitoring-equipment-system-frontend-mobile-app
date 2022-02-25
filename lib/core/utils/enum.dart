@@ -22,3 +22,4 @@ extension RoleExtension on Role {
 enum EquipmentStatus { late }
 enum ManagementLockerAndEquipmentView { department, location, equipment }
 enum ManagementLocationView { building, floor, room }
+enum StreamAndRecordView { department, location }

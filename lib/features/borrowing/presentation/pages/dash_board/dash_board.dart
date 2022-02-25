@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:frontend/core/presentation/widgets/tabs_widget.dart';
 import 'package:frontend/features/borrowing/presentation/widgets/equipment_tab.dart';
-import 'package:frontend/features/borrowing/presentation/widgets/home_drawer.dart';
+import 'package:frontend/core/presentation/widgets/home_drawer.dart';
 import 'package:frontend/features/borrowing/presentation/widgets/locker_tab.dart';
 
 class DashBoardPage extends HookWidget {

@@ -50,9 +50,8 @@ class HomeDrawer extends HookWidget {
                     InkWell(
                       onTap: () {},
                       child: Container(
-                        decoration: topRoute.name != 'RoleManagementRoute'
-                            ? null
-                            : BoxDecoration(
+                        decoration: topRoute.name == 'RoleManagementRoute'
+                            ? BoxDecoration(
                                 gradient: const LinearGradient(
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
@@ -63,10 +62,13 @@ class HomeDrawer extends HookWidget {
                                   ],
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
-                              ),
+                              )
+                            : null,
                         child: ListTile(
                           leading: Image.asset(
-                            'assets/icons/core/account_group_icon_active.png',
+                            topRoute.name == 'RoleManagementRoute'
+                                ? 'assets/icons/core/account_group_icon_active.png'
+                                : 'assets/icons/core/account_group_icon_inactive.png',
                             width: 50,
                             height: 40,
                             fit: BoxFit.fill,
@@ -77,15 +79,16 @@ class HomeDrawer extends HookWidget {
                                 .primaryTextTheme
                                 .headline1!
                                 .copyWith(
-                                    color:
-                                        Theme.of(context).colorScheme.primary),
+                                  color: topRoute.name == 'RoleManagementRoute'
+                                      ? Theme.of(context).colorScheme.secondary
+                                      : Colors.black,
+                                ),
                           ),
                           onTap: () {
                             if (topRoute.name == 'DashBoardRoute') {
                               AutoRouter.of(context)
                                   .popAndPush(const RoleManagementRoute());
-                            } else if (topRoute.name ==
-                                'ManageLockerAndEquipmentRoute') {
+                            } else if (topRoute.name == 'RoleManagementRoute') {
                               AutoRouter.of(context).pop();
                               AutoRouter.of(context)
                                   .popAndPush(const RoleManagementRoute());
@@ -101,9 +104,8 @@ class HomeDrawer extends HookWidget {
                     ),
                     Container(
                       decoration:
-                          topRoute.name != 'ManageLockerAndEquipmentRoute'
-                              ? null
-                              : BoxDecoration(
+                          topRoute.name == 'ManageLockerAndEquipmentRoute'
+                              ? BoxDecoration(
                                   gradient: const LinearGradient(
                                     begin: Alignment.topLeft,
                                     end: Alignment.bottomRight,
@@ -114,17 +116,28 @@ class HomeDrawer extends HookWidget {
                                     ],
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
-                                ),
+                                )
+                              : null,
                       child: ListTile(
                         leading: Image.asset(
-                          'assets/icons/core/locker_icon_inactive.png',
+                          topRoute.name == 'ManageLockerAndEquipmentRoute'
+                              ? 'assets/icons/core/locker_icon_active.png'
+                              : 'assets/icons/core/locker_icon_inactive.png',
                           width: 50,
                           height: 40,
                           fit: BoxFit.fill,
                         ),
                         title: Text(
                           'ตู้และอุปกรณ์',
-                          style: Theme.of(context).primaryTextTheme.headline1,
+                          style: Theme.of(context)
+                              .primaryTextTheme
+                              .headline1!
+                              .copyWith(
+                                color: topRoute.name ==
+                                        'ManageLockerAndEquipmentRoute'
+                                    ? Theme.of(context).colorScheme.secondary
+                                    : Colors.black,
+                              ),
                         ),
                         onTap: () {
                           if (topRoute.name == 'DashBoardRoute') {
@@ -146,9 +159,8 @@ class HomeDrawer extends HookWidget {
                       ),
                     ),
                     Container(
-                      decoration: true
-                          ? null
-                          : BoxDecoration(
+                      decoration: topRoute.name == 'StreamingAndRecordRoute'
+                          ? BoxDecoration(
                               gradient: const LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
@@ -159,24 +171,51 @@ class HomeDrawer extends HookWidget {
                                 ],
                               ),
                               borderRadius: BorderRadius.circular(8.0),
-                            ),
+                            )
+                          : null,
                       child: ListTile(
                         leading: Image.asset(
-                          'assets/icons/core/camera_icon_inactive.png',
+                          topRoute.name == 'StreamingAndRecordRoute'
+                              ? 'assets/icons/core/camera_icon_active.png'
+                              : 'assets/icons/core/camera_icon_inactive.png',
                           width: 50,
                           height: 40,
                           fit: BoxFit.fill,
                         ),
                         title: Text(
                           'กล้องและวิดีโอ',
-                          style: Theme.of(context).primaryTextTheme.headline1,
+                          style: Theme.of(context)
+                              .primaryTextTheme
+                              .headline1!
+                              .copyWith(
+                                color: topRoute.name ==
+                                        'StreamingAndRecordRoute'
+                                    ? Theme.of(context).colorScheme.secondary
+                                    : Colors.black,
+                              ),
                         ),
+                        onTap: () {
+                          if (topRoute.name == 'DashBoardRoute') {
+                            AutoRouter.of(context).popAndPush(
+                              const StreamingAndRecordRoute(),
+                            );
+                          } else if (topRoute.name ==
+                              'StreamingAndRecordRoute') {
+                            AutoRouter.of(context).pop();
+                            AutoRouter.of(context)
+                                .popAndPush(const StreamingAndRecordRoute());
+                          } else {
+                            AutoRouter.of(context).pop();
+                            AutoRouter.of(context).pop();
+                            AutoRouter.of(context)
+                                .popAndPush(const StreamingAndRecordRoute());
+                          }
+                        },
                       ),
                     ),
                     Container(
-                      decoration: true
-                          ? null
-                          : BoxDecoration(
+                      decoration: topRoute.name == 'FixingRoute'
+                          ? BoxDecoration(
                               gradient: const LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
@@ -187,45 +226,44 @@ class HomeDrawer extends HookWidget {
                                 ],
                               ),
                               borderRadius: BorderRadius.circular(8.0),
-                            ),
+                            )
+                          : null,
                       child: ListTile(
                         leading: Image.asset(
-                          'assets/icons/core/history_icon_inactive.png',
+                          topRoute.name == 'FixingRoute'
+                              ? 'assets/icons/core/tool_icon_active.png'
+                              : 'assets/icons/core/tool_icon_inactive.png',
                           width: 50,
                           height: 50,
                           fit: BoxFit.fill,
                         ),
                         title: Text(
-                          'ประวัติ',
-                          style: Theme.of(context).primaryTextTheme.headline1,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      decoration: true
-                          ? null
-                          : BoxDecoration(
-                              gradient: const LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  Color.fromRGBO(255, 241, 248, 1),
-                                  Color.fromRGBO(250, 245, 255, 1),
-                                  Color.fromRGBO(243, 232, 255, 1),
-                                ],
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                      child: ListTile(
-                        leading: Image.asset(
-                          'assets/icons/core/tool_icon_inactive.png',
-                          width: 50,
-                          height: 50,
-                        ),
-                        title: Text(
                           'การแจ้งซ่อม',
-                          style: Theme.of(context).primaryTextTheme.headline1,
+                          style: Theme.of(context)
+                              .primaryTextTheme
+                              .headline1!
+                              .copyWith(
+                                color: topRoute.name == 'FixingRoute'
+                                    ? Theme.of(context).colorScheme.secondary
+                                    : Colors.black,
+                              ),
                         ),
+                        onTap: () {
+                          if (topRoute.name == 'DashBoardRoute') {
+                            AutoRouter.of(context).popAndPush(
+                              const FixingRoute(),
+                            );
+                          } else if (topRoute.name == 'FixingRoute') {
+                            AutoRouter.of(context).pop();
+                            AutoRouter.of(context)
+                                .popAndPush(const FixingRoute());
+                          } else {
+                            AutoRouter.of(context).pop();
+                            AutoRouter.of(context).pop();
+                            AutoRouter.of(context)
+                                .popAndPush(const FixingRoute());
+                          }
+                        },
                       ),
                     ),
                     Container(

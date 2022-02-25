@@ -4,10 +4,12 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 class TabsWidget extends HookWidget {
   final List<Widget> tabs;
   final List<String> tabsBar;
+  final void Function(int)? onTabChanged;
 
   const TabsWidget({
     required this.tabs,
     required this.tabsBar,
+    this.onTabChanged,
   }) : assert(tabs.length == tabsBar.length);
 
   @override
@@ -33,7 +35,10 @@ class TabsWidget extends HookWidget {
             children: List<Widget>.generate(tabsBar.length, (index) {
               return Expanded(
                 child: InkWell(
-                  onTap: () => currentTabIndex.value = index,
+                  onTap: () {
+                    currentTabIndex.value = index;
+                    onTabChanged?.call(index);
+                  },
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 5),
                     padding: const EdgeInsets.symmetric(vertical: 10),
