@@ -16,7 +16,7 @@ class LockerListWidget extends StatelessWidget {
       children: List<Widget>.generate(10, (index) {
         return InkWell(
           onTap: () {
-            AutoRouter.of(context).push(FixingLockerDetailRoute());
+            AutoRouter.of(context).push(ReportProblemLockerDetailRoute());
           },
           child: LockerDisplayWidget(
             building: 'Headquarters',
@@ -31,7 +31,7 @@ class LockerListWidget extends StatelessWidget {
                     width: 10,
                     height: 14,
                     child: Image.asset(
-                      'assets/icons/core/tool_icon_active.png',
+                      'assets/icons/account/alert_icon.png',
                       width: 10,
                       height: 14,
                     ),
@@ -40,7 +40,7 @@ class LockerListWidget extends StatelessWidget {
                 Expanded(
                   flex: 4,
                   child: Text(
-                    'ส่งซ่อม 2 อุปกรณ์',
+                    'แจ้งปัญหา 3 อุปกรณ์',
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.secondary,
                     ),

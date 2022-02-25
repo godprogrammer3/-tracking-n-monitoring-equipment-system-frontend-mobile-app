@@ -267,9 +267,8 @@ class HomeDrawer extends HookWidget {
                       ),
                     ),
                     Container(
-                      decoration: true
-                          ? null
-                          : BoxDecoration(
+                      decoration: topRoute.name == 'ReportProblemRoute'
+                          ? BoxDecoration(
                               gradient: const LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
@@ -280,17 +279,43 @@ class HomeDrawer extends HookWidget {
                                 ],
                               ),
                               borderRadius: BorderRadius.circular(8.0),
-                            ),
+                            )
+                          : null,
                       child: ListTile(
                         leading: Image.asset(
-                          'assets/icons/core/alert_icon_inactive.png',
+                          topRoute.name == 'ReportProblemRoute'
+                              ? 'assets/icons/account/alert_icon.png'
+                              : 'assets/icons/core/alert_icon_inactive.png',
                           width: 50,
                           height: 50,
                         ),
                         title: Text(
                           'การแจ้งปัญหา',
-                          style: Theme.of(context).primaryTextTheme.headline1,
+                          style: Theme.of(context)
+                              .primaryTextTheme
+                              .headline1!
+                              .copyWith(
+                                color: topRoute.name == 'ReportProblemRoute'
+                                    ? Theme.of(context).colorScheme.secondary
+                                    : Colors.black,
+                              ),
                         ),
+                        onTap: () {
+                          if (topRoute.name == 'DashBoardRoute') {
+                            AutoRouter.of(context).popAndPush(
+                              const ReportProblemRoute(),
+                            );
+                          } else if (topRoute.name == 'ReportProblemRoute') {
+                            AutoRouter.of(context).pop();
+                            AutoRouter.of(context)
+                                .popAndPush(const ReportProblemRoute());
+                          } else {
+                            AutoRouter.of(context).pop();
+                            AutoRouter.of(context).pop();
+                            AutoRouter.of(context)
+                                .popAndPush(const ReportProblemRoute());
+                          }
+                        },
                       ),
                     ),
                   ],

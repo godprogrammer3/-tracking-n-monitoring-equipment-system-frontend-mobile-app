@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/core/presentation/routes/router.gr.dart';
 import 'package:frontend/features/manage_locker_and_equipment/presentation/widgets/equipment_display_widget.dart';
+import 'package:frontend/features/report_problem/presentation/pages/report_problem_detail.dart';
 
 class EquipmentListWidget extends StatelessWidget {
   const EquipmentListWidget({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class EquipmentListWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
-            AutoRouter.of(context).push(const FixingDetailRoute());
+            AutoRouter.of(context).push(ReportProblemDetailRoute());
           },
           child: Column(
             children: [
@@ -37,7 +38,7 @@ class EquipmentListWidget extends StatelessWidget {
                 children: [
                   const Text('สีค้อนถลอกครับ มันดูไม่สวยงามและไม่น่าใช้งาน...'),
                   Text(
-                    '3 แจ้งซ่อม',
+                    'อ่านเพิ่มเติม',
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.secondary,
                     ),
