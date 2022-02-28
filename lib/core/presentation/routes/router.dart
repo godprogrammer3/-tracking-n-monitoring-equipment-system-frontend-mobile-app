@@ -72,7 +72,7 @@ import 'package:frontend/features/streaming_and_record/presentation/pages/stream
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: SplashPage),
+    AutoRoute(page: SplashPage, initial: true),
     AutoRoute(page: SignInPage),
     AutoRoute(page: RegisterWelcomePage),
     AutoRoute(page: RegisterEnterNamePage),
@@ -92,7 +92,6 @@ import 'package:frontend/features/streaming_and_record/presentation/pages/stream
     AutoRoute(page: RegisterAddFaceIdPage),
     AutoRoute(page: RegisterAddFaceIdCompletedPage),
     AutoRoute(
-      path: '/',
       page: HomePage,
       children: [
         AutoRoute(

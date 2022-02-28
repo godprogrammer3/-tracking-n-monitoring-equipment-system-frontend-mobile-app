@@ -7,6 +7,8 @@
 // **************************************************************************
 // AutoRouteGenerator
 // **************************************************************************
+//
+// ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i57;
 import 'package:flutter/material.dart' as _i70;
@@ -494,7 +496,7 @@ class AppRouter extends _i57.RootStackRouter {
 
   @override
   List<_i57.RouteConfig> get routes => [
-        _i57.RouteConfig(SplashRoute.name, path: '/splash-page'),
+        _i57.RouteConfig(SplashRoute.name, path: '/'),
         _i57.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
         _i57.RouteConfig(RegisterWelcomeRoute.name,
             path: '/register-welcome-page'),
@@ -530,7 +532,7 @@ class AppRouter extends _i57.RootStackRouter {
             path: '/register-add-face-id-page'),
         _i57.RouteConfig(RegisterAddFaceIdCompletedRoute.name,
             path: '/register-add-face-id-completed-page'),
-        _i57.RouteConfig(HomeRoute.name, path: '/', children: [
+        _i57.RouteConfig(HomeRoute.name, path: '/home-page', children: [
           _i57.RouteConfig(DashBoardRouter.name,
               path: 'dash_board',
               parent: HomeRoute.name,
@@ -635,229 +637,279 @@ class AppRouter extends _i57.RootStackRouter {
       ];
 }
 
-/// generated route for [_i1.SplashPage]
+/// generated route for
+/// [_i1.SplashPage]
 class SplashRoute extends _i57.PageRouteInfo<void> {
-  const SplashRoute() : super(name, path: '/splash-page');
+  const SplashRoute() : super(SplashRoute.name, path: '/');
 
   static const String name = 'SplashRoute';
 }
 
-/// generated route for [_i2.SignInPage]
+/// generated route for
+/// [_i2.SignInPage]
 class SignInRoute extends _i57.PageRouteInfo<void> {
-  const SignInRoute() : super(name, path: '/sign-in-page');
+  const SignInRoute() : super(SignInRoute.name, path: '/sign-in-page');
 
   static const String name = 'SignInRoute';
 }
 
-/// generated route for [_i3.RegisterWelcomePage]
+/// generated route for
+/// [_i3.RegisterWelcomePage]
 class RegisterWelcomeRoute extends _i57.PageRouteInfo<void> {
-  const RegisterWelcomeRoute() : super(name, path: '/register-welcome-page');
+  const RegisterWelcomeRoute()
+      : super(RegisterWelcomeRoute.name, path: '/register-welcome-page');
 
   static const String name = 'RegisterWelcomeRoute';
 }
 
-/// generated route for [_i4.RegisterEnterNamePage]
+/// generated route for
+/// [_i4.RegisterEnterNamePage]
 class RegisterEnterNameRoute extends _i57.PageRouteInfo<void> {
   const RegisterEnterNameRoute()
-      : super(name, path: '/register-enter-name-page');
+      : super(RegisterEnterNameRoute.name, path: '/register-enter-name-page');
 
   static const String name = 'RegisterEnterNameRoute';
 }
 
-/// generated route for [_i5.RegisterEnterPhoneNumberPage]
+/// generated route for
+/// [_i5.RegisterEnterPhoneNumberPage]
 class RegisterEnterPhoneNumberRoute extends _i57.PageRouteInfo<void> {
   const RegisterEnterPhoneNumberRoute()
-      : super(name, path: '/register-enter-phone-number-page');
+      : super(RegisterEnterPhoneNumberRoute.name,
+            path: '/register-enter-phone-number-page');
 
   static const String name = 'RegisterEnterPhoneNumberRoute';
 }
 
-/// generated route for [_i6.RegisterEnterOTPPage]
+/// generated route for
+/// [_i6.RegisterEnterOTPPage]
 class RegisterEnterOTPRoute extends _i57.PageRouteInfo<void> {
-  const RegisterEnterOTPRoute() : super(name, path: '/register-enter-ot-pPage');
+  const RegisterEnterOTPRoute()
+      : super(RegisterEnterOTPRoute.name, path: '/register-enter-ot-pPage');
 
   static const String name = 'RegisterEnterOTPRoute';
 }
 
-/// generated route for [_i7.RegisterEnterEmailPage]
+/// generated route for
+/// [_i7.RegisterEnterEmailPage]
 class RegisterEnterEmailRoute extends _i57.PageRouteInfo<void> {
   const RegisterEnterEmailRoute()
-      : super(name, path: '/register-enter-email-page');
+      : super(RegisterEnterEmailRoute.name, path: '/register-enter-email-page');
 
   static const String name = 'RegisterEnterEmailRoute';
 }
 
-/// generated route for [_i8.RegisterEnterPasswordPage]
+/// generated route for
+/// [_i8.RegisterEnterPasswordPage]
 class RegisterEnterPasswordRoute extends _i57.PageRouteInfo<void> {
   const RegisterEnterPasswordRoute()
-      : super(name, path: '/register-enter-password-page');
+      : super(RegisterEnterPasswordRoute.name,
+            path: '/register-enter-password-page');
 
   static const String name = 'RegisterEnterPasswordRoute';
 }
 
-/// generated route for [_i9.RegisterEnterRolePage]
+/// generated route for
+/// [_i9.RegisterEnterRolePage]
 class RegisterEnterRoleRoute extends _i57.PageRouteInfo<void> {
   const RegisterEnterRoleRoute()
-      : super(name, path: '/register-enter-role-page');
+      : super(RegisterEnterRoleRoute.name, path: '/register-enter-role-page');
 
   static const String name = 'RegisterEnterRoleRoute';
 }
 
-/// generated route for [_i10.RegisterEnterPinSettingPage]
+/// generated route for
+/// [_i10.RegisterEnterPinSettingPage]
 class RegisterEnterPinSettingRoute extends _i57.PageRouteInfo<void> {
   const RegisterEnterPinSettingRoute()
-      : super(name, path: '/register-enter-pin-setting-page');
+      : super(RegisterEnterPinSettingRoute.name,
+            path: '/register-enter-pin-setting-page');
 
   static const String name = 'RegisterEnterPinSettingRoute';
 }
 
-/// generated route for [_i11.RegisterEnterPinSettingConfirmPage]
+/// generated route for
+/// [_i11.RegisterEnterPinSettingConfirmPage]
 class RegisterEnterPinSettingConfirmRoute extends _i57.PageRouteInfo<void> {
   const RegisterEnterPinSettingConfirmRoute()
-      : super(name, path: '/register-enter-pin-setting-confirm-page');
+      : super(RegisterEnterPinSettingConfirmRoute.name,
+            path: '/register-enter-pin-setting-confirm-page');
 
   static const String name = 'RegisterEnterPinSettingConfirmRoute';
 }
 
-/// generated route for [_i12.RegisterVerifyEmailPage]
+/// generated route for
+/// [_i12.RegisterVerifyEmailPage]
 class RegisterVerifyEmailRoute extends _i57.PageRouteInfo<void> {
   const RegisterVerifyEmailRoute()
-      : super(name, path: '/register-verify-email-page');
+      : super(RegisterVerifyEmailRoute.name,
+            path: '/register-verify-email-page');
 
   static const String name = 'RegisterVerifyEmailRoute';
 }
 
-/// generated route for [_i13.RegisterCompletedPage]
+/// generated route for
+/// [_i13.RegisterCompletedPage]
 class RegisterCompletedRoute extends _i57.PageRouteInfo<void> {
   const RegisterCompletedRoute()
-      : super(name, path: '/register-completed-page');
+      : super(RegisterCompletedRoute.name, path: '/register-completed-page');
 
   static const String name = 'RegisterCompletedRoute';
 }
 
-/// generated route for [_i14.RegisterProfileDataPage]
+/// generated route for
+/// [_i14.RegisterProfileDataPage]
 class RegisterProfileDataRoute extends _i57.PageRouteInfo<void> {
   const RegisterProfileDataRoute()
-      : super(name, path: '/register-profile-data-page');
+      : super(RegisterProfileDataRoute.name,
+            path: '/register-profile-data-page');
 
   static const String name = 'RegisterProfileDataRoute';
 }
 
-/// generated route for [_i15.RegisterProfileDataFormPage]
+/// generated route for
+/// [_i15.RegisterProfileDataFormPage]
 class RegisterProfileDataFormRoute extends _i57.PageRouteInfo<void> {
   const RegisterProfileDataFormRoute()
-      : super(name, path: '/register-profile-data-form-page');
+      : super(RegisterProfileDataFormRoute.name,
+            path: '/register-profile-data-form-page');
 
   static const String name = 'RegisterProfileDataFormRoute';
 }
 
-/// generated route for [_i16.SocialLoginTestPage]
+/// generated route for
+/// [_i16.SocialLoginTestPage]
 class SocialLoginTestRoute extends _i57.PageRouteInfo<void> {
-  const SocialLoginTestRoute() : super(name, path: '/social-login-test-page');
+  const SocialLoginTestRoute()
+      : super(SocialLoginTestRoute.name, path: '/social-login-test-page');
 
   static const String name = 'SocialLoginTestRoute';
 }
 
-/// generated route for [_i17.RegisterProfileDataCompletedPage]
+/// generated route for
+/// [_i17.RegisterProfileDataCompletedPage]
 class RegisterProfileDataCompletedRoute extends _i57.PageRouteInfo<void> {
   const RegisterProfileDataCompletedRoute()
-      : super(name, path: '/register-profile-data-completed-page');
+      : super(RegisterProfileDataCompletedRoute.name,
+            path: '/register-profile-data-completed-page');
 
   static const String name = 'RegisterProfileDataCompletedRoute';
 }
 
-/// generated route for [_i18.RegisterAddFaceIdPage]
+/// generated route for
+/// [_i18.RegisterAddFaceIdPage]
 class RegisterAddFaceIdRoute extends _i57.PageRouteInfo<void> {
   const RegisterAddFaceIdRoute()
-      : super(name, path: '/register-add-face-id-page');
+      : super(RegisterAddFaceIdRoute.name, path: '/register-add-face-id-page');
 
   static const String name = 'RegisterAddFaceIdRoute';
 }
 
-/// generated route for [_i19.RegisterAddFaceIdCompletedPage]
+/// generated route for
+/// [_i19.RegisterAddFaceIdCompletedPage]
 class RegisterAddFaceIdCompletedRoute extends _i57.PageRouteInfo<void> {
   const RegisterAddFaceIdCompletedRoute()
-      : super(name, path: '/register-add-face-id-completed-page');
+      : super(RegisterAddFaceIdCompletedRoute.name,
+            path: '/register-add-face-id-completed-page');
 
   static const String name = 'RegisterAddFaceIdCompletedRoute';
 }
 
-/// generated route for [_i20.HomePage]
+/// generated route for
+/// [_i20.HomePage]
 class HomeRoute extends _i57.PageRouteInfo<void> {
   const HomeRoute({List<_i57.PageRouteInfo>? children})
-      : super(name, path: '/', initialChildren: children);
+      : super(HomeRoute.name, path: '/home-page', initialChildren: children);
 
   static const String name = 'HomeRoute';
 }
 
-/// generated route for [_i21.AddUserPage]
+/// generated route for
+/// [_i21.AddUserPage]
 class AddUserRoute extends _i57.PageRouteInfo<void> {
-  const AddUserRoute() : super(name, path: '/add-user-page');
+  const AddUserRoute() : super(AddUserRoute.name, path: '/add-user-page');
 
   static const String name = 'AddUserRoute';
 }
 
-/// generated route for [_i22.ApproveUserPage]
+/// generated route for
+/// [_i22.ApproveUserPage]
 class ApproveUserRoute extends _i57.PageRouteInfo<void> {
-  const ApproveUserRoute() : super(name, path: '/approve-user-page');
+  const ApproveUserRoute()
+      : super(ApproveUserRoute.name, path: '/approve-user-page');
 
   static const String name = 'ApproveUserRoute';
 }
 
-/// generated route for [_i23.DepartmentManagementPage]
+/// generated route for
+/// [_i23.DepartmentManagementPage]
 class DepartmentManagementRoute extends _i57.PageRouteInfo<void> {
   const DepartmentManagementRoute()
-      : super(name, path: '/department-management-page');
+      : super(DepartmentManagementRoute.name,
+            path: '/department-management-page');
 
   static const String name = 'DepartmentManagementRoute';
 }
 
-/// generated route for [_i24.DepartmentDetailPage]
+/// generated route for
+/// [_i24.DepartmentDetailPage]
 class DepartmentDetailRoute extends _i57.PageRouteInfo<void> {
-  const DepartmentDetailRoute() : super(name, path: '/department-detail-page');
+  const DepartmentDetailRoute()
+      : super(DepartmentDetailRoute.name, path: '/department-detail-page');
 
   static const String name = 'DepartmentDetailRoute';
 }
 
-/// generated route for [_i25.AddAccountPage]
+/// generated route for
+/// [_i25.AddAccountPage]
 class AddAccountRoute extends _i57.PageRouteInfo<void> {
-  const AddAccountRoute() : super(name, path: '/add-account-page');
+  const AddAccountRoute()
+      : super(AddAccountRoute.name, path: '/add-account-page');
 
   static const String name = 'AddAccountRoute';
 }
 
-/// generated route for [_i26.AllAccountPage]
+/// generated route for
+/// [_i26.AllAccountPage]
 class AllAccountRoute extends _i57.PageRouteInfo<void> {
-  const AllAccountRoute() : super(name, path: '/all-account-page');
+  const AllAccountRoute()
+      : super(AllAccountRoute.name, path: '/all-account-page');
 
   static const String name = 'AllAccountRoute';
 }
 
-/// generated route for [_i27.AccountDetailPage]
+/// generated route for
+/// [_i27.AccountDetailPage]
 class AccountDetailRoute extends _i57.PageRouteInfo<void> {
-  const AccountDetailRoute() : super(name, path: '/account-detail-page');
+  const AccountDetailRoute()
+      : super(AccountDetailRoute.name, path: '/account-detail-page');
 
   static const String name = 'AccountDetailRoute';
 }
 
-/// generated route for [_i28.EditAccountPage]
+/// generated route for
+/// [_i28.EditAccountPage]
 class EditAccountRoute extends _i57.PageRouteInfo<void> {
-  const EditAccountRoute() : super(name, path: '/edit-account-page');
+  const EditAccountRoute()
+      : super(EditAccountRoute.name, path: '/edit-account-page');
 
   static const String name = 'EditAccountRoute';
 }
 
-/// generated route for [_i29.BlockAccountPage]
+/// generated route for
+/// [_i29.BlockAccountPage]
 class BlockAccountRoute extends _i57.PageRouteInfo<void> {
-  const BlockAccountRoute() : super(name, path: '/block-account-page');
+  const BlockAccountRoute()
+      : super(BlockAccountRoute.name, path: '/block-account-page');
 
   static const String name = 'BlockAccountRoute';
 }
 
-/// generated route for [_i30.AllLockerPage]
+/// generated route for
+/// [_i30.AllLockerPage]
 class AllLockerRoute extends _i57.PageRouteInfo<AllLockerRouteArgs> {
   AllLockerRoute({_i70.Key? key, bool isHasLocker = true})
-      : super(name,
+      : super(AllLockerRoute.name,
             path: '/all-locker-page',
             args: AllLockerRouteArgs(key: key, isHasLocker: isHasLocker));
 
@@ -877,18 +929,21 @@ class AllLockerRouteArgs {
   }
 }
 
-/// generated route for [_i31.QrScanningPage]
+/// generated route for
+/// [_i31.QrScanningPage]
 class QrScanningRoute extends _i57.PageRouteInfo<void> {
-  const QrScanningRoute() : super(name, path: '/qr-scanning-page');
+  const QrScanningRoute()
+      : super(QrScanningRoute.name, path: '/qr-scanning-page');
 
   static const String name = 'QrScanningRoute';
 }
 
-/// generated route for [_i32.AddOrEditLockerPage]
+/// generated route for
+/// [_i32.AddOrEditLockerPage]
 class AddOrEditLockerRoute
     extends _i57.PageRouteInfo<AddOrEditLockerRouteArgs> {
   AddOrEditLockerRoute({_i70.Key? key, bool isEdit = false})
-      : super(name,
+      : super(AddOrEditLockerRoute.name,
             path: '/add-or-edit-locker-page',
             args: AddOrEditLockerRouteArgs(key: key, isEdit: isEdit));
 
@@ -908,10 +963,11 @@ class AddOrEditLockerRouteArgs {
   }
 }
 
-/// generated route for [_i33.AllEquipmentPage]
+/// generated route for
+/// [_i33.AllEquipmentPage]
 class AllEquipmentRoute extends _i57.PageRouteInfo<AllEquipmentRouteArgs> {
   AllEquipmentRoute({_i70.Key? key, bool isHasEquipment = false})
-      : super(name,
+      : super(AllEquipmentRoute.name,
             path: '/all-equipment-page',
             args: AllEquipmentRouteArgs(
                 key: key, isHasEquipment: isHasEquipment));
@@ -932,35 +988,42 @@ class AllEquipmentRouteArgs {
   }
 }
 
-/// generated route for [_i34.AddingEquipment]
+/// generated route for
+/// [_i34.AddingEquipment]
 class AddingEquipment extends _i57.PageRouteInfo<void> {
-  const AddingEquipment() : super(name, path: '/adding-equipment');
+  const AddingEquipment()
+      : super(AddingEquipment.name, path: '/adding-equipment');
 
   static const String name = 'AddingEquipment';
 }
 
-/// generated route for [_i35.AddEquipmentPage]
+/// generated route for
+/// [_i35.AddEquipmentPage]
 class AddEquipmentRoute extends _i57.PageRouteInfo<void> {
-  const AddEquipmentRoute() : super(name, path: '/add-equipment-page');
+  const AddEquipmentRoute()
+      : super(AddEquipmentRoute.name, path: '/add-equipment-page');
 
   static const String name = 'AddEquipmentRoute';
 }
 
-/// generated route for [_i36.MacAddressHelpPage]
+/// generated route for
+/// [_i36.MacAddressHelpPage]
 class MacAddressHelpRoute extends _i57.PageRouteInfo<void> {
-  const MacAddressHelpRoute() : super(name, path: '/mac-address-help-page');
+  const MacAddressHelpRoute()
+      : super(MacAddressHelpRoute.name, path: '/mac-address-help-page');
 
   static const String name = 'MacAddressHelpRoute';
 }
 
-/// generated route for [_i37.AllLocationPage]
+/// generated route for
+/// [_i37.AllLocationPage]
 class AllLocationRoute extends _i57.PageRouteInfo<AllLocationRouteArgs> {
   AllLocationRoute(
       {_i70.Key? key,
       required _i71.ManagementLocationView viewBy,
       required String title,
       bool isHasLocation = true})
-      : super(name,
+      : super(AllLocationRoute.name,
             path: '/all-location-page',
             args: AllLocationRouteArgs(
                 key: key,
@@ -992,17 +1055,20 @@ class AllLocationRouteArgs {
   }
 }
 
-/// generated route for [_i38.AddLocationPage]
+/// generated route for
+/// [_i38.AddLocationPage]
 class AddLocationRoute extends _i57.PageRouteInfo<void> {
-  const AddLocationRoute() : super(name, path: '/add-location-page');
+  const AddLocationRoute()
+      : super(AddLocationRoute.name, path: '/add-location-page');
 
   static const String name = 'AddLocationRoute';
 }
 
-/// generated route for [_i39.AllCategoryPage]
+/// generated route for
+/// [_i39.AllCategoryPage]
 class AllCategoryRoute extends _i57.PageRouteInfo<AllCategoryRouteArgs> {
   AllCategoryRoute({_i70.Key? key, bool isHaCategory = true})
-      : super(name,
+      : super(AllCategoryRoute.name,
             path: '/all-category-page',
             args: AllCategoryRouteArgs(key: key, isHaCategory: isHaCategory));
 
@@ -1022,17 +1088,20 @@ class AllCategoryRouteArgs {
   }
 }
 
-/// generated route for [_i40.AddCategoryPage]
+/// generated route for
+/// [_i40.AddCategoryPage]
 class AddCategoryRoute extends _i57.PageRouteInfo<void> {
-  const AddCategoryRoute() : super(name, path: '/add-category-page');
+  const AddCategoryRoute()
+      : super(AddCategoryRoute.name, path: '/add-category-page');
 
   static const String name = 'AddCategoryRoute';
 }
 
-/// generated route for [_i41.CategoryDetailPage]
+/// generated route for
+/// [_i41.CategoryDetailPage]
 class CategoryDetailRoute extends _i57.PageRouteInfo<CategoryDetailRouteArgs> {
   CategoryDetailRoute({_i70.Key? key, required String title})
-      : super(name,
+      : super(CategoryDetailRoute.name,
             path: '/category-detail-page',
             args: CategoryDetailRouteArgs(key: key, title: title));
 
@@ -1052,56 +1121,69 @@ class CategoryDetailRouteArgs {
   }
 }
 
-/// generated route for [_i42.EquipmentDetailPage]
+/// generated route for
+/// [_i42.EquipmentDetailPage]
 class EquipmentDetailRoute extends _i57.PageRouteInfo<void> {
-  const EquipmentDetailRoute() : super(name, path: '/equipment-detail-page');
+  const EquipmentDetailRoute()
+      : super(EquipmentDetailRoute.name, path: '/equipment-detail-page');
 
   static const String name = 'EquipmentDetailRoute';
 }
 
-/// generated route for [_i43.RequestFixingDetailPage]
+/// generated route for
+/// [_i43.RequestFixingDetailPage]
 class RequestFixingDetailRoute extends _i57.PageRouteInfo<void> {
   const RequestFixingDetailRoute()
-      : super(name, path: '/request-fixing-detail-page');
+      : super(RequestFixingDetailRoute.name,
+            path: '/request-fixing-detail-page');
 
   static const String name = 'RequestFixingDetailRoute';
 }
 
-/// generated route for [_i44.LockerDetailPage]
+/// generated route for
+/// [_i44.LockerDetailPage]
 class LockerDetailRoute extends _i57.PageRouteInfo<void> {
-  const LockerDetailRoute() : super(name, path: '/locker-detail-page');
+  const LockerDetailRoute()
+      : super(LockerDetailRoute.name, path: '/locker-detail-page');
 
   static const String name = 'LockerDetailRoute';
 }
 
-/// generated route for [_i45.ManagePermissionPage]
+/// generated route for
+/// [_i45.ManagePermissionPage]
 class ManagePermissionRoute extends _i57.PageRouteInfo<void> {
-  const ManagePermissionRoute() : super(name, path: '/manage-permission-page');
+  const ManagePermissionRoute()
+      : super(ManagePermissionRoute.name, path: '/manage-permission-page');
 
   static const String name = 'ManagePermissionRoute';
 }
 
-/// generated route for [_i46.AddPermanentPermissionPage]
+/// generated route for
+/// [_i46.AddPermanentPermissionPage]
 class AddPermanentPermissionRoute extends _i57.PageRouteInfo<void> {
   const AddPermanentPermissionRoute()
-      : super(name, path: '/add-permanent-permission-page');
+      : super(AddPermanentPermissionRoute.name,
+            path: '/add-permanent-permission-page');
 
   static const String name = 'AddPermanentPermissionRoute';
 }
 
-/// generated route for [_i47.AddTemporaryPermissionPage]
+/// generated route for
+/// [_i47.AddTemporaryPermissionPage]
 class AddTemporaryPermissionRoute extends _i57.PageRouteInfo<void> {
   const AddTemporaryPermissionRoute()
-      : super(name, path: '/add-temporary-permission-page');
+      : super(AddTemporaryPermissionRoute.name,
+            path: '/add-temporary-permission-page');
 
   static const String name = 'AddTemporaryPermissionRoute';
 }
 
-/// generated route for [_i48.ChangePermissionTypePage]
+/// generated route for
+/// [_i48.ChangePermissionTypePage]
 class ChangePermissionTypeRoute
     extends _i57.PageRouteInfo<ChangePermissionTypeRouteArgs> {
   ChangePermissionTypeRoute({_i70.Key? key, bool isPermanentType = false})
-      : super(name,
+      : super(ChangePermissionTypeRoute.name,
             path: '/change-permission-type-page',
             args: ChangePermissionTypeRouteArgs(
                 key: key, isPermanentType: isPermanentType));
@@ -1122,10 +1204,11 @@ class ChangePermissionTypeRouteArgs {
   }
 }
 
-/// generated route for [_i49.AllCameraPage]
+/// generated route for
+/// [_i49.AllCameraPage]
 class AllCameraRoute extends _i57.PageRouteInfo<AllCameraRouteArgs> {
   AllCameraRoute({_i70.Key? key, String title = 'ตู้ล็อกเกอร์'})
-      : super(name,
+      : super(AllCameraRoute.name,
             path: '/all-camera-page',
             args: AllCameraRouteArgs(key: key, title: title));
 
@@ -1145,10 +1228,11 @@ class AllCameraRouteArgs {
   }
 }
 
-/// generated route for [_i50.LiveCameraPage]
+/// generated route for
+/// [_i50.LiveCameraPage]
 class LiveCameraRoute extends _i57.PageRouteInfo<LiveCameraRouteArgs> {
   LiveCameraRoute({_i70.Key? key, String title = 'กล้อง 1'})
-      : super(name,
+      : super(LiveCameraRoute.name,
             path: '/live-camera-page',
             args: LiveCameraRouteArgs(key: key, title: title));
 
@@ -1168,18 +1252,21 @@ class LiveCameraRouteArgs {
   }
 }
 
-/// generated route for [_i51.RecordVideoPage]
+/// generated route for
+/// [_i51.RecordVideoPage]
 class RecordVideoRoute extends _i57.PageRouteInfo<void> {
-  const RecordVideoRoute() : super(name, path: '/record-video-page');
+  const RecordVideoRoute()
+      : super(RecordVideoRoute.name, path: '/record-video-page');
 
   static const String name = 'RecordVideoRoute';
 }
 
-/// generated route for [_i52.FixingLockerDetailPage]
+/// generated route for
+/// [_i52.FixingLockerDetailPage]
 class FixingLockerDetailRoute
     extends _i57.PageRouteInfo<FixingLockerDetailRouteArgs> {
   FixingLockerDetailRoute({_i70.Key? key, String title = 'เครื่องมือช่าง'})
-      : super(name,
+      : super(FixingLockerDetailRoute.name,
             path: '/fixing-locker-detail-page',
             args: FixingLockerDetailRouteArgs(key: key, title: title));
 
@@ -1199,19 +1286,22 @@ class FixingLockerDetailRouteArgs {
   }
 }
 
-/// generated route for [_i53.FixingDetailPage]
+/// generated route for
+/// [_i53.FixingDetailPage]
 class FixingDetailRoute extends _i57.PageRouteInfo<void> {
-  const FixingDetailRoute() : super(name, path: '/fixing-detail-page');
+  const FixingDetailRoute()
+      : super(FixingDetailRoute.name, path: '/fixing-detail-page');
 
   static const String name = 'FixingDetailRoute';
 }
 
-/// generated route for [_i54.ReportProblemLockerDetailPage]
+/// generated route for
+/// [_i54.ReportProblemLockerDetailPage]
 class ReportProblemLockerDetailRoute
     extends _i57.PageRouteInfo<ReportProblemLockerDetailRouteArgs> {
   ReportProblemLockerDetailRoute(
       {_i70.Key? key, String title = 'เครื่องมือช่าง'})
-      : super(name,
+      : super(ReportProblemLockerDetailRoute.name,
             path: '/report-problem-locker-detail-page',
             args: ReportProblemLockerDetailRouteArgs(key: key, title: title));
 
@@ -1232,136 +1322,163 @@ class ReportProblemLockerDetailRouteArgs {
   }
 }
 
-/// generated route for [_i55.ReportProblemDetailPage]
+/// generated route for
+/// [_i55.ReportProblemDetailPage]
 class ReportProblemDetailRoute extends _i57.PageRouteInfo<void> {
   const ReportProblemDetailRoute()
-      : super(name, path: '/report-problem-detail-page');
+      : super(ReportProblemDetailRoute.name,
+            path: '/report-problem-detail-page');
 
   static const String name = 'ReportProblemDetailRoute';
 }
 
-/// generated route for [_i56.SolveProblemPage]
+/// generated route for
+/// [_i56.SolveProblemPage]
 class SolveProblemRoute extends _i57.PageRouteInfo<void> {
-  const SolveProblemRoute() : super(name, path: '/solve-problem-page');
+  const SolveProblemRoute()
+      : super(SolveProblemRoute.name, path: '/solve-problem-page');
 
   static const String name = 'SolveProblemRoute';
 }
 
-/// generated route for [_i57.EmptyRouterPage]
+/// generated route for
+/// [_i57.EmptyRouterPage]
 class DashBoardRouter extends _i57.PageRouteInfo<void> {
   const DashBoardRouter({List<_i57.PageRouteInfo>? children})
-      : super(name, path: 'dash_board', initialChildren: children);
+      : super(DashBoardRouter.name,
+            path: 'dash_board', initialChildren: children);
 
   static const String name = 'DashBoardRouter';
 }
 
-/// generated route for [_i57.EmptyRouterPage]
+/// generated route for
+/// [_i57.EmptyRouterPage]
 class HistoryRouter extends _i57.PageRouteInfo<void> {
   const HistoryRouter({List<_i57.PageRouteInfo>? children})
-      : super(name, path: 'history', initialChildren: children);
+      : super(HistoryRouter.name, path: 'history', initialChildren: children);
 
   static const String name = 'HistoryRouter';
 }
 
-/// generated route for [_i57.EmptyRouterPage]
+/// generated route for
+/// [_i57.EmptyRouterPage]
 class NotificationRouter extends _i57.PageRouteInfo<void> {
   const NotificationRouter({List<_i57.PageRouteInfo>? children})
-      : super(name, path: 'notification', initialChildren: children);
+      : super(NotificationRouter.name,
+            path: 'notification', initialChildren: children);
 
   static const String name = 'NotificationRouter';
 }
 
-/// generated route for [_i57.EmptyRouterPage]
+/// generated route for
+/// [_i57.EmptyRouterPage]
 class UnlockLockerRouter extends _i57.PageRouteInfo<void> {
   const UnlockLockerRouter({List<_i57.PageRouteInfo>? children})
-      : super(name, path: 'unlock_locker', initialChildren: children);
+      : super(UnlockLockerRouter.name,
+            path: 'unlock_locker', initialChildren: children);
 
   static const String name = 'UnlockLockerRouter';
 }
 
-/// generated route for [_i57.EmptyRouterPage]
+/// generated route for
+/// [_i57.EmptyRouterPage]
 class AccountRouter extends _i57.PageRouteInfo<void> {
   const AccountRouter({List<_i57.PageRouteInfo>? children})
-      : super(name, path: 'account', initialChildren: children);
+      : super(AccountRouter.name, path: 'account', initialChildren: children);
 
   static const String name = 'AccountRouter';
 }
 
-/// generated route for [_i58.DashBoardPage]
+/// generated route for
+/// [_i58.DashBoardPage]
 class DashBoardRoute extends _i57.PageRouteInfo<void> {
-  const DashBoardRoute() : super(name, path: '');
+  const DashBoardRoute() : super(DashBoardRoute.name, path: '');
 
   static const String name = 'DashBoardRoute';
 }
 
-/// generated route for [_i59.RoleManagementPage]
+/// generated route for
+/// [_i59.RoleManagementPage]
 class RoleManagementRoute extends _i57.PageRouteInfo<void> {
-  const RoleManagementRoute() : super(name, path: 'role_management');
+  const RoleManagementRoute()
+      : super(RoleManagementRoute.name, path: 'role_management');
 
   static const String name = 'RoleManagementRoute';
 }
 
-/// generated route for [_i60.ManageLockerAndEquipmentPage]
+/// generated route for
+/// [_i60.ManageLockerAndEquipmentPage]
 class ManageLockerAndEquipmentRoute extends _i57.PageRouteInfo<void> {
   const ManageLockerAndEquipmentRoute()
-      : super(name, path: 'manage_locker_and_equipment_page');
+      : super(ManageLockerAndEquipmentRoute.name,
+            path: 'manage_locker_and_equipment_page');
 
   static const String name = 'ManageLockerAndEquipmentRoute';
 }
 
-/// generated route for [_i61.StreamingAndRecordPage]
+/// generated route for
+/// [_i61.StreamingAndRecordPage]
 class StreamingAndRecordRoute extends _i57.PageRouteInfo<void> {
-  const StreamingAndRecordRoute() : super(name, path: 'streaming_and_record');
+  const StreamingAndRecordRoute()
+      : super(StreamingAndRecordRoute.name, path: 'streaming_and_record');
 
   static const String name = 'StreamingAndRecordRoute';
 }
 
-/// generated route for [_i62.FixingPage]
+/// generated route for
+/// [_i62.FixingPage]
 class FixingRoute extends _i57.PageRouteInfo<void> {
-  const FixingRoute() : super(name, path: 'fixing');
+  const FixingRoute() : super(FixingRoute.name, path: 'fixing');
 
   static const String name = 'FixingRoute';
 }
 
-/// generated route for [_i63.ReportProblemPage]
+/// generated route for
+/// [_i63.ReportProblemPage]
 class ReportProblemRoute extends _i57.PageRouteInfo<void> {
-  const ReportProblemRoute() : super(name, path: 'report_problem');
+  const ReportProblemRoute()
+      : super(ReportProblemRoute.name, path: 'report_problem');
 
   static const String name = 'ReportProblemRoute';
 }
 
-/// generated route for [_i64.HistoryPage]
+/// generated route for
+/// [_i64.HistoryPage]
 class HistoryRoute extends _i57.PageRouteInfo<void> {
-  const HistoryRoute() : super(name, path: '');
+  const HistoryRoute() : super(HistoryRoute.name, path: '');
 
   static const String name = 'HistoryRoute';
 }
 
-/// generated route for [_i65.NotificationPage]
+/// generated route for
+/// [_i65.NotificationPage]
 class NotificationRoute extends _i57.PageRouteInfo<void> {
-  const NotificationRoute() : super(name, path: '');
+  const NotificationRoute() : super(NotificationRoute.name, path: '');
 
   static const String name = 'NotificationRoute';
 }
 
-/// generated route for [_i66.UnlockLockerPage]
+/// generated route for
+/// [_i66.UnlockLockerPage]
 class UnlockLockerRoute extends _i57.PageRouteInfo<void> {
-  const UnlockLockerRoute() : super(name, path: '');
+  const UnlockLockerRoute() : super(UnlockLockerRoute.name, path: '');
 
   static const String name = 'UnlockLockerRoute';
 }
 
-/// generated route for [_i67.ListLockerPage]
+/// generated route for
+/// [_i67.ListLockerPage]
 class ListLockerRoute extends _i57.PageRouteInfo<void> {
-  const ListLockerRoute() : super(name, path: 'list_locker');
+  const ListLockerRoute() : super(ListLockerRoute.name, path: 'list_locker');
 
   static const String name = 'ListLockerRoute';
 }
 
-/// generated route for [_i68.ToggleLockerPage]
+/// generated route for
+/// [_i68.ToggleLockerPage]
 class ToggleLockerRoute extends _i57.PageRouteInfo<ToggleLockerRouteArgs> {
   ToggleLockerRoute({_i70.Key? key, required int lockerId})
-      : super(name,
+      : super(ToggleLockerRoute.name,
             path: ':lockerId',
             args: ToggleLockerRouteArgs(key: key, lockerId: lockerId),
             rawPathParams: {'lockerId': lockerId});
@@ -1382,9 +1499,10 @@ class ToggleLockerRouteArgs {
   }
 }
 
-/// generated route for [_i69.AccountPage]
+/// generated route for
+/// [_i69.AccountPage]
 class AccountRoute extends _i57.PageRouteInfo<void> {
-  const AccountRoute() : super(name, path: '');
+  const AccountRoute() : super(AccountRoute.name, path: '');
 
   static const String name = 'AccountRoute';
 }

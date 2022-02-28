@@ -12,21 +12,20 @@ class AuthenBloc extends Bloc<AuthenEvent, AuthenState> {
   final AuthenticationRepository _authenticationRepository;
 
   AuthenBloc(this._authenticationRepository)
-      : super(const AuthenState.initial());
-
-  @override
-  Stream<AuthenState> mapEventToState(AuthenEvent event) async* {
-    yield* event.map(
-      authCheckRequested: (e) async* {
-        final user = await _authenticationRepository.getSignedInUser();
-        yield user == null
-            ? const AuthenState.unauthenticated()
-            : const AuthenState.authenticated();
-      },
-      signedOut: (e) async* {
-        await _authenticationRepository.signOut();
-        yield const AuthenState.unauthenticated();
-      },
-    );
+      : super(const AuthenState.initial()) {
+    on<AuthenEvent>((event, emit) {
+      event.map(
+        authCheckRequested: (e) async {
+          final user = await _authenticationRepository.getSignedInUser();
+          user == null
+              ? emit(const AuthenState.unauthenticated())
+              : emit(const AuthenState.authenticated());
+        },
+        signedOut: (e) async {
+          await _authenticationRepository.signOut();
+          emit(const AuthenState.unauthenticated());
+        },
+      );
+    });
   }
 }

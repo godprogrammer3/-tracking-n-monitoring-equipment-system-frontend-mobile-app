@@ -5,7 +5,7 @@ import 'package:frontend/injection.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configurationInjection(Env.sit);
   await Firebase.initializeApp();
+  configurationInjection(Env.sit);
   runApp(AppWidget());
 }
