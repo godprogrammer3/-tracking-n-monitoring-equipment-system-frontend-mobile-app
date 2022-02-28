@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:frontend/core/value_objects/value_objects.dart';
 import 'package:frontend/features/authentication/domain/entities/user.dart';
 import 'package:frontend/features/authentication/domain/repositories/authentication_failure.dart';
@@ -12,34 +13,41 @@ class FirebaseSignInAuth {
 
   FirebaseSignInAuth(this._firebaseAuth);
 
-  Future<Either<AuthenticatonFailure, Unit>> createUserWithEmailAndPassword(
-      String emailAddress, String password) async {
+  Future<Either<AuthenticationFailure, Unit>> createUserWithEmailAndPassword(
+    String emailAddress,
+    String password,
+  ) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
-          email: emailAddress, password: password);
+        email: emailAddress,
+        password: password,
+      );
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
-        return left(const AuthenticatonFailure.emailAlreadyInuse());
+        return left(const AuthenticationFailure.emailAlreadyInUse());
       } else {
-        return left(const AuthenticatonFailure.serverError());
+        return left(const AuthenticationFailure.serverError());
       }
     }
   }
 
-  Future<Either<AuthenticatonFailure, Unit>> signInWithEmailAndPassword(
-      String emailAddress, String password) async {
+  Future<Either<AuthenticationFailure, Unit>> signInWithEmailAndPassword(
+    String emailAddress,
+    String password,
+  ) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: emailAddress, password: password);
       return right(unit);
     } on FirebaseAuthException catch (e) {
-      print(e);
+      debugPrint(e.toString());
       if (e.code == 'wrong-password' || e.code == 'user-not-found') {
         return left(
-            const AuthenticatonFailure.invalidaEmailAndPasswordCombination());
+          const AuthenticationFailure.invalidEmailAndPasswordCombination(),
+        );
       } else {
-        return left(const AuthenticatonFailure.serverError());
+        return left(const AuthenticationFailure.serverError());
       }
     }
   }
@@ -55,9 +63,10 @@ class FirebaseSignInAuth {
     if (user != null) {
       final userInfo = user.providerData[0];
       return UserType(
-          id: UniqueId.fromUniqueString(user.uid),
-          emailAddress: EmailAddress(userInfo.email ?? ''),
-          providerId: userInfo.providerId);
+        id: UniqueId.fromUniqueString(user.uid),
+        emailAddress: EmailAddress(userInfo.email ?? ''),
+        providerId: userInfo.providerId,
+      );
     } else {
       return null;
     }

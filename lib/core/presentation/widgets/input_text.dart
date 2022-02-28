@@ -44,6 +44,7 @@ class InputText extends HookWidget {
         keyboardType: keyboardType,
         style: const TextStyle(
           fontFamily: 'IBM Plex Sans Thai',
+          fontSize: 14,
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:frontend/core/utils/color_constant.dart' as color_constant;
 
 class Button extends HookWidget {
   final String displayText;
@@ -26,8 +27,9 @@ class Button extends HookWidget {
               child: Text(
                 displayText,
                 style: TextStyle(
-                  color: textColor ?? Colors.white,
+                  color: textColor ?? color_constant.whiteSmoke,
                   fontFamily: 'IBM Plex Sans Thai',
+                  fontSize: 14,
                 ),
               ),
             ),

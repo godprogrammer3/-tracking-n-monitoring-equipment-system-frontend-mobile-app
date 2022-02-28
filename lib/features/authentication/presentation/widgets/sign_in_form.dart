@@ -14,14 +14,14 @@ class SignInForm extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
-        if (state.authenticatonFailureOrSuccess != null) {
-          state.authenticatonFailureOrSuccess!.fold(
+        if (state.authenticationFailureOrSuccess != null) {
+          state.authenticationFailureOrSuccess!.fold(
             (failure) => FlushbarHelper.createError(
               message: failure.map(
                 cancelledByUser: (_) => 'Cancelled',
                 serverError: (_) => 'Server Error',
-                emailAlreadyInuse: (_) => 'Email already in use',
-                invalidaEmailAndPasswordCombination: (_) =>
+                emailAlreadyInUse: (_) => 'Email already in use',
+                invalidEmailAndPasswordCombination: (_) =>
                     'Invalide email and password combination',
               ),
             ).show(context),
@@ -32,9 +32,9 @@ class SignInForm extends StatelessWidget {
       builder: (context, state) {
         return Padding(
           padding: EdgeInsets.fromLTRB(
-            screenSize.width * 0.1,
+            screenSize.width * 0.125,
             screenSize.height * 0.05,
-            screenSize.width * 0.1,
+            screenSize.width * 0.125,
             0,
           ),
           child: Form(
@@ -43,13 +43,13 @@ class SignInForm extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: Image.asset(
-                        'assets/images/authentication_feature/name_image.png',
-                        height: 100,
-                      ),
+                    Image.asset(
+                      'assets/images/authentication_feature/logo_with_name.png',
                     ),
                   ],
+                ),
+                const SizedBox(
+                  height: 48,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -86,7 +86,7 @@ class SignInForm extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 48,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -123,6 +123,20 @@ class SignInForm extends StatelessWidget {
                     ),
                   ],
                 ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'ลืมรหัสผ่าน ?',
+                      style: Theme.of(context)
+                          .primaryTextTheme
+                          .bodyText1!
+                          .copyWith(
+                              color: Theme.of(context).colorScheme.secondary),
+                    ),
+                  ),
+                ),
                 const SizedBox(
                   height: 30,
                 ),
@@ -134,14 +148,14 @@ class SignInForm extends StatelessWidget {
                       onPressed: () {
                         context.read<SignInFormBloc>().add(
                               const SignInFormEvent
-                                  .signinWithEmailAndPasswordPressed(),
+                                  .signInWithEmailAndPasswordPressed(),
                             );
                       },
                     ),
                   ],
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -149,7 +163,7 @@ class SignInForm extends StatelessWidget {
                     Expanded(
                       child: Container(
                         height: 1,
-                        color: Colors.grey,
+                        color: Theme.of(context).colorScheme.background,
                       ),
                     ),
                     Padding(
@@ -164,7 +178,7 @@ class SignInForm extends StatelessWidget {
                     Expanded(
                       child: Container(
                         height: 1,
-                        color: Colors.grey,
+                        color: Theme.of(context).colorScheme.background,
                       ),
                     ),
                   ],
@@ -192,7 +206,7 @@ class SignInForm extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         context.read<SignInFormBloc>().add(
-                              const SignInFormEvent.signinWithGooglePressed(),
+                              const SignInFormEvent.signInWithGooglePressed(),
                             );
                       },
                       child: SizedBox(

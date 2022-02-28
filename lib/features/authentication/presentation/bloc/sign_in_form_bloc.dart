@@ -15,76 +15,106 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final AuthenticationRepository _authenticationRepository;
 
   SignInFormBloc(this._authenticationRepository)
-      : super(SignInFormState.initial());
-
-  @override
-  Stream<SignInFormState> mapEventToState(SignInFormEvent event) async* {
-    yield* event.map(emailChanged: (e) async* {
-      yield state.copyWith(
-        emailAddress: EmailAddress(e.emailStr),
-        authenticatonFailureOrSuccess: null,
-      );
-    }, passwordChanged: (e) async* {
-      yield state.copyWith(
-        password: Password(e.passwordStr),
-        authenticatonFailureOrSuccess: null,
-      );
-    }, registerWithEmailAndPasswordPressed: (e) async* {
-      yield* _performActionOnAuthFacadeWithEmailAndPassword(
-          _authenticationRepository.registerWithEmailAndPassword);
-    }, signinWithEmailAndPasswordPressed: (e) async* {
-      yield* _performActionOnAuthFacadeWithEmailAndPassword(
-          _authenticationRepository.signInWithEmailAndPassword);
-    }, signinWithGooglePressed: (e) async* {
-      yield state.copyWith(
-        isSubmitting: true,
-        authenticatonFailureOrSuccess: null,
-      );
-      final failureOrSuccess =
-          await _authenticationRepository.signInWithGoogle();
-      yield state.copyWith(
-        isSubmitting: false,
-        authenticatonFailureOrSuccess: failureOrSuccess,
-      );
-    }, toggleShowPasswordPressed: (e) async* {
-      yield state.copyWith(isShowPassword: !state.isShowPassword);
-    }, signInWithFacebookPressed: (e) async* {
-      yield state.copyWith(
-        isSubmitting: true,
-        authenticatonFailureOrSuccess: null,
-      );
-      final failureOrSuccess =
-          await _authenticationRepository.signInWithFacebook();
-      yield state.copyWith(
-        isSubmitting: false,
-        authenticatonFailureOrSuccess: failureOrSuccess,
-      );
-    }, signInWithTwitterPressed: (e) async* {
-      yield state.copyWith(
-        isSubmitting: true,
-        authenticatonFailureOrSuccess: null,
-      );
-      final failureOrSuccess =
-          await _authenticationRepository.signInWithTwitter();
-      yield state.copyWith(
-        isSubmitting: false,
-        authenticatonFailureOrSuccess: failureOrSuccess,
+      : super(SignInFormState.initial()) {
+    on<SignInFormEvent>((event, emit) {
+      event.map(
+        emailChanged: (e) {
+          emit(
+            state.copyWith(
+              emailAddress: EmailAddress(e.emailStr),
+              authenticationFailureOrSuccess: null,
+            ),
+          );
+        },
+        passwordChanged: (e) {
+          emit(
+            state.copyWith(
+              password: Password(e.passwordStr),
+              authenticationFailureOrSuccess: null,
+            ),
+          );
+        },
+        registerWithEmailAndPasswordPressed: (e) {
+          _performActionOnAuthFacadeWithEmailAndPassword(
+            _authenticationRepository.registerWithEmailAndPassword,
+            emit,
+          );
+        },
+        signInWithEmailAndPasswordPressed: (e) async {
+          _performActionOnAuthFacadeWithEmailAndPassword(
+            _authenticationRepository.signInWithEmailAndPassword,
+            emit,
+          );
+        },
+        signInWithGooglePressed: (e) async {
+          emit(
+            state.copyWith(
+              isSubmitting: true,
+              authenticationFailureOrSuccess: null,
+            ),
+          );
+          final failureOrSuccess =
+              await _authenticationRepository.signInWithGoogle();
+          emit(
+            state.copyWith(
+              isSubmitting: false,
+              authenticationFailureOrSuccess: failureOrSuccess,
+            ),
+          );
+        },
+        toggleShowPasswordPressed: (e) async {
+          emit(state.copyWith(isShowPassword: !state.isShowPassword));
+        },
+        signInWithFacebookPressed: (e) async {
+          emit(state.copyWith(
+            isSubmitting: true,
+            authenticationFailureOrSuccess: null,
+          ));
+          final failureOrSuccess =
+              await _authenticationRepository.signInWithFacebook();
+          emit(
+            state.copyWith(
+              isSubmitting: false,
+              authenticationFailureOrSuccess: failureOrSuccess,
+            ),
+          );
+        },
+        signInWithTwitterPressed: (e) async {
+          emit(state.copyWith(
+            isSubmitting: true,
+            authenticationFailureOrSuccess: null,
+          ));
+          final failureOrSuccess =
+              await _authenticationRepository.signInWithTwitter();
+          emit(
+            state.copyWith(
+              isSubmitting: false,
+              authenticationFailureOrSuccess: failureOrSuccess,
+            ),
+          );
+        },
       );
     });
   }
 
-  Stream<SignInFormState> _performActionOnAuthFacadeWithEmailAndPassword(
-    Future<Either<AuthenticatonFailure, Unit>> Function(
-            {required EmailAddress emailAddress, required Password password})
+  Future<void> _performActionOnAuthFacadeWithEmailAndPassword(
+    Future<Either<AuthenticationFailure, Unit>> Function({
+      required EmailAddress emailAddress,
+      required Password password,
+    })
         forwardCall,
-  ) async* {
-    Either<AuthenticatonFailure, Unit>? failureOrSuccess;
+    Emitter<SignInFormState> emit,
+  ) async {
+    Either<AuthenticationFailure, Unit>? failureOrSuccess;
+
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();
     if (isEmailValid && isPasswordValid) {
-      yield state.copyWith(
-        isSubmitting: true,
-        authenticatonFailureOrSuccess: null,
+      emit(
+        state.copyWith(
+          isSubmitting: true,
+          authenticationFailureOrSuccess: null,
+        ),
       );
 
       failureOrSuccess = await forwardCall(
@@ -93,10 +123,12 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       );
     }
 
-    yield state.copyWith(
-      isSubmitting: false,
-      isShowErrorMessage: true,
-      authenticatonFailureOrSuccess: failureOrSuccess,
+    emit(
+      state.copyWith(
+        isSubmitting: false,
+        isShowErrorMessage: true,
+        authenticationFailureOrSuccess: failureOrSuccess,
+      ),
     );
   }
 }

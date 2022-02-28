@@ -34,9 +34,9 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final firebaseInjectableModule = _$FirebaseInjectableModule();
   gh.lazySingleton<_i3.FacebookAuth>(
-      () => firebaseInjectableModule.facebookSignin);
-  gh.factory<_i4.FacebookSiginInAuth>(
-      () => _i4.FacebookSiginInAuth(get<_i3.FacebookAuth>()));
+      () => firebaseInjectableModule.facebookSignIn);
+  gh.factory<_i4.FacebookSignInAuth>(
+      () => _i4.FacebookSignInAuth(get<_i3.FacebookAuth>()));
   gh.lazySingleton<_i5.FirebaseAuth>(
       () => firebaseInjectableModule.firebaseAuth);
   gh.factory<_i6.FirebaseSignInAuth>(
@@ -46,14 +46,14 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i8.GoogleSignInAuth>(
       () => _i8.GoogleSignInAuth(get<_i7.GoogleSignIn>()));
   gh.lazySingleton<_i9.TwitterLogin>(
-      () => firebaseInjectableModule.twitterSignin);
+      () => firebaseInjectableModule.twitterSignIn);
   gh.factory<_i10.TwitterSignInAuth>(
       () => _i10.TwitterSignInAuth(get<_i9.TwitterLogin>()));
   gh.lazySingleton<_i11.AuthenticationRepository>(() =>
       _i12.AuthenticationRepositoryImpl(
           get<_i6.FirebaseSignInAuth>(),
           get<_i8.GoogleSignInAuth>(),
-          get<_i4.FacebookSiginInAuth>(),
+          get<_i4.FacebookSignInAuth>(),
           get<_i10.TwitterSignInAuth>()));
   gh.factory<_i13.SignInFormBloc>(
       () => _i13.SignInFormBloc(get<_i11.AuthenticationRepository>()));

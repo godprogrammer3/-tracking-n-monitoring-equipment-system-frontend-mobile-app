@@ -14,9 +14,9 @@ abstract class FirebaseInjectableModule {
   FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
 
   @lazySingleton
-  FacebookAuth get facebookSignin => FacebookAuth.instance;
+  FacebookAuth get facebookSignIn => FacebookAuth.instance;
   @lazySingleton
-  TwitterLogin get twitterSignin => TwitterLogin(
+  TwitterLogin get twitterSignIn => TwitterLogin(
         apiKey: 'qZ5mQkXzNtKaH4NWrtFd2C4IY',
         apiSecretKey: 'U4yTiqC4x2G1alBpAd3B8mD3ruGRCYpHVpIqM1PSBVTUbXQbsk',
         redirectURI: 'toollo://',

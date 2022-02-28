@@ -7,7 +7,8 @@ class SignInFormState with _$SignInFormState {
     required Password password,
     required bool isShowErrorMessage,
     required bool isSubmitting,
-    required Either<AuthenticatonFailure, Unit>? authenticatonFailureOrSuccess,
+    required Either<AuthenticationFailure, Unit>?
+        authenticationFailureOrSuccess,
     required bool isShowPassword,
   }) = _SignInFormState;
 
@@ -16,7 +17,7 @@ class SignInFormState with _$SignInFormState {
         password: Password(''),
         isShowErrorMessage: false,
         isSubmitting: false,
-        authenticatonFailureOrSuccess: null,
+        authenticationFailureOrSuccess: null,
         isShowPassword: false,
       );
 }

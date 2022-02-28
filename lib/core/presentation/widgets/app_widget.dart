@@ -24,14 +24,14 @@ class AppWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: theme.copyWith(
           primaryColor: const Color.fromRGBO(85, 8, 182, 1),
-          primaryColorDark: const Color.fromRGBO(35, 25, 47, 1),
+          primaryColorDark: const Color.fromRGBO(25, 2, 54, 1),
           dividerColor: const Color.fromRGBO(224, 224, 224, 1),
           colorScheme: theme.colorScheme.copyWith(
             primary: const Color.fromRGBO(85, 8, 182, 1),
             secondary: const Color.fromRGBO(128, 36, 244, 1),
             error: Colors.red,
             onBackground: Colors.grey.shade400,
-            background: const Color.fromRGBO(240, 240, 240, 1),
+            background: const Color.fromRGBO(60, 60, 67, 0.6),
           ),
           primaryTextTheme: const TextTheme(
             headline1: TextStyle(
@@ -59,11 +59,13 @@ class AppWidget extends StatelessWidget {
               color: Color.fromRGBO(51, 51, 51, 1),
               fontSize: 14,
               fontFamily: 'IBM Plex Sans Thai',
+              fontWeight: FontWeight.bold,
             ),
             caption: TextStyle(
               color: Color.fromRGBO(60, 60, 67, 0.6),
               fontSize: 13,
               fontFamily: 'IBM Plex Sans Thai',
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),

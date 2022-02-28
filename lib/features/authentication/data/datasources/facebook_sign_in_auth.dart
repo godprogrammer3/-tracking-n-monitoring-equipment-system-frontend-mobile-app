@@ -3,10 +3,10 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class FacebookSiginInAuth {
+class FacebookSignInAuth {
   final FacebookAuth _facebookAuth;
 
-  FacebookSiginInAuth(this._facebookAuth);
+  FacebookSignInAuth(this._facebookAuth);
 
   Future<LoginResult> signIn() async {
     return _facebookAuth.login();
