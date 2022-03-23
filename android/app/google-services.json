@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "896495303491-eua88e8jur9tf5lh6pek892d0jdoj5bh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.godprogrammer.toollo.mobile",
+            "certificate_hash": "b7f799a95fa9c8412eff66611aa457722016a359"
+          }
+        },
+        {
           "client_id": "896495303491-ml0o2r5o2dokvq4rs2aod976ravd2gk3.apps.googleusercontent.com",
           "client_type": 3
         }
